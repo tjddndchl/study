@@ -1,0 +1,34 @@
+package ch07_array;
+
+public class ArrayMain {
+
+	public static void main(String[] args) {
+		//배열(array)
+		String samjang ="삼장";
+		String woogong = "오공";
+		String saojeong = "사오정";
+		String palgye = "저팔계";
+		//문자열 배열 String []
+		//숫자 4는 첨자를 의미하여, 배열의 크기를 정한다.(배열의 크기는 바뀌지 않음.)
+		String [] seoyugi = new String[4];
+		//.length 배열의 길이를 리턴
+		System.out.println(seoyugi.length);
+		System.out.println(seoyugi[0]);
+		//처음 생성된 배열 내에는 기본값(default)가 들어있다.
+		//참조타입(String, Object..): null
+		//기본타입(int,boolean..): 숫자이면 0, boolean이면 flase
+		int [] numbers = new int [3];
+		System.out.println(numbers[0]);
+		boolean [] bools = new boolean[5];
+		System.out.println(bools[0]);
+		
+		//배열에 값 넣기
+		seoyugi[0] = samjang;
+		System.out.println(seoyugi[0]);
+		seoyugi[1] = woogong;
+		seoyugi[2] = saojeong;
+		seoyugi[3]= palgye;
+		System.out.println(seoyugi);
+	}
+
+}

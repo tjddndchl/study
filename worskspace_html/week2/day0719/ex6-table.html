@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>테이블 만들기</title>
+</head>
+<body>
+    <script>
+        //입력받은 수의 사이즈로 테이블을 만들어 주세요
+        let colrow = prompt("몇 칸으로 테이블을 만들어 드릴까요?");
+        document.write("<table border= '1' >");
+            //입력받은 colrow x  colrow 테이블을 만들어주세요
+            // ex 5입력 5x5 (tr:행 , td:열)
+            for(let a =1; a <= colrow; a++){
+                document.write("<tr>");
+                for(let b =1; b<= colrow; b++){
+                    document.write("<td>"+a+"행"+b+"열"+ "</td>");
+
+                
+                }
+
+                document.write("</tr>");
+            }
+        document.write("</table>");
+    </script>
+</body>
+</html>

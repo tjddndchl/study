@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        let dan = Math.ceil(Math.random()*8 ) +1;
+        let su = Math.ceil(Math.random() * 9);
+        let s =0;
+        let f = 0;
+        // 위에서 생선한 랜덤 값으로 구구단을 prompt로 출력 후 정답을 입력받아
+        // 맞으면 alert 맞았습니다. 틀리면 ....를 출력해주새요
+        for(let a =1; a<=9; a++){
+            for(let b =1; b<=9;b++){
+                let c= a*b;
+            }
+        }
+
+        let q = prompt(dan+ "x"+su+"=?", );
+        if(q==(dan*su)){
+            s++;
+        }else {
+            f++;
+            }
+        alert(s+"개 맞았음"+ f + "개 틀렸음.");    
+        
+    </script>
+    
+</body>
+</html>

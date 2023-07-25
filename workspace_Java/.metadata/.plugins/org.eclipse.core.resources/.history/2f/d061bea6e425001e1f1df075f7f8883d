@@ -1,0 +1,24 @@
+package pratice.submit01;
+
+import java.util.Scanner;
+
+public class Exampl4 {
+
+	public static void main(String[] args) {
+		Scanner scanner =new Scanner(System.in);
+		System.out.println("국어 점수를 입력해주세요.\n>>>");
+		int kor = Integer.parseInt(scanner.nextLine());
+		System.out.printf("%d", kor);
+		System.out.println("영어 점수를 입력해주세요.\n>>>");
+		int english = Integer.parseInt(scanner.nextLine());
+		System.out.printf("%d", english);
+		System.out.println("수학 점수를 입력해주세요.\n>>>");
+		int math = Integer.parseInt(scanner.nextLine()));
+		System.out.printf("%d", math);
+		double average = (kor + english +math)/3.0 ;
+		System.out.println(average);
+		
+		
+		
+}
+}

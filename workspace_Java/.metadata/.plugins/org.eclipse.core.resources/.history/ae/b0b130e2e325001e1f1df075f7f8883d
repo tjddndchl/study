@@ -1,0 +1,19 @@
+package pratice.submit01;
+
+import java.util.Scanner;
+
+public class Exampl4 {
+
+	public static void main(String[] args) {
+		Scanner scanner =new Scanner(System.in);
+		
+		
+		
+		if(scanner.nextLine()=="국어") {
+			int a = Integer.parseInt(scanner.nextLine());
+			System.out.printf("국어점수를 입력해주세요 :%d");
+		
+		}
+
+}
+}

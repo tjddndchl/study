@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<qualifiedTypeNameHistroy>
+    <fullyQualifiedTypeName name="java.awt.image.SampleModel"/>
+    <fullyQualifiedTypeName name="java.security.DrbgParameters.NextBytes"/>
+    <fullyQualifiedTypeName name="javax.security.auth.Subject"/>
+    <fullyQualifiedTypeName name="java.security.AccessControlContext"/>
+    <fullyQualifiedTypeName name="java.lang.Runtime"/>
+    <fullyQualifiedTypeName name="java.awt.print.Printable"/>
+    <fullyQualifiedTypeName name="java.lang.Thread"/>
+    <fullyQualifiedTypeName name="java.lang.OutOfMemoryError"/>
+    <fullyQualifiedTypeName name="java.util.Scanner"/>
+    <fullyQualifiedTypeName name="ch06_Method.MethodMain"/>
+    <fullyQualifiedTypeName name="java.lang.Package"/>
+    <fullyQualifiedTypeName name="boolean"/>
+    <fullyQualifiedTypeName name="javax.swing.text.StyledEditorKit.ForegroundAction"/>
+    <fullyQualifiedTypeName name="java.lang.Boolean"/>
+    <fullyQualifiedTypeName name="java.util.concurrent.CountDownLatch"/>
+    <fullyQualifiedTypeName name="int"/>
+    <fullyQualifiedTypeName name="java.lang.System"/>
+    <fullyQualifiedTypeName name="java.lang.Number"/>
+    <fullyQualifiedTypeName name="java.lang.ArrayIndexOutOfBoundsException"/>
+    <fullyQualifiedTypeName name="java.util.concurrent.atomic.AtomicIntegerArray"/>
+    <fullyQualifiedTypeName name="java.net.MulticastSocket"/>
+    <fullyQualifiedTypeName name="java.security.PublicKey"/>
+    <fullyQualifiedTypeName name="java.lang.ArrayStoreException"/>
+    <fullyQualifiedTypeName name="java.util.Arrays"/>
+    <fullyQualifiedTypeName name="java.util.Collections"/>
+    <fullyQualifiedTypeName name="java.util.Comparator"/>
+    <fullyQualifiedTypeName name="javax.swing.text.html.Option"/>
+    <fullyQualifiedTypeName name="java.security.cert.PKIXRevocationChecker.Option"/>
+    <fullyQualifiedTypeName name="java.lang.StackWalker.Option"/>
+    <fullyQualifiedTypeName name="java.lang.Math"/>
+    <fullyQualifiedTypeName name="java.util.ArrayList"/>
+    <fullyQualifiedTypeName name="java.lang.Integer"/>
+    <fullyQualifiedTypeName name="java.lang.String"/>
+</qualifiedTypeNameHistroy>

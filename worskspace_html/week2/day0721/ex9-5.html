@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> 이벤트와 이벤트 객체</title>
+</head>
+<body>
+    <p id = "pId"> 마우스를 올려 보세요.</p>
+    <button onclick="fn_f(event)">클릭하세요</button>
+    <script>
+        function fn_f(e){
+            console.log(e);
+            console.log(e.x);
+            console.log(e.y);
+            console.log(e.clientX);
+        }
+        window.onload = function(){}
+        //DOM객체 이벤트 프로파티에 등록
+        let p = document.getElementById("pId");
+        p.onmouseover = fn_f; //default 매개변수는 event
+    </script>
+</body>
+</html>

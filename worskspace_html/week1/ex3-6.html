@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>form태그</title>
+</head>
+<body>
+    <form action="https://movie.daum.net/moviedb/main" method="get">
+        <!-- from 태그에서 전송되는 데이터는 name명=value:값으로 매칭됨 -->
+        <input type="text" name="movieId" value="">
+        <input type="password" name="pw" value="">
+        
+        <input type="submit" value="영화로이동">
+    </form>
+    <form action="https://search.naver.com/search.naver" method="get">
+        <input type="text" name="query" value="" placeholder="검색어를 입력하세요">
+        <input type="submit" value="검색">
+    </form>
+    
+</body>
+</html>

@@ -1,0 +1,24 @@
+package pratice.submit01;
+
+import java.util.ArrayList;
+
+public class Example7 {
+
+	public static void main(String[] args) {
+		ArrayList<Integer>weekLotto =null;
+		weekLotto =makeLotto();
+		System.out.println(weekLotto);
+		
+
+	}
+	
+	public static ArrayList<Integer> makeLotto(){
+		ArrayList<Integer> number = new ArrayList<Integer>();
+		for(int i=0; i<6;i++) {
+			number.set(i, (int)(Math.random()*45+1));
+		}
+		return number;
+		
+	}
+
+}
