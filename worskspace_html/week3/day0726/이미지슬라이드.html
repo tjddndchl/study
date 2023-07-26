@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>버튼을 클릭하면 이미작 바뀌는.....</title>
+    <style>
+        #container{ width: 60%;
+                    margin: 20px; text-align: center;}
+        img { width: 60%; height: 60%;}
+        p{background-color: black; color: white;}
+        strong{color: yellow;}
+        button{position: relative; font-size: 50px; bottom: 450px;}
+    </style>
+    <script>
+        let files = ["./img/greenmile.jpg","./img/greenmile1.jpg","./img/greenmile2.jpg","./img/greenmile3.jpg"]
+        let imgs =[];
+        let obj;
+        let idx =0;
+        for(let i =0; i<files.length; i++){
+            imgs[i] = new Image();//이미지 객체 생성
+            imgs[i].src = files[i];//이미지 로딩
+
+        }
+        window.onload = function(){
+            obj =document.getElementById("img_id");
+            setInterval(fn_left,1000);
+        }
+        
+        function fn_left(){
+            let obj = document.getElementById("img_id");
+            if(idx ==0){
+                idx =imgs.length-1;
+            }else{
+                idx--;
+            }
+            
+            obj.src =imgs[idx].src;
+            
+        }
+        function fn_right(){
+           let obj = document.getElementById("img_id");
+           if(idx == imgs.length-1){
+            idx =0;
+           }else{
+            idx++;
+           }
+           
+           obj.src =imgs[idx].src;
+           
+           
+           
+        }
+    </script>
+</head>
+<body>
+    <div id="container">
+        <h1></h1>
+        <p>2000 <strong>그린마일</strong></p> 
+        <p>어빌 벌린의 "Cheek To Cheek"에 맞춰 행복한 미소를 띈 채 춤을 추는 두 남녀. 친구 엘렌과 영화 < Top Hat >의 한 장면을 보고 있던 폴 에지컴은 갑자기 울음을 터트린다. 60년전 교도소의 간수장으로 근무하던 시절, 자신의 삶을 송두리째 흔들어 놓았던 한 사형수와의 만남이 떠올랐기 때문. 폴은 엘렌에게 오랫동안 가슴에 묻어두었던 과거의 이야기를 들려주기 시작한다. 1935년 대공황기 미국 남부 루이지애나의 삭막한 콜드 마운틴 교도소. 폴 에지컴(톰 행크스 분)은 사형수 감방의 간수장으로 일하고 있다. 그가 하는 일은 사형수들을 보호, 감독하고 그린 마일이라 불리는 초록색 복도를 거쳐 그들을 전기의자에 놓여있는 사형 집행장까지 안내하는 것. 폴은 그 길을 거쳐 수많은 이들이 전기 의자에서 죽어가는 걸 지켜봐야한다. 폴은 그들이 죽음을 맞이하는 순간까지 평화롭게 지낼 수 있도록 최선을 다한다. 그들을 위해 음악을 틀어주기도 하고 모두들 꺼려하는 난폭한 사형수 와일드 빌(샘 록웰 분)의 공격적인 행동이나 무례한 태도에도 여유와 침착함을 잃지 않으려고 애쓴다. 그러던 어느날, 콜드 마운틴 교도소로 먼지를 일으키며 죄수 우송차 한 대가 들어서고, 존 커피(마이클 클락 덩컨 분)라는 사형수가 이송되어 온다. 2미터가 넘는 키에 140kg이나 나가는 거구의 몸집을 지닌 그는 쌍둥이 여자 아이를 둘이나 살해한 흉악범. 하지만, 어린 아이같은 순진한 눈망울에 겁을 잔뜩 집어먹은 그의 어리숙한 모습에 폴은 당혹감을 느낀다. 게다가 그는 병을 치유할 수 있는 신비한 초자연적 능력을 지니고 있어 폴의 오랜 지병을 씻은 듯 깨끗하게 치료해주기까지 한다. 존 커피를 전기 의자로 데려가야할 날이 다가오면서 폴은 그가 무죄라는 확신을 갖게 되는데.</p>
+        
+        <div>
+            <button id="left" onclick="fn_left()">&lt;</button>
+            <img src="./img/greenmile.jpg" id="img_id" alt="" >
+            <button id="right" onclick="fn_right()" >&gt;</button>
+        </div>
+    </div>
+</body>
+</html>

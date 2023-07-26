@@ -1,0 +1,129 @@
+packagech08_collection;
+
+importjava.util.ArrayList;
+importjava.util.Arrays;
+importjava.util.HashMap;
+
+publicclassPlayMap{
+
+	publicstaticvoidmain(String[]args){
+		ArrayList<String>playList=newArrayList<String>(Arrays.asList(
+				"uperShy:NewJeans",
+				"even(feat.Latto):CleanVer.:정국",
+				"퀸카(Queencard):(여자)아이들",
+				"TAN:NewJeans",
+				"헤어지자말해요:박재정",
+				"AM:IVE(아이브)",
+				"이브,프시케그리고푸른수염의아내:LESSERAFIM(르세라핌)",
+				"picy:aespa",
+				"tealTheShow(From“엘리멘탈”):Lauv",
+				"NewJeans:NewJeans",
+				"UNFORGIVEN(feat.NileRodgers):LESSERAFIM(르세라핌)",
+				"Kitsch:IVE(아이브)",
+				"Hypeboy:NewJeans",
+				"사랑은늘도망가:임영웅",
+				"모래알갱이:임영웅",
+				"Candy:NCTDREAM",
+				"Ditto:NewJeans",
+				"우리들의블루스:임영웅",
+				"ISTJ:NCTDREAM",
+				"다시만날수있을까:임영웅",
+				"CoolWithYou:NewJeans",
+				"손오공:세븐틴(SEVENTEEN)",
+				"무지개:임영웅",
+				"BrokenMelodies:NCTDREAM",
+				"StillWithYou:정국",
+				"이제나만믿어요:임영웅",
+				"LondonBoy:임영웅",
+				"OMG:NewJeans",
+				"Polaroid:임영웅",
+				"아버지:임영웅",
+				"꽃:지수(JISOO)",
+				"Dynamite:방탄소년단",
+				"Attention:NewJeans",
+				"인생찬가:임영웅",
+				"Abientot:임영웅",
+				"손이참곱던그대:임영웅",
+				"사랑해진짜:임영웅",
+				"사건의지평선:윤하(YOUNHA)",
+				"IDon'tThinkThatILikeHer:CharliePuth",
+				"연애편지:임영웅",
+				"AfterLIKE:IVE(아이브)",
+				"Butter:방탄소년단",
+				"Cupid:FIFTYFIFTY",
+				"TakeTwo:방탄소년단",
+				"LikeCrazy:지민",
+				"봄날:방탄소년단",
+				"Dangerously:CharliePuth",
+				"Dreamers[MusicfromtheFIFAWorldCupQatar2022OfficialSoundtrack](Feat.FIFASound):방탄소년단,정국",
+				"LOVEDIVE:IVE(아이브)",
+				"파랑(BlueWave):NCTDREAM",
+				"사람Pt.2(feat.아이유):AgustD",
+				"파이팅해야지(Feat.이영지):부석순(SEVENTEEN)",
+				"ASAP:NewJeans",
+				"PermissiontoDance:방탄소년단",
+				"보금자리:임영웅",
+				"심(心):DK(디셈버)",
+				"LikeWeJustMet:NCTDREAM",
+				"TeddyBear:STAYC(스테이씨)",
+				"InBloom:ZEROBASEONE(제로베이스원)",
+				"물론:허각",
+				"사랑하지않아서그랬어:임한별",
+				"YogurtShake:NCTDREAM",
+				"ANTIFRAGILE:LESSERAFIM(르세라핌)",
+				"Allergy:(여자)아이들",
+				"ThePlanet:방탄소년단",
+				"건물사이에피어난장미(RoseBlossom):H1:KEY(하이키)",
+				"사랑인가봐:멜로망스",
+				"너의모든순간:성시경",
+				"CreamSoda:EXO",
+				"onthestreet(withJ.Cole):J.Cole,j:hope",
+				"Poison(모래성):NCTDREAM",
+				"나에게그대만이:탑현",
+				"Skateboard:NCTDREAM",
+				"SOS:NCTDREAM",
+				"Pretzel(♡):NCTDREAM",
+				"사랑..그게뭔데:지아",
+				"제자리걸음(StarryNight):NCTDREAM",
+				"잠깐시간될까:이무진",
+				"STAY:JustinBieber,TheKidLAROI",
+				"Heaven(2023):임재현",
+				"취중고백:김민석(멜로망스)",
+				"빛이나는너에게:던(DAWN)",
+				"That'sHilarious:CharliePuth",
+				"NIGHTDANCER:imase",
+				"TOMBOY:(여자)아이들",
+				"해요(2022):#안녕",
+				"That’sNotHowThisWorks(feat.Dan+Shay):CharliePuth",
+				"GetUp:NewJeans",
+				"첫키스에내심장은120BPM:경서",
+				"사실말야내가말야그게그러니까말이야:케이시(Kassy)",
+				"Summer(Feat.BE’O(비오)):PaulBlanco",
+				"Nxde:(여자)아이들",
+				"그중에그대를만나:김호중",
+				"Monologue:테이",
+				"다정히내이름을부르면:전건호,경서",
+				"Thirsty:aespa",
+				"잘지내자,우리(여름날우리X로이킴):로이킴",
+				"사랑의바보:제이세라",
+				"찬란한하루:멜로망스",
+				"KNOCK:이채연"));
+		HashMap<String,ArrayList<String>>singerMap=newHashMap<>();//안써도상관없음
+		System.out.println(makeSongList("임영웅",playList));
+
+	}
+	//input가수이름,전체리스트
+	//output가수플레이리스트
+	publicstaticArrayList<String>makeSongList(Stringname,ArrayList<String>arr){
+		ArrayList<String>result=newArrayList<String>();
+		for(inti=0;i<arr.size();i++){
+			String[]temp=arr.get(i).split(":");
+			//가수가같으면노래담기
+			if(name.equals(temp[1])){
+				result.add(temp[0]);
+			}
+		}
+		return result;
+	}
+
+}
