@@ -33,7 +33,7 @@ public class CollectionList {
 		ArrayList<Integer> intList = new ArrayList<Integer>();
 		//래퍼클래스는 (byte, short, int, long, float, double, char, boolean)
 		//의 기본 타입이름의 앞글자 대문자로 되어있음.
-		//list 기몬 메서드 .add(요소) 요소 추가시 사용
+		//list 기본 메서드 .add(요소) 요소 추가시 사용
 		intList.add(5);
 		intList.add(1);
 		intList.add(2);
@@ -65,6 +65,7 @@ public class CollectionList {
 		student.clear();
 		System.out.println(student);
 		intList = new ArrayList<>();//clear() 처럼 비워짐
+		System.out.println(intList);
 		System.out.println("\n=============================");
 		
 		student.add("김규영");
@@ -74,7 +75,7 @@ public class CollectionList {
 		student.add("김세준");
 		System.out.println(student);
 		for(int i=0; i<student.size();i++) {
-			student.set(i, (i+1) + ". " + student.get(i));
+			student.set(i,(i+1) + "." + student.get(i));
 		}
 		System.out.println(student);
 		//리스트 복사
@@ -82,7 +83,7 @@ public class CollectionList {
 		copyList.addAll(student);
 		System.out.println(copyList);
 		//리스트 복사2
-		ArrayList<String> copyList2 = new ArrayList<String>();
+		ArrayList<String> copyList2 = (ArrayList<String>) copyList.clone();
 		System.out.println(copyList2);
 		//리스트 복사3(특정작업 처리 후 복사할떄 많이 사용)
 		ArrayList<String> copyList3 = new ArrayList<String>();
@@ -102,8 +103,9 @@ public class CollectionList {
 		
 		//값을 주면서 선언
 		ArrayList<Integer> numbers =
-				new ArrayList<Integer>(Arrays.asList(30, 23, 1, 44, 52));
+		new ArrayList<Integer>(Arrays.asList(30, 23, 1, 44, 52));
 		System.out.println(numbers);
+		
 		//정렬 오름차순
 		Collections.sort(numbers);
 		System.out.println(numbers);

@@ -26,7 +26,7 @@
                         ];
     document.getElementById("array-content").innerHTML
                 = '|'+classmate.join('|');
-    let move = setInterval(fn_slice,100);
+    let move = setInterval(fn_slice,1000);
    
     function fn_slice(){
         let obj = document.getElementById("array-content");
@@ -59,6 +59,7 @@
         let inputText = "<strong>"+ randomItem+"</strong>";
         obj.innerHTML= first+inputText+last;
         document.getElementById("result").innerHTML="당첨자는:"+randomItem;
+
 
     }
     //0.1초마다 문자를 한자리를 맨 뒤로 잘라서 붙이기.

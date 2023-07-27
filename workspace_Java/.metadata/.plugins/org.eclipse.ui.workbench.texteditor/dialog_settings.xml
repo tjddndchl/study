@@ -8,14 +8,15 @@
 		<item key="isRegEx" value="false"/>
 		<item key="selection" value=""/>
 		<list key="findhistory">
+			<item value="- "/>
+			<item value="-"/>
 			<item value=" "/>
 			<item value=";"/>
 			<item value="&quot;"/>
-			<item value="-"/>
 		</list>
 		<list key="replacehistory">
-			<item value=""/>
 			<item value=":"/>
+			<item value=""/>
 			<item value="&quot;,"/>
 			<item value=";"/>
 		</list>
