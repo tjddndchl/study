@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>javascript objects</title>
+</head>
+<body>
+    <script>
+        //객체 선언
+        let place01 = new Object();
+        place01.name = "미래융합교육원";
+        place01.addr = "대전 서구 둔산동 1221번지";
+        place01.hp = "0422719222";
+        place01.check = function(){
+            alert("출첵");
+        }
+        //객체선언방법2
+        let place02 ={
+            name :"우리집"
+            ,addr : "대종로71x"
+            ,hp: "0422719222"
+            ,go : function(){
+                //객체에서 this는 객체 자신을 의미함.
+                console.log(this.name + "에 가자");
+            }
+        }
+        console.log(place02);
+        place02.go();
+        let place03 = {};//비어있는 객체
+        place03.name = "음식점";
+        console.log(place03);
+        place03["name"] = "음식점2";
+        console.log(place03);
+
+        place01.check2 = fn_check;
+        function fn_check(){
+            alert("출첵");
+        }
+        console.log(place01);
+        place01.check();
+        place01.check2();
+        for(let k in place01){
+            console.log("key" +k);
+            console.log("value" , place01[k]);
+        }
+    </script>
+</body>
+</html>

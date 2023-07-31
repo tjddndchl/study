@@ -41,15 +41,23 @@
     <fullyQualifiedTypeName name="javax.swing.plaf.synth.SynthGraphicsUtils"/>
     <fullyQualifiedTypeName name="java.lang.Thread"/>
     <fullyQualifiedTypeName name="pratice.submit01.example"/>
-    <fullyQualifiedTypeName name="java.util.Collections"/>
     <fullyQualifiedTypeName name="javax.annotation.processing.SupportedSourceVersion"/>
     <fullyQualifiedTypeName name="ch09_class.future.FutureStudent"/>
     <fullyQualifiedTypeName name="java.lang.InterruptedException"/>
     <fullyQualifiedTypeName name="ch09_class.typing.Dictionary"/>
     <fullyQualifiedTypeName name="java.lang.Math"/>
+    <fullyQualifiedTypeName name="javax.swing.plaf.synth.SynthScrollPaneUI"/>
+    <fullyQualifiedTypeName name="ecample9.Account"/>
+    <fullyQualifiedTypeName name="ch09_class.quiz.Movie"/>
+    <fullyQualifiedTypeName name="ch09_class.quiz.MovieDB"/>
+    <fullyQualifiedTypeName name="java.util.Collections"/>
     <fullyQualifiedTypeName name="java.util.Scanner"/>
     <fullyQualifiedTypeName name="java.lang.System"/>
+    <fullyQualifiedTypeName name="ch09_class.homepage.MenberDB"/>
+    <fullyQualifiedTypeName name="ch09_class.homepage.Member"/>
     <fullyQualifiedTypeName name="java.util.ArrayList"/>
-    <fullyQualifiedTypeName name="java.lang.Integer"/>
+    <fullyQualifiedTypeName name="ch09_class.homepage.BoardDB"/>
     <fullyQualifiedTypeName name="java.lang.String"/>
+    <fullyQualifiedTypeName name="ch09_class.homepage.Board"/>
+    <fullyQualifiedTypeName name="java.lang.Integer"/>
 </qualifiedTypeNameHistroy>
