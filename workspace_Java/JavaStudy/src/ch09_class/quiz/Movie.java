@@ -6,7 +6,7 @@ public class Movie {
 	private String actors;//배우
 	private String word;//초성
 	public Movie(String title, String quotes, String actors, String word) {
-		super();
+		
 		this.title = title;
 		this.quotes = quotes;
 		this.actors = actors;

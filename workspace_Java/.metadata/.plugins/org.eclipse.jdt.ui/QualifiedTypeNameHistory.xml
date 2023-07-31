@@ -1,18 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <qualifiedTypeNameHistroy>
-    <fullyQualifiedTypeName name="java.awt.image.SampleModel"/>
-    <fullyQualifiedTypeName name="java.security.DrbgParameters.NextBytes"/>
-    <fullyQualifiedTypeName name="javax.security.auth.Subject"/>
-    <fullyQualifiedTypeName name="java.security.AccessControlContext"/>
-    <fullyQualifiedTypeName name="java.lang.Runtime"/>
-    <fullyQualifiedTypeName name="java.awt.print.Printable"/>
-    <fullyQualifiedTypeName name="java.lang.OutOfMemoryError"/>
-    <fullyQualifiedTypeName name="ch06_Method.MethodMain"/>
-    <fullyQualifiedTypeName name="java.lang.Package"/>
-    <fullyQualifiedTypeName name="boolean"/>
-    <fullyQualifiedTypeName name="javax.swing.text.StyledEditorKit.ForegroundAction"/>
-    <fullyQualifiedTypeName name="java.lang.Boolean"/>
-    <fullyQualifiedTypeName name="java.util.concurrent.CountDownLatch"/>
     <fullyQualifiedTypeName name="int"/>
     <fullyQualifiedTypeName name="java.lang.Number"/>
     <fullyQualifiedTypeName name="java.lang.ArrayIndexOutOfBoundsException"/>
@@ -57,7 +44,20 @@
     <fullyQualifiedTypeName name="ch09_class.homepage.Member"/>
     <fullyQualifiedTypeName name="java.util.ArrayList"/>
     <fullyQualifiedTypeName name="ch09_class.homepage.BoardDB"/>
-    <fullyQualifiedTypeName name="java.lang.String"/>
     <fullyQualifiedTypeName name="ch09_class.homepage.Board"/>
     <fullyQualifiedTypeName name="java.lang.Integer"/>
+    <fullyQualifiedTypeName name="ch06.sec04.Student"/>
+    <fullyQualifiedTypeName name="ch06.sec06.exam01.Car"/>
+    <fullyQualifiedTypeName name="ch06.sec07.exam01.CarExample"/>
+    <fullyQualifiedTypeName name="ch06.sec07.exam01.Car"/>
+    <fullyQualifiedTypeName name="ch06.sec07.exam02.Korean"/>
+    <fullyQualifiedTypeName name="ch06.sec07.exam04.Car"/>
+    <fullyQualifiedTypeName name="java.lang.Void"/>
+    <fullyQualifiedTypeName name="ch06.sec08.exam01.Calculator"/>
+    <fullyQualifiedTypeName name="ch06.sec08.exam03.Car"/>
+    <fullyQualifiedTypeName name="ch06.sec10.exam03.Car"/>
+    <fullyQualifiedTypeName name="java.lang.String"/>
+    <fullyQualifiedTypeName name="ch06.sec11.exam01.Korean"/>
+    <fullyQualifiedTypeName name="ch06.sec14.Car"/>
+    <fullyQualifiedTypeName name="javax.swing.plaf.basic.BasicInternalFrameTitlePane.IconifyAction"/>
 </qualifiedTypeNameHistroy>
