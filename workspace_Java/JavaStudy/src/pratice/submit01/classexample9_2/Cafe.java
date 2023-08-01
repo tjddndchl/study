@@ -1,35 +1,38 @@
 package pratice.submit01.classexample9_2;
 
 import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.Scanner;
 import java.util.jar.Attributes.Name;
 
 public class Cafe {
-	int price;
-	 String name;
-	 ArrayList<Coffe> menulist = new ArrayList<Coffe>();
+	private String name;//카페이름
+	private ArrayList<Coffe> menuList;//메뉴판
+	
+	
 	public Cafe(String name) {
 		
 		this.name = name;
+		this.menuList = new ArrayList<Coffe>();
 	}
+	
+	public void addCoffee(Coffe cf) {
+		menuList.add(cf);
+	}
+	
 	public void showMenu() {
-		this.menulist = menulist;
-	}
-	 
-	public void addCoffee(String name,int price) {
-		Coffe cf = new Coffe(name, price);
-		menulist.add(cf);
-	
-	}
-	public Cafe(String name, ArrayList<Coffe> menulist) {
-		
-		this.name = name;
-		this.menulist = menulist;
+		System.out.println("어서오세요"+ name + "입니다." );
+		for(Coffe cf : menuList) {
+			System.out.println(cf.getName()+ ":" + cf.getPrice());
+			
+		}
 	}
 	
-	public void buyCoffee() {
-		Scanner scanner = new Scanner(System.in);
+	//커피구매
+	public void buyCoffe(int num) {
+		Coffe cf = menuList.get(num);
+		System.out.println(cf.getName()+"을"+cf.getPrice()+"에 구매하였습니다.");
 		
-	}
+			}
 	
 }

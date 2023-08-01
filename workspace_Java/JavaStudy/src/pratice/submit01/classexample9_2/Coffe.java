@@ -1,8 +1,8 @@
 package pratice.submit01.classexample9_2;
 
 public class Coffe {
-	String name;
-	int price;
+	private String name;
+	private int price;
 	public Coffe(String name, int price) {
 		
 		this.name = name;
@@ -20,7 +20,7 @@ public class Coffe {
 	public void setPrice(int price) {
 		this.price = price;
 	}
-	
+
 	
 	
 }
