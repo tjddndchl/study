@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>scroll</title>
+    <script>
+        function startScroll(time){
+            setInterval(autoScroll, time);
+        }
+        function autoScroll(){
+            window.scrollBy(0,100);//10픽셀 이동
+        }
+    </script>
+</head>
+<!-- body가 온로드 된 뒤 1초에 한번씩 스크롤 이동 -->
+<body onload="startScroll(1000)">
+    <h3>자동으로 스크롤 페이지</h3>
+    <hr>
+  
+\
+</body>
+</html>

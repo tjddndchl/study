@@ -1,18 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <qualifiedTypeNameHistroy>
-    <fullyQualifiedTypeName name="int"/>
-    <fullyQualifiedTypeName name="java.lang.Number"/>
-    <fullyQualifiedTypeName name="java.lang.ArrayIndexOutOfBoundsException"/>
-    <fullyQualifiedTypeName name="java.util.concurrent.atomic.AtomicIntegerArray"/>
-    <fullyQualifiedTypeName name="java.net.MulticastSocket"/>
-    <fullyQualifiedTypeName name="java.security.PublicKey"/>
-    <fullyQualifiedTypeName name="java.lang.ArrayStoreException"/>
-    <fullyQualifiedTypeName name="javax.swing.text.html.Option"/>
-    <fullyQualifiedTypeName name="java.security.cert.PKIXRevocationChecker.Option"/>
-    <fullyQualifiedTypeName name="java.lang.StackWalker.Option"/>
-    <fullyQualifiedTypeName name="java.util.Arrays"/>
-    <fullyQualifiedTypeName name="java.util.Iterator"/>
-    <fullyQualifiedTypeName name="java.security.KeyStore.Entry"/>
     <fullyQualifiedTypeName name="java.util.Map.Entry"/>
     <fullyQualifiedTypeName name="java.util.Set"/>
     <fullyQualifiedTypeName name="java.io.InputStream"/>
@@ -22,7 +9,6 @@
     <fullyQualifiedTypeName name="java.lang.Double"/>
     <fullyQualifiedTypeName name="ch09_class.commons.UtiliClass"/>
     <fullyQualifiedTypeName name="java.util.Comparator"/>
-    <fullyQualifiedTypeName name="java.lang.Override"/>
     <fullyQualifiedTypeName name="java.util.HashSet"/>
     <fullyQualifiedTypeName name="ch09_class.school.Student"/>
     <fullyQualifiedTypeName name="javax.swing.plaf.synth.SynthGraphicsUtils"/>
@@ -38,14 +24,10 @@
     <fullyQualifiedTypeName name="ch09_class.quiz.Movie"/>
     <fullyQualifiedTypeName name="ch09_class.quiz.MovieDB"/>
     <fullyQualifiedTypeName name="java.util.Collections"/>
-    <fullyQualifiedTypeName name="java.util.Scanner"/>
-    <fullyQualifiedTypeName name="java.lang.System"/>
     <fullyQualifiedTypeName name="ch09_class.homepage.MenberDB"/>
     <fullyQualifiedTypeName name="ch09_class.homepage.Member"/>
-    <fullyQualifiedTypeName name="java.util.ArrayList"/>
     <fullyQualifiedTypeName name="ch09_class.homepage.BoardDB"/>
     <fullyQualifiedTypeName name="ch09_class.homepage.Board"/>
-    <fullyQualifiedTypeName name="java.lang.Integer"/>
     <fullyQualifiedTypeName name="ch06.sec04.Student"/>
     <fullyQualifiedTypeName name="ch06.sec06.exam01.Car"/>
     <fullyQualifiedTypeName name="ch06.sec07.exam01.CarExample"/>
@@ -56,8 +38,26 @@
     <fullyQualifiedTypeName name="ch06.sec08.exam01.Calculator"/>
     <fullyQualifiedTypeName name="ch06.sec08.exam03.Car"/>
     <fullyQualifiedTypeName name="ch06.sec10.exam03.Car"/>
-    <fullyQualifiedTypeName name="java.lang.String"/>
     <fullyQualifiedTypeName name="ch06.sec11.exam01.Korean"/>
     <fullyQualifiedTypeName name="ch06.sec14.Car"/>
     <fullyQualifiedTypeName name="javax.swing.plaf.basic.BasicInternalFrameTitlePane.IconifyAction"/>
+    <fullyQualifiedTypeName name="java.lang.Override"/>
+    <fullyQualifiedTypeName name="ch10_extends_interface.simple.Parent"/>
+    <fullyQualifiedTypeName name="ch10_extends_interface.simple.Child"/>
+    <fullyQualifiedTypeName name="ch10_extends_interface.starcraft.StarUnit"/>
+    <fullyQualifiedTypeName name="ch10_extends_interface.starcraft.Marine"/>
+    <fullyQualifiedTypeName name="ch10_extends_interface.starcraft.HighTemplar"/>
+    <fullyQualifiedTypeName name="ch10_extends_interface.starcraft.Zealot"/>
+    <fullyQualifiedTypeName name="ch10_extends_interface.ramen.JinRamen"/>
+    <fullyQualifiedTypeName name="ch10_extends_interface.ramen.JjaPpagheti"/>
+    <fullyQualifiedTypeName name="ch10_extends_interface.ramen.RamenMain"/>
+    <fullyQualifiedTypeName name="ch10_extends_interface.ramen.Ramen"/>
+    <fullyQualifiedTypeName name="java.util.jar.Attributes.Name"/>
+    <fullyQualifiedTypeName name="java.util.ArrayList"/>
+    <fullyQualifiedTypeName name="pratice.submit01.classexample9_2.Coffe"/>
+    <fullyQualifiedTypeName name="pratice.submit01.classexample9_2.Cafe"/>
+    <fullyQualifiedTypeName name="java.util.Scanner"/>
+    <fullyQualifiedTypeName name="java.lang.System"/>
+    <fullyQualifiedTypeName name="java.lang.Integer"/>
+    <fullyQualifiedTypeName name="java.lang.String"/>
 </qualifiedTypeNameHistroy>

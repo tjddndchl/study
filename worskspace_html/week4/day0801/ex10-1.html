@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>window.open</title>
+    <script>
+        let neWin = null;
+        function load(url){
+            neWin=window.open(url, 'mywin','left-200,top-500,width=500,height=500');
+        }
+        function close(){
+            if(neWin == null || neWin.closed){
+                return;//팝업이 없을경우
+            }else{
+                window.close();
+                neWin.close();//팝업이 있을경우
+            }
+        }
+    </script>
+</head>
+<body>
+    <h3>windo open으로 윈도우 열기</h3>
+    <hr>
+    <a href="javascript:load('https://www.google.com/webhp?hl=ko&sa=X&ved=0ahUKEwiT9uTm27qAAxVDCYgKHaDdAvwQPAgI')">구글</a>
+    <a href="javascript:load('https://www.naver.com/')">네이버</a>
+    <a href="javascript:close()">닫기</a>
+</body>
+</html>
