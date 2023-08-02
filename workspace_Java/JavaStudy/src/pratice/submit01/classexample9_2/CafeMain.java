@@ -3,7 +3,7 @@ package pratice.submit01.classexample9_2;
 import java.util.ArrayList;
 import java.util.Scanner;
 
-import javax.swing.plaf.synth.SynthScrollPaneUI;
+
 
 public class CafeMain {
 	
@@ -35,7 +35,7 @@ public class CafeMain {
 				akaCafe.showMenu();
 				System.out.println("메뉴를 선택해주세요");
 				int coffeChoice2 = scanner.nextInt();
-				starbucks.buyCoffe(coffeChoice2-1);
+				akaCafe.buyCoffe(coffeChoice2-1);
 				break;
 			}
 			if(choice==3){
