@@ -37,8 +37,8 @@ public class Conditional {
 		//조건이 2개 일때
 		int score = 95;
 		String grade = "";
-		if(score >= 80) {
-			grade = "B";
+		if(score >= 90) {
+			grade = "A";
 		}else if (score >= 80) {
 			grade = "B";
 		}else if (score >= 70) {

@@ -111,7 +111,7 @@ public class ArrayMain {
 			for (int i = 0; i < numArr.length-1; i++) {
 				//i> i+1하면 오름차순
 				//i<i+1하면 내림차순
-				if (numArr[i] < numArr[i+1]) {
+				if (numArr[i] > numArr[i+1]) {
 					int t = numArr[i];
 					numArr[i] = numArr[i+1];
 					numArr[i+1] = t;

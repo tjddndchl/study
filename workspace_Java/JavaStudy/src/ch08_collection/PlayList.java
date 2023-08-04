@@ -131,7 +131,7 @@ public class PlayList {
 			System.out.println(str);
 		}
 		System.out.println("===================제목/가수 검색================");
-		ArrayList<String> searchList = searchSong("가수","임영웅",playList);
+		ArrayList<String> searchList = searchSong("가수","테이",playList);
 		System.out.println("검색 데이터 사이즈:" + searchList.size());
 		for(String str: searchList) {
 		System.out.println(str);

@@ -20,6 +20,10 @@ public class Coffe {
 	public void setPrice(int price) {
 		this.price = price;
 	}
+	@Override
+	public String toString() {
+		return "Coffe [name=" + name + ", price=" + price + "]";
+	}
 
 	
 	

@@ -44,91 +44,91 @@ public class Example4 {
 //			}
 //			break;
 //		}
-//		System.out.println(">>>");
-//		System.out.println("입력할 트리 층을 선택하세요");
-//		int floor = Integer.parseInt(scanner.nextLine());
+		System.out.println(">>>");
+		System.out.println("입력할 트리 층을 선택하세요");
+		int floor = Integer.parseInt(scanner.nextLine());
+		
+		String star ="*";
+		while(floor>0) {
+			for(int y = 0; y<floor; y++ ) {
+				
+			for(int x =floor-1; x-y>0; x--) {
+				System.out.print(" ");
+				
+				
+				
+				}
+			
+			System.out.println(star);
+			star += "**";
+			}
+
+			
+			break;
+		}
+		
+		String blank="";
+		System.out.println("입력할 트리 층을 선택하세요");
+		int floor2 = Integer.parseInt(scanner.nextLine());
+		while(floor2>0) {
+			
+		for(int i=0; i<floor2; i++) {
+			String star2 ="*";
+			for(int g = 1; g+i<floor2;g++) {
+				
+				
+				
+				star2+="**";
+				
+				}
+			System.out.println(blank+star2);
+			
+			blank +=" ";
+			
+			}
+			
+		
+		
+		break;
+		}
+		
+		
+//		String blank = "";
+//		for(int i = 0; i <5; i++) {
+//			if(i>0) {
+//				blank += " ";
+//			}
+//			String star="*";
+//			for (int j = 0; j <4-i; j++) {
+//				star += "**";
+//			}
+//				System.out.println(blank + star);
+//			}
 //		
-//		String star ="*";
-//		while(floor>0) {
-//			for(int y = 0; y<floor; y++ ) {
-//				
-//			for(int x =floor-1; x-y>0; x--) {
+//		//print사용
+//		
+//		for(int i =0; i <5 ;i++) {
+//			//공백
+//			for(int j =5-i; j>1; j--) {
 //				System.out.print(" ");
-//				
-//				
-//				
-//				}
-//			
-//			System.out.println(star);
-//			star += "**";
 //			}
-//
-//			
-//			break;
-//		}
-//		
-//		String blank="";
-//		System.out.println("입력할 트리 층을 선택하세요");
-//		int floor2 = Integer.parseInt(scanner.nextLine());
-//		while(floor2>0) {
-//			
-//		for(int i=0; i<floor2; i++) {
-//			String star2 ="*";
-//			for(int g = 1; g+i<floor2;g++) {
-//				
-//				
-//				
-//				star2+="**";
-//				
-//				}
-//			System.out.println(blank+star2);
-//			
-//			blank +=" ";
-//			
+//			//별
+//			for(int j = 0; j<=2*i; j++) {
+//				System.out.print("*");
 //			}
-//			
-//		
-//		
-//		break;
+//			System.out.println();
 //		}
-//		
-		
-		String blank = "";
-		for(int i = 0; i <5; i++) {
-			if(i>0) {
-				blank += " ";
-			}
-			String star="*";
-			for (int j = 0; j <4-i; j++) {
-				star += "**";
-			}
-				System.out.println(blank + star);
-			}
-		
-		//print사용
-		
-		for(int i =0; i <5 ;i++) {
-			//공백
-			for(int j =5-i; j>1; j--) {
-				System.out.print(" ");
-			}
-			//별
-			for(int j = 0; j<=2*i; j++) {
-				System.out.print("*");
-			}
-			System.out.println();
-		}
-		//다이아몬드
-		int num=25;
-		for(int i=num-2; i>=0; i--) {
-			for(int j = num-i; j >1; j--) {
-				System.out.print(" ");
-			}
-			for(int j =0; j<=2*i; j++) {
-				System.out.print("*");
-			}
-			System.out.println();
-		}
+//		//다이아몬드
+//		int num=25;
+//		for(int i=num-2; i>=0; i--) {
+//			for(int j = num-i; j >1; j--) {
+//				System.out.print(" ");
+//			}
+//			for(int j =0; j<=2*i; j++) {
+//				System.out.print("*");
+//			}
+//			System.out.println();
+//		}
 	}
 		
 		

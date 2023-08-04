@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aj\JAX</title>
+    <style>
+        html, body{margin: 0; padding: 0; height: 0;}
+        #left_div{float: left; height: 800; width: 45%; overflow: scroll;}
+        table tr:hover{background-color: cadetblue;}
+        /*tr을 클릭했을때 alert으로 market값을 출력하시오*/
+    </style>
+    <script>
+
+        let main_url="https://api.upbit.com/v1/market/all";
+        let detail_url="https://api.upbit.com/v1/ticker?markets=";
+        let v_ajax = new XMLHttpRequest();
+        let v_ajax2  = new XMLHttpRequest();
+        function fn_get(){
+            v_ajax.open("GET","https://api.upbit.com/v1/market/all", true);
+            v_ajax.send();//요청
+        }
+        v_ajax.onreadystatechange = function(){
+            console.log(v_ajax);
+            //통신객체로 요청 후 응답이 오면 onready....리스너가 작동
+            if(v_ajax.readyState == 4 && v_ajax.status==200){
+                //상태4는 데이터를받았을때 Http 코드 200은 정상처리
+                console.log(v_ajax.responseText);
+                let coinArr = JSON.parse(v_ajax.responseText);//제이손 형태로 바꿔좀
+                let str="";
+                for(let i = 0 ; i<coinArr.length; i++){
+                    console.log(coinArr[i]);
+                    str +='<tr onclick="fn_click(this)">';
+                    str += '<td>'+coinArr[i].korean_name+'</td>';
+                    str += '<td>'+coinArr[i].english_name+'</td>';
+                    str += '<td>'+coinArr[i]['market']+'</td>';
+                    str += '</tr>';    
+                }
+                document.getElementById('first_table').innerHTML = str;
+            }
+            
+        }
+        function fn_clear(){
+            document.getElementById('first_table').innerHTML='';
+        }
+        function fn_click(obj){
+            let code = obj.children[0].innerHTML;
+            v_ajax2.open("GET",detail_url+code, true);
+            v_ajax2.send();//요청
+        }
+        v_ajax2.onreadystatechange= function(){
+            //second_table에
+            //요청 market의 상세정보를 출력하세요
+            if(v_ajax2.readyState == 4 && v_ajax2.status==200){
+                let coinArr = JSON.parse(v_ajax2.responseText)[0];//
+                let str="";
+                for(let i=0; i<coinArr.length;i++){
+                str +='<tr onclick="fn_click(this)">';
+                
+                str += '<td>'+coinArr[i]['market']+'</td>';
+                str += '</tr>';    
+                }
+                    
+                document.getElementById('second_table').innerHTML= str;    
+            }
+                
+            
+        }
+    </script>
+</head>
+<body>
+    <button type="button" onclick="fn_get()">가져오기</button>
+    <button type="button" onclick="fn_clear()">지우기</button>
+    <div class="row">
+        <div id="left_div">
+            <table id="first_table">
+                <th ></th>
+
+                </th>
+            </table>
+        </div>
+        <div id="right_div">
+            <table id="second_table">
+                <th>en_name</th>
+
+                </th>
+            </table>
+        </div>
+    </div>
+</body>
+</html>

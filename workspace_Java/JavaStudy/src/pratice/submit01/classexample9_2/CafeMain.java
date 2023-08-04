@@ -25,7 +25,7 @@ public class CafeMain {
 			switch(choice) {
 			case 1:
 				starbucks.showMenu();
-				System.out.println("메뉴를 선택해주세요");
+				
 				int coffeChoice1 = scanner.nextInt();
 				
 				starbucks.buyCoffe(coffeChoice1-1);
@@ -33,7 +33,7 @@ public class CafeMain {
 				
 			case 2:
 				akaCafe.showMenu();
-				System.out.println("메뉴를 선택해주세요");
+				
 				int coffeChoice2 = scanner.nextInt();
 				akaCafe.buyCoffe(coffeChoice2-1);
 				break;

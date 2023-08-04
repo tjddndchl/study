@@ -6,7 +6,7 @@ public class JinRamen extends Ramen {
 	
 	public JinRamen(String name, int price) {
 		super(name, price);
-		// TODO Auto-generated constructor stub
+		
 	}
 
 	@Override

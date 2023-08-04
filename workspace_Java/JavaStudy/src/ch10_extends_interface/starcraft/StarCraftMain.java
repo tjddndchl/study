@@ -38,7 +38,7 @@ public class StarCraftMain {
 		for(int i=0; i < starList.size(); i++) {
 			starList.get(i).move(100, 150);
 		}
-		//HighTemplar(자식) 이 StarUnit(부모)fh
+		//HighTemplar(자식) 이 StarUnit(부모)로
 		//형변환이 되었기 때문에
 		//부모가 가지고 있지 않는 메소드는 사용불가
 		highTemplar2.thunderStorm();
