@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://code.jquery.com/jquery-3.7.0.js"></script>
+    <script>
+        $(document).ready(function(){
+            $('#btn').click(function(){
+                $('#apple').animate({left : '100px'});
+            });
+            $('#btn').dblclick(function(){
+                $('#apple').animate({left:'0px'});
+            })
+            $('#fadeIn').click(function(){
+                $('#melon').slideDown('fast').fadeIn('slow').fadeOut('slow');
+            })
+            $('#fadeOut').click(function(){
+                $('#melon').fadeOut('fast');
+            })
+            $('#btn2').click(function(){
+                alert($('#apple').attr('src'));
+            });
+            $('#btn3').click(function(){
+                $('#apple').attr('src','/img/멜론.jpg')
+            })
+
+        });
+    </script>
+</head>
+<body>
+    <button id="btn">animation()</button>
+    <button id="btn2">get attr()</button>
+    <button id="btn3">change src</button>
+    <img src="/img/사과.jpg" id="apple" width="120" height="100" 
+    style="position: relative;" alt="">
+    <button id="fadeIn">fadeIn</button>
+    <button id="fadeOut">fadeOut</button>
+    <img src="/img/멜론.jpg" id="melon" width="80" height="80" alt=""
+        style="position: relative;">
+ 
+</body>
+</html>
