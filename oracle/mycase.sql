@@ -21,7 +21,7 @@ CREATE TABLE ex2_1(
 --INSERT 데이터 삽입
 INSERT INTO ex2_1(col1 , col2)
 VALUES('abc','abc'); --문자열은 '' <--작은 따움표로 표시
---명령문은 대준자로 식별자는 소문자
+--명령문은 대문자로 식별자는 소문자
 --SELECT 데이터 조회
 SELECT col1
         , LENGTH(col1)--char는 고정형
@@ -204,5 +204,9 @@ AND CUST_MARITAL_STATUS LIKE 'single'
 AND CUST_GENDER LIKE 'F'
 AND CUST_YEAR_OF_BIRTH >= 1983
 order by CUST_YEAR_OF_BIRTH DESC, CUST_NAME ;
+
+
+DESC EMP;
+
 
 
