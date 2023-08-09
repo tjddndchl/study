@@ -1,0 +1,13 @@
+CREATE TABLE TB_INFO(
+    INFO_NO number(3) NOT NULL
+    ,PC_NO VARCHAR2(10) NOT NULL UNIQUE
+    ,NM VARCHAR2(20)
+    ,EMAIL VARCHAR2(50)
+    ,HOBBY VARCHAR2(1000)
+    ,MBTI VARCHAR2(4)
+);
+
+SELECT *
+    FROM tb_info
+where nm like '%ÀÌ%'
+OR mbti = 'ISTP';

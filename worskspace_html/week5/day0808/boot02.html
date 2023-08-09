@@ -30,6 +30,42 @@
                 if($('#q2-5').is(":checked")){
                     $("#q2-5").val($("#q2-5-input").val());
                 }
+                let formdata = $('#myForm').serializeArray();
+                console.log(formdata);
+                //해당 페이지에 name이 q로 시작하는 name가져오기
+                //name ^='a' > a로 시작되는
+                //name*= 'a' > a가 포함되어있음
+                //name$='a' > a로 끝나는
+                let arr_name = [];
+                $("input[name^=q]").each(function(i, v){
+                    arr_name.push($(v).attr('name'));
+                });
+                console.log(arr_name);
+                //unique 중복값 재고 (순서대로 있는 정보에서 중복값제거)
+                $.unique(arr_name);
+                console.log(arr_name);
+                //2-1 (안 봄)선택시 q3, q4 선택만해도됨
+                if($('#q2-1').is(":checked")){
+                    //필터를 적용 제외하고 담김
+                    //filter는 배열을 순회하며 true false에 따라 포함,미포함
+                    arr_name=arr_name.filter(function(e1){
+                        //같지 않은 경우 true 를 리턴 true인 항목만 포함시킴
+                       return e1 !== 'q3' && e1 !== 'q4'
+                    });
+                    console.log(arr_name);
+                    let sel_key = [];
+                    for(let v of formdata){
+                        sel_key.push(v['name']);
+                    }
+                    for(let v of arr_name){
+                        if(sel_key.indexOf(v) == -1){
+                            $('input[name='+v+']').eq(0).focus();
+                            alert('질문에 1개는 선택하셔야 합니다.');
+                            return ;
+                        }
+                    }
+                }
+
                 $("#myForm").submit();
             });
         });
