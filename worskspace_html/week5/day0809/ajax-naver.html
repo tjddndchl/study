@@ -8,16 +8,18 @@
         $(document).ready(function(){
             //네이버 장소검색
             let naver_search="https://openapi.naver.com/v1/search/local";
-            const CLIENT_ID='RS5ewPzA5BRAOXwjODCl';
-            const SECRET = 'jlca33FFh2';
+            const client_id='RS5ewPzA5BRAOXwjODCl';
+            const secret = 'jlca33FFh2';
             $('#btn').click(function(){
                 let q = $('#search').val();
                 $.ajax({
                     url : naver_search
                     ,type : 'POST'
                     ,data : {'query' : q}
-                    ,headers : {'X-Naver-Client_Id' : CLIENT_ID
-                                ,'X-Naver-Client-Secret': SECRET}
+                    ,headers : {'X-Naver-Client_Id' : client_id
+                                ,'X-Naver-Client-Secret': secret
+                                
+                            }
                 })
             })
         })

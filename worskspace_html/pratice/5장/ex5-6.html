@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>z index 프로퍼티</title>
+    <style>
+        div{position: absolute;}
+        img{position: absolute;}
+        #str{ z-index:  -3; left: 10px; top: 20px;}
+        #mel{z-index: 5; left: 40px; top: 30px;}
+        #apple{z-index: 3; left: 50px; top: 60px;}
+    </style>
+</head>
+<body>
+    <h3>z-index프로퍼티</h3>
+    <hr>
+    <div>
+        <img id="str" src="/img/딸기.jpg" alt="딸기"
+            width="100" height="140" >
+            <img id="mel" src="/img/멜론.jpg" 
+                   width="100" height="140" alt="멜론">
+        <img id="apple" src="/img/사과.jpg" 
+                width="100" height="140" alt="사과">
+    </div>
+</body>
+</html>
