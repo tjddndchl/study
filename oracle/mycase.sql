@@ -61,8 +61,9 @@ ORDER BY 2 DESC, 1 DESC;
 
 SELECT emp_name --1
         ,salary --2
+        ,hire_date
 FROM employees
-ORDER BY hire_date;
+ORDER BY substr (hire_date,1,2);
 --수식 연산자 : + - * /
 SELECT employee_id   as 직원아이디
     , emp_name       as 직원이름
@@ -96,12 +97,13 @@ ORDER BY  prod_category ,prod_min_price DESC;
 --표현식: 원하는 표현으로 변경 CASE WHEN 조건: THEN 해당조건변경표현
 --                               WHEN2 조건2:THEN 해당조건변경표현
 --                               END AS 별칭
-SELECT cust_name//조건이 하나밖에 없을때에는 바로 else해도 상관없음
-    ,cust_gender
-    ,CASE WHEN cust_gender = 'M' THEN '남자'
-        WHEN cust_gender = 'F' THEN '여자'
-        ELSE '??'
-        END AS gender
+
+--조건이 하나밖에 없을때에는 바로 else해도 상관없음
+SELECT cust_name
+    ,  cust_gender
+    ,case when cust_gender = 'F' THEN '여자'
+        else '남자'
+    end as 성별    
 FROM customers;
 
 SELECT employee_id
@@ -123,6 +125,8 @@ WHERE department_id IN(90, 80, 10); -- 90 or 80 or 10
 --문자열 연산자 || <-- +
 SELECT emp_name || ':' || employee_id as 이름사변
 FROM employees;
+
+
 SELECT emp_name
 FROM employees
 WHERE emp_name LIKE 'A%'; --A로 시작하는
@@ -135,7 +139,7 @@ WHERE emp_name LIKE '%na%'; --na가 포함되어있음
 
 SELECT emp_name
 FROM employees
-WHERE emp_name LIKE '%d'; --d로 끝나는
+WHERE emp_name LIKE '%d%'; --d로 끝나는
 
 
 SELECT emp_name

@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>객체생성및 활용</title>
+</head>
+<body>
+    <h3>객체 생성 및 활용</h3>
+    <hr>
+    <script>
+        //DATE객체 생성
+        let today = new Date();
+
+        document.write("현재 시간 :" + today.toGMTString()
+                + "<br>");
+
+        let mystr = new String("자바스크립트 공부하기")
+        document.write("mystr의 내용:" + mystr + "<br>")
+        document.write("mystr의 길이:" + mystr.length + "<br>");
+        mystr.length = 10; //이문장은 오류이다
+    </script>
+</body>
+</html>

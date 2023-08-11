@@ -16,8 +16,8 @@ CREATE TABLE ex3_1(
         ,num2 number(3, 2)--전체 정수 1자리 소수점 2자리
         ,num3 number(5, -2)--십의 자리까지 반올림, 총(7)
         );
-INSERT INTO ex3_1(num1) VALUES(0.7898);
-INSERT INTO ex3_1(num1) VALUES(99.5);
+INSERT INTO ex3_1(num1) VALUES(111.7898);
+INSERT INTO ex3_1(num1) VALUES(99.55);
 INSERT INTO ex3_1(num1) VALUES(1004);
 SELECT *
     FROM ex3_1;
@@ -26,7 +26,7 @@ INSERT INTO ex3_1(num2) VALUES(1.2345);
 INSERT INTO ex3_1(num2) VALUES(32);--오류
 
 INSERT INTO ex3_1(num3) VALUES(12345.2345);
-INSERT INTO ex3_1(num3) VALUES(123459.2345);
+INSERT INTO ex3_1(num3) VALUES(1234519.2345);
 INSERT INTO ex3_1(num3) VALUES(12345679.2345);--오류 전체 7자리
 
 /*

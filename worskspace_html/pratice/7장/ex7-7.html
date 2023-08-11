@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>객체의 메소드 활용</title>
+</head>
+<body>
+    <h3>객체의 메소드 활용</h3>
+    <hr>
+    <script>
+        let a = new String("Boys and Girls");
+        let b = "!!";
+        document.write("a:" + a + "<br>");
+        document.write("b:" + b + "<br>");
+
+        document.write(a.charAt(0) +"<br>")
+       document.write(a.concat(b ,"입니다") + "<br>")
+       document.write(a.indexOf("s")+"<br>")//없으면 -1 같은 문자열 갯수 반환
+       document.write(a.substr(1,4) + "<br>")  //시작 인덱스부터 끝인덱스전까지
+       document.write(a.slice(-7,11) + "<br>")//앞에 음수로 값 받을시 뒤에서부터 계산하고 절대값  
+       document.write(a.toUpperCase() + "<br>");//전부대문자
+       document.write(a.replace("and", "Or")+ "<br>");
+
+       let sub = a.split(" "); //빈칸기준 분리
+       for(let i=0; i<sub.length; i++){
+        document.write(i +"="+ sub[i] + "<br>")
+       }
+
+       document.write(a + "<br>")
+       document.write(b + "<br>");
+    </script>
+</body>
+</html>
