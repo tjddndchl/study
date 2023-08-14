@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>onload로 이미지 크기 출력</title>
+    <script>
+        function changeimage(){
+            let sel =document.getElementById("sel");
+            let img =document.getElementById("mylmg");
+            img.onload = function(){
+                let mySpan = document.getElementById("mySpan");
+                mySpan.innerHTML = img.width + "x" + img.height;
+            }
+            let index = sel.selectedIndex;
+            img.src = sel.options[index].value; //<option>의 value속성
+        }
+    </script>
+</head>
+<body onload="changeimage()">
+    <h3>onload로 이미지 크기 출력</h3>
+    <hr>
+    <form action="">
+        <select name="" id="sel" onchange="changeimage()">
+            <option value="/img/prod1.jpg">prod1</option>
+            <option value="/img/딸기.jpg">딸기</option>
+            <option value="/img/prod3.jpg">prod3</option>
+        </select>
+        <span id="mySpan">이미지 크기 </span>
+    </form>
+    <p><img src="/img/딸기.jpg" id="mylmg"  alt="."></p>
+</body>
+</html>
