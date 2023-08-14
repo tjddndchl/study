@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/wordcloud2.js/1.1.0/wordcloud2.js"></script>
+    <script>
+        let reader =new FileReader();
+        reader.onload = function(e){
+            let data = e.target.result;
+            console.log(data);
+            let rows = data.split('\r\n');
+            console.log(rows);
+            console.log(countWords(data));
+            let obj = countWords(data);
+            let wordArr = [];
+            for(let Key in obj){
+                wordArr.push([Key, obj[Key]])
+            }
+            console.log(wordArr);
+            WordCloud(document.getElementById('myCanvas'), {
+            list:wordArr
+            ,backgroundColor:'black'
+            ,fontSize : {from: 1,to: 2}
+        })
+
+
+        }
+        function countWords(words){
+            let counts = {};
+            let arr = words.split(' ');
+            for(let word of arr){
+                
+                word = word.toLowerCase().trim();
+                //비어있거나 1글자 이상만 카운팅
+                if(word !== '' && word.length >1){
+                    counts[word] = counts[word] ? counts[word]+30 : 1;
+                }
+                
+            }
+            return counts;
+        }
+        function readFile(){
+        let files = document.getElementById('textFile').files;
+        for(let i =0; i < files.length; i++){
+            let file = files[i];
+            console.log('file nm:', file.name);
+            console.log('file type:', file.type);
+            console.log('file size:', file.size);
+            if(file.name.indexOf('.csv')||file.name.indexOf('.txt')){
+                reader.readAsText(file);
+            }
+
+        }
+    }    
+    </script>
+</head>
+<body>
+    <input type="file" id="textFile" onchange="readFile()">
+    <canvas id="myCanvas" width="1000" height="800"></canvas>
+
+</body>
+</html>
