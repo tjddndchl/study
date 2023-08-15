@@ -12,7 +12,7 @@
         function hideLogo(){
             logoDiv = document.getElementById('logoDiv');
             logoDiv.style.display = 'none';
-            logoDiv.style.zIndex = -1;
+            logoDiv.style.zIndex = -1;//이미지를 문서의 맨 바닥으로 배치
         }
         window.onafterprint = hideLogo;
         window.onbeforeprint =function(){
