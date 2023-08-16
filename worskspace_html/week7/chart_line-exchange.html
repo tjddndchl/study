@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://code.jquery.com/jquery-3.7.0.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script>
+        $(document).ready(function(){
+            let labels_arr =[];                      
+            let KRW_arr = [];
+            let JPY_arr = [];
+            let exchange_url ='https://api.exchangerate.host/timeseries'
+            $('#btn').click(function(){
+                let s_dt = $('#s_dt').val();
+                let e_dt = $('#e_dt').val();
+                let base = $('#base').val();
+                console.log(s_dt,e_dt, base)
+                $.ajax({
+                    url : exchange_url
+                    ,type : 'GET'
+                    ,data : {'start_date':s_dt
+                            ,'end_date':e_dt
+                            , 'base': base}
+                    ,dataType : 'json'
+                    ,success : function(res){
+                        console.log(res);
+                        //응답받은 데이터에서
+                        //날짜를 labels_arr
+                        // KRW금액을 data_arr 담아주세요
+                        let obj = res['rates'];
+                        // let krw = res.rates.KRW;
+                        // console.log(krw);
+                        // let jpy = res.rates.JPY
+                        
+                        for(let Key in obj){
+                            labels_arr.push(Key);
+                            KRW_arr.push(obj[Key]['KRW'])
+                            JPY_arr.push(obj[Key]['JPY']*10)
+                        }
+                         console.log(labels_arr,KRW_arr,JPY_arr);
+                        // configs.data.labels = labels_arr
+                        // configs.data.datasets[0].data = KRW_arr;
+                        // configs.data.datasets[1].data = JPY_arr;
+                        // myChart.update();
+                    }
+
+                })
+
+            })
+     
+                
+      
+            let ctx = document.getElementById('myChart');
+            let configs = {
+                type: 'line'
+                ,data : {
+                    labels : [labels_arr]
+                    ,datasets : [{label : 'KRW'
+                                  ,data : [KRW_arr]
+                                }
+                                ,{
+                                    label : 'JPY'
+                                    ,data :[JPY_arr]
+                                }
+
+                            ]
+                }
+                ,options : {
+                    elements : {
+                        line : {
+                            tension : 0.1 // 수치가 클수록 부드럽게 그려줌
+                        }
+                    }
+                }
+                
+            };
+            let myChart = new Chart(ctx, configs);
+
+            $('#btn2').click(function(){
+                configs.data.labels = labels_arr
+                configs.data.datasets[0].data = KRW_arr;
+                configs.data.datasets[1].data = JPY_arr;
+                myChart.update();
+                console.log(labels_arr,KRW_arr,JPY_arr)
+            })
+        });
+    </script>
+    <title>line chart</title>
+</head>
+<body>
+    <input type="date" name="" id="s_dt">
+    <input type="date" name="" id="e_dt">
+    <button id="btn">환율조회</button>
+    <select name="" id="base">
+        <option value="USD" selected>달러</option>
+        <option value="EUR">유로</option>
+    </select>
+    <h3>한국 환율 추세(라인차트)</h3>
+    <div style="width: 600px; height: 400px;">
+        <canvas id="myChart" width="100px" height="100px"></canvas>
+    </div>
+    <button id="btn2">조회</button>
+</body>
+</html>

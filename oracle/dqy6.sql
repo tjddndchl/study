@@ -26,7 +26,7 @@ FROM employees;
 
 SELECT department_id
     ,  SUM(salary)--합계
-    ,  ROUND (AVG(salary),3)--평균
+    ,   ROUND(AVG(salary),-1)--평균
     ,  MAX(salary)--최댓값
     ,  MIN(salary)--최솟값
     
@@ -62,11 +62,11 @@ SELECT *
 FROM kor_loan_status;
 
 
-SELECT period
+SELECT NVL(period,'총합계')-- NVL(열, null값 바꿀거), NVL2(열, 널이아닐떄, 널일때)
     , sum(loan_jan_amt) as 총잔액
 FROM kor_loan_status
 where period like '2013%'
-GROUP BY period
+GROUP BY rollup (period)
 ORDER BY 1;
 --2013년도 지역별 대출종류별 총대출잔액
 --select 절에 오는 컬럼은 집계함수를 제외하고
@@ -117,6 +117,7 @@ order by 2 ;
 
 
 --직업별 마일리지의 합계 마일리지 전체합계를 출력하시오
+select * from member;
 SELECT (mem_job) as 직업
     ,  COUNT(mem_id) as 회원수
     ,  sum(mem_mileage) as 합계
@@ -145,7 +146,7 @@ ORDER by 1;
 
 
 --연도별 회원수를 출력하시오 단 남, 녀 구분하여서
-
+select * from customers;
 select cust_year_of_birth
     , sum (decode(cust_gender,'M',1,0)) as 남자
     , sum( decode(cust_gender,'F',1,0)) as 여자
@@ -155,7 +156,7 @@ GROUP BY rollup(cust_year_of_birth)
 ORDER BY 1;
 
 select cust_year_of_birth
---      ,cust_gender
+      ,cust_gender
     , SUM(case when cust_gender = 'F' then '1'
     else '0'
     end) as 여자
@@ -164,13 +165,14 @@ select cust_year_of_birth
     end) as 남자
 
 FROM customers
-GROUP BY cust_year_of_birth;
+GROUP BY cust_year_of_birth,cust_gender;
 
 --지역별 각 년도별 대출총잔액을 구하는 쿼리를 작성해 보자
+select * FROM kor_loan_status;
 SELECT region
    ,sum(decode(substr(period,1,4),'2011',loan_jan_amt)) as AVM_2011
-   ,sum(decode(substr(period,1,4),'2012',loan_jan_amt)) as AVM_2012
-   ,sum(decode(substr(period,1,4),'2013',loan_jan_amt)) as AVM_2013
+   ,SUM(decode(substr(period,1,4),'2012',loan_jan_amt)) as AVM_2012
+   ,SUM(decode(substr(period,1,4),'2013',loan_jan_amt)) as AVM_2013
 
 from kor_loan_status
 group by region
