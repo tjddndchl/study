@@ -116,7 +116,9 @@ FROM 과목;
 
 SELECT 학생.이름
             ,학생.학번
+            ,학생.전공
             ,수강내역.과목번호
+            ,수강내역.수강내역번호
             ,(select distinct 과목.과목이름
               FROM 과목
              where 과목.과목번호 = 수강내역.과목번호) AS dep_name
