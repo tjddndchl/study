@@ -124,7 +124,7 @@ SELECT *
 FROM  (SELECT ROWNUM as rnum
     , 학번, 이름, 전공
 FROM 학생) a --SELECT문을 테이블처럼 사용
-WHERE a.rnum BETWEEN 2 AND 5;
+WHERE a.rnum BETWEEN 1 AND 5;
  
  SELECT *
  
@@ -138,7 +138,8 @@ from (SELECT employee_id
             order by emp_name) a
 )
 WHERE emp_name LIKE '%e%'
-AND rnum BETWEEN 1 AND 107;
+AND rnum BETWEEN 1 AND 10
+ORDER BY RNUM DESC;
 
 SELECT rownum as rnum
             , a.*
@@ -173,9 +174,24 @@ select m.mem_name as 이름
         , count(p.prod_name) as 상품품목건수
         ,NVL(SUM(c.cart_qty),0) as 삼품구매수량
         , NVL(SUM( p.prod_sale * c.cart_qty),0) as 총구매금액 
-        
+
 FROM member m,cart c,prod p
 where m.mem_id = c.cart_member(+)
 and    c.cart_prod = p.prod_id(+)
 group by m.mem_name
 order by 5 DESC;
+
+
+
+
+/* ANSI OUTER JOIN  */
+SELECT a.mem_id
+            ,a.mem_name
+            ,COUNT(DISTINCT b.cart_no) 카트사용횟수
+            ,COUNT(c.prod_id) 상품품목수
+FROM member a
+LEFT OUTER JOIN cart b
+ON(a.mem_id = b.cart_member)
+LEFT OUTER JOIN prod c
+ON(b.cart_prod = c.prod_id)
+GROUP BY mem_id,mem_name;
