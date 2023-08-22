@@ -1,0 +1,6 @@
+.big{
+    background: url("../images/background.jpg") center center;
+    background-size: cover;
+    background-attachment: fixed;
+    height: 650px;
+}

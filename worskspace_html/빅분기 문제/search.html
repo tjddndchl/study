@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>검색 이펙트</title>
+
+    <link rel="stylesheet" href="css/reset2.css">
+    <link rel="stylesheet" href="css/search2.css">
+</head>
+<body class="pink">
+    <header id="header">
+        <ul>
+    
+        </ul>
+    </header>
+    <main id="main">
+        <div class="search__wrap">
+            <div class="search__header">
+                <h2 class="title">빅데이터 분석기사 정리</h2>
+            </div>
+            <div class="search__conts">
+                <hgroup>
+                    <h3>빅분기 용어 검색하기</h3>
+                    <h4>단어</h4>
+                </hgroup>
+                <div class="search__box">
+                    <label type="search">검색하기</label>
+                    <input type="text" name="search" placeholder="단어 용어 검색!">
+                </div>
+                <div class="search__info">
+                    <div>
+                        빅분기 단어 갯수 : <span>0</span>개
+                    </div>
+                </div>
+                <div class="search__list">
+                    <ul>
+                        <li data-name="빅데이터"><strong>빅데이터</strong> : 수십 TB 이상의 정형/비정형 데이터 & 데이터에서 가치추출&결과분석하는 기술</li>
+                        <li data-name="DIKW 피라미드"><strong>DIKW 피라미드</strong> :  Data - Information - Knowledge - Wisdom</li>
+                        <li data-name="바이트 크기 비교"><strong>바이트 크기 비교</strong> : 킬로 < 메가 < 기가 < 테라(=10^12바이트) < 페타 < 엑사 < 제타 < 요타바이트 (KMGT PEZY) </li>
+                        <li data-name="구조적 관점의 빅데이터 유형"><strong>구조적 관점의 빅데이터 유형</strong> :정형/ 반정형/ 비정형 </li>
+                        <li data-name="데이터 지식경영 상호작용"><strong>데이터 지식경영 상호작용</strong> :암묵지/ 형식지/ 내면화/ 공통화/ 표출화/ 연결화 </li>
+                        <li data-name="암묵지-형식지 간 4단계 지식전환단계"><strong>암묵지-형식지 간 4단계 지식전환단계</strong> : 공통화 - 표출화 - 연결화 - 내면화 (SECI)</li>
+                        <li data-name="빅데이터 위기요인"><strong>빅데이터 위기요인</strong> :사생활 침해/ 책임원칙 훼손/ 데이터 오용 </li>
+                        <li data-name="위기요인에 대한 통제방안"><strong>위기요인에 대한 통제방안</strong> : 알고리즘 접근 허용/ 책임 강조/ 결과기반 책임 적용</li>
+                        <li data-name="빅데이터 산업"><strong>빅데이터 산업</strong> :- 클라우드 컴퓨팅 기술 발전으로 데이터 처리 비용 감소
+                            - 주요국&글로벌 기업은 빅데이터 산업육성&활용에 주력 → But 우리나라는 활용저조↓ </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </main>
+    <footer id="footer">
+        <a href="mailto.tjddndchl134@gmail.com">tjddndchl134@gmail.com</a>
+        <li><a href="index.html">돌아가기</a></li>  
+    </footer>
+    <!-- //footer -->
+
+    <script>
+        // 선택자
+        const searchBox = document.querySelector(".search__box input");  //검색
+        const searchList = document.querySelectorAll(".search__list li");  //검색
+
+        document.querySelector(".search__info span").textContent = searchList.length;
+
+        // 검색
+        searchBox.addEventListener("keyup", () => {
+            const uesrWord = searchBox.value;       //사용자가 입력한 키워드
+
+            searchList.forEach(el => {
+                // const cssname = el.getAttribute("data-name");
+                const cssName = el.dataset.name;
+                
+                if(cssName.indexOf(uesrWord)){
+                    //데이터가 있을 때
+                    el.classList.add("hide");
+                } else {
+                    //데이터가 없을 때
+                    el.classList.remove("hide");
+                }
+            });
+        });
+
+    </script>
+</body>
+</html>`

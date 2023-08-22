@@ -91,6 +91,7 @@ from(
 SELECT NVL(a.성별,'합계')
             ,count(a.성별)
 FROM(
+
   SELECT decode(sex_code,'M','남자','F','여자','미등록')  as 성별
   FROM customer)  a
 group by ROLLUP (a.성별);
