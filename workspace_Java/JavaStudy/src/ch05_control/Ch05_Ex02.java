@@ -16,9 +16,11 @@ public class Ch05_Ex02 {
 		//"입력메뉴"메뉴는 저희 매장에 없습니다. 출력
 		int salePrice = 0;
 		Scanner scanner = new Scanner(System.in);
+		
 		System.out.println("메뉴를 주문하세요");
 		System.out.println(">>>");
 		String menu= scanner.nextLine();
+		
 		switch(menu) {
 		case "아아":
 			

@@ -22,10 +22,16 @@ public class Conditional {
 		//변수의 사용범위(SCope)
 		//중괄호 불록{} 내부에 선언된 변수는
 		//해당 줄괄호 바깥에서 사용할 수 없음.
-		String review = "음식이 맛있어요^^";
+		
+		System.out.println("==============================================");
+		String review = "음식이 맛있어요^^1232323";
+		System.out.println(review);
+		System.out.println(review.length());
 		String msg = "";
-		if (review.length()< 12) {
+		
+		if (review.length() < 12) {
 //			String msg = "";
+			
 			msg = "리뷰는 12자 이상 작성하세요!!";
 			
 		}else {

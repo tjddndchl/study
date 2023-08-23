@@ -160,10 +160,10 @@ SELECT * FROM sales;
 
 SELECT * 
 FROM(
-SELECT e.emp_name AS 이름
-            ,e.manager_id AS 사번
-            ,TO_CHAR(SUM(s.quantity_sold  *  s.amount_sold),'999,999,999.99') AS 총판매금액
-            ,TO_CHAR(SUM(s.quantity_sold), '999,999,999') AS 총판매수량
+SELECT e.emp_name
+            ,e.manager_id
+            ,TO_CHAR(SUM(s.quantity_sold  *  s.amount_sold),'999,999,999.99')
+            ,TO_CHAR(SUM(s.quantity_sold), '999,999,999')
 FROM employees e, sales s
 WHERE  e.employee_id = s.employee_id
 AND    TO_CHAR(s.sales_date,'YYYY') = 2000

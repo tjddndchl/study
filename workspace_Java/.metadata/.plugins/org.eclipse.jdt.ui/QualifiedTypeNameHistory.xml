@@ -23,9 +23,7 @@
     <fullyQualifiedTypeName name="ch10_extends_interface.ramen.Ramen"/>
     <fullyQualifiedTypeName name="java.util.jar.Attributes.Name"/>
     <fullyQualifiedTypeName name="pratice.submit01.classexample9_2.Cafe"/>
-    <fullyQualifiedTypeName name="java.util.Scanner"/>
     <fullyQualifiedTypeName name="java.lang.System"/>
-    <fullyQualifiedTypeName name="java.lang.Integer"/>
     <fullyQualifiedTypeName name="pratice.submit01.classexample9_2.Coffe"/>
     <fullyQualifiedTypeName name="javax.swing.plaf.synth.SynthScrollPaneUI"/>
     <fullyQualifiedTypeName name="java.util.Locale"/>
@@ -60,4 +58,6 @@
     <fullyQualifiedTypeName name="java.lang.String"/>
     <fullyQualifiedTypeName name="ch12_exception.BizException"/>
     <fullyQualifiedTypeName name="ch12_exception.ExMethod"/>
+    <fullyQualifiedTypeName name="java.util.Scanner"/>
+    <fullyQualifiedTypeName name="java.lang.Integer"/>
 </qualifiedTypeNameHistroy>
