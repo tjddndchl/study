@@ -44,7 +44,7 @@ public class JdbcSelect2 {
 			query.append(" VALUES (?,?,?,?)");
 			ps = connection.prepareStatement(query.toString());
 			int idx = 1;
-			ps.setString(idx++,"le2001");
+			ps.setString(idx++,"lee2001");
 			ps.setString(idx++,"l234");
 			ps.setString(idx++,"펭수");
 			ps.setInt(idx++,0);

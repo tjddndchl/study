@@ -54,18 +54,18 @@ public class Ecample6 {
 			}
 	
 		public static void MaxMin(int [] number) {
-//			int max = number[0];
-//			int min = number[0];
-//			for(int i=0; i<number.length;i++) {
-//				if (number[i]>max) {
-//					max=number[i];
-//				}
-//				if (number[i]<min) {
-//					min= number[i];
-//				}
-//			}
-//			System.out.println("최대값은:"+ max);
-//			System.out.println("최소값은:"+ min);
+			int max = number[0];
+			int min = number[0];
+			for(int i=0; i<number.length;i++) {
+				if (number[i]>max) {
+					max=number[i];
+				}
+				if (number[i]<min) {
+					min= number[i];
+				}
+			}
+			System.out.println("최대값은:"+ max);
+			System.out.println("최소값은:"+ min);
 			
 			
 			

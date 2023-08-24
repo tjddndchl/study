@@ -7,8 +7,11 @@ public class ExceptionMain {
 	public static void main(String[] args) {
 		System.out.println("메인 시작");
 		int[] intArr = {1,2,3};
+	
 		try {
+			divide(121, 0);
 			System.out.println(intArr[3]);
+			
 		}catch(ArrayIndexOutOfBoundsException e) {
 			System.out.println("인덱스 문제!!! 사이즈에 맞게 사용하세요!!");
 			e.printStackTrace();
@@ -35,12 +38,19 @@ public class ExceptionMain {
 	
 	try {
 		//ExMethod.printName("");
-		ExMethod.printName("길");
+		ExMethod.printName("");
 	} catch (BizException e) {
 		// TODO: handle exception
 		System.out.println(e.getErrCode());
 		System.out.println(e.getMessage());
 	}
+	}
+	public static int divide(int numA,int numB) throws BizException{
+		if(numB==0) {
+			throw new BizException("numB는 0이외의 숫자를 입력하세요");
+		}else {
+			return numA/numB;
+		}
 	}
 	
 

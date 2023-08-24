@@ -1,0 +1,30 @@
+<html>
+    <head>
+        <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js">
+
+        </script>
+    </head>
+    <body>
+        <h1>Send Eamil</h1>
+        sender Name
+        <input type="text" id="sendername"> <br>
+        To (email)
+        <input type="text" id="to"> <br>
+        Subject
+        <input type="text" id="subject"> <br>
+        Reply To (Email)
+        <input type="text" id="replyto"> <br>
+        Message <br>
+        <textarea name="" id="message" cols="40" rows="8"></textarea> <br>
+        <button onclick="sendMail();">Send</button>
+
+        <script>
+            function sendMail(){
+                (function(){
+                    emailjs.init("GOj1TgK6D1-0TzBrd");//ACCOUNT PUBLIC KEY
+                })();
+            }
+            var parms
+        </script>
+    </body>
+</html>

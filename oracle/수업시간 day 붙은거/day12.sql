@@ -54,7 +54,8 @@ WITH T1 AS (
     GROUP BY
         a.mem_id,
         a.mem_name
-), T2 AS (
+)
+, T2 AS (
     SELECT
         MAX(T1.cnt) AS max_cnt,
         MIN(T1.cnt) AS min_cnt
@@ -79,7 +80,9 @@ WITH T1 as (SELECT a.이름
                             ,   b.과목번호
                         FROM 학생 a, 수강내역 b
                         WHERE a.학번 = b.학번(+)
-), T2 as(SELECT T1.이름, T1.학번, COUNT(T1.수강내역번호) as 수강이력건수
+)
+, T2 as
+            (SELECT T1.이름, T1.학번, COUNT(T1.수강내역번호) as 수강이력건수
             FROM T1
             GROUP BY T1.이름, T1.학번
 ), T3 as(

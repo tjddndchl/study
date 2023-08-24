@@ -31,6 +31,7 @@ public class ApiMath {
 		//3의 4제곱
 		double powVal = Math.pow(3, 4);
 		System.out.println(powVal);
+		
 		//제곱근(루트)
 		int anyNum = 144;
 		System.out.println(Math.sqrt(anyNum));

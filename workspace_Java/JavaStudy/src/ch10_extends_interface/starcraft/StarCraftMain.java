@@ -5,7 +5,7 @@ import java.util.ArrayList;
 public class StarCraftMain {
 
 	public static void main(String[] args) {
-		Marine marine01 = new Marine("마린", 6, 50, 0);
+		Marine marine01 = new Marine("미친마친", 10, 50, 0);
 		Marine marine02 = new Marine();
 		marine01.move(100, 200);
 		marine01.stimpack();
@@ -50,7 +50,7 @@ public class StarCraftMain {
 		//
 		StarUnit scv = new StarUnit("SCV", 5, 60, 0);
 		//일반적으로 부모 객체는 자식 객체로 형변활 할수 없다.
-		//instaceof 형변환 가능 체크 true/false
+		//instanceof 형변환 가능 체크 true/false
 		System.out.println(scv instanceof Zealot);
 		//부모 객체로 형변환 되었던 자식 객체는
 		//다시 자식 타입으로 형변환이 가능

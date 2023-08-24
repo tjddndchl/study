@@ -11,11 +11,12 @@ select * from reservation;
 
 
 --6번문제 전체 상품별,상품이름,상품매출 을 내림차순으로 구하시오
-select i.product_name
+select i.item_id 
+        ,i.product_name
         ,SUM(o.sales)
 from  item i, order_info o
 where i.item_id = o.item_id
-group by i.product_name
+group by i.item_id,i.product_name
 ORDER BY 2 DESC;
 
 ---------- 7번 문제 ---------------------------------------------------
@@ -23,7 +24,7 @@ ORDER BY 2 DESC;
 -- 매출월, SPECIAL_SET, PASTA, PIZZA, SEA_FOOD, STEAK, SALAD_BAR, SALAD, SANDWICH, WINE, JUICE
 ----------------------------------------------------------------------------
 
-select SUBSTR(RESERV_NO,1,6) as 매출월
+select SUBSTR(r.RESERV_date,1,6) as 매출월
            
         ,sum(DECODE(i.item_id,'M0001',o.sales,0)) as 스페셜셋
         ,sum(DECODE(i.item_id,'M0002',o.sales,0)) as 파스타
@@ -35,9 +36,10 @@ select SUBSTR(RESERV_NO,1,6) as 매출월
          ,sum(DECODE(i.item_id,'M0008',o.sales,0)) as 샌드위치
          ,sum(DECODE(i.item_id,'M0009',o.sales,0)) as 와인
          ,sum(DECODE(i.item_id,'M0010',o.sales,0)) as 주스
-FROM item i, order_info o
+FROM item i, order_info o,reservation r
 where i.item_id = o.item_id
-group by SUBSTR(RESERV_NO,1,6)
+AND o.reserv_no = r.reserv_no
+group by SUBSTR(r.reserv_date,1,6)
 ORDER BY 1;
 
 
@@ -63,6 +65,35 @@ where i.item_id = o.item_id
 GROUP BY SUBSTR(RESERV_NO,1,6),product_name
 order by 2 DESC;
 
+
+
+SELECT 매출월
+            ,상품이름
+            ,SUM(DECODE(요일,'일요일',sales,0)) as 일요일
+            ,SUM(DECODE(요일,'월요일',sales,0)) as 월요일
+            ,SUM(DECODE(요일,'화요일',sales,0)) as 화요일
+            ,SUM(DECODE(요일,'수요일',sales,0)) as 수요일
+            ,SUM(DECODE(요일,'목요일',sales,0)) as 목요일
+            ,SUM(DECODE(요일,'금요일',sales,0)) as 금요일
+            ,SUM(DECODE(요일,'토요일',sales,0)) as 토요일
+FROM(
+SELECT SUBSTR(a.reserv_date,1,6) as 매출월 
+            ,c.product_desc                 as 상품이름
+            ,TO_CHAR(TO_DATE(a.reserv_date),'day') 요일
+            ,b.sales
+FROM reservation a,order_info b, item c
+WHERE a.reserv_no = b.reserv_no
+AND b.item_id = c.item_id
+AND c.product_desc = '온라인_전용상품'
+)
+GROUP BY 매출월
+            ,상품이름;
+
+
+--9번문재
+--매출이력이 있는 고객의 주소, 우편번호,해당지역의 고객수를 출력하시
+
+
 SELECT distinct a.address_detail
             ,count(distinct r.customer_id)
         
@@ -75,15 +106,68 @@ where c.customer_id = r.customer_id
 
 
 
+SELECT DISTINCT a.customer_id, a.zip_code
+        
+FROM customer a,reservation b,order_info c
+where a.customer_id = b.customer_id
+AND b.reserv_no = c.reserv_no;
 
-SELECT c.customer_id
-            ,count(a.zip_code)
-         
-          
-             
+----------------------------------------------
+-----고객별 지점(branch) 방문횟수와 방문객의 합을 출력하시오
+-----방문횟수가 4번이상합  출력하시오 (예약취소건 제외)
+SELECT * FROM customer;
+SELECT * FROM reservation;
+
+
+
+SELECT a.customer_id
+            ,a.customer_name
+            ,b.branch
+            ,COUNT (b.visitor_cnt) as 방문횟수
+            ,SUM(b.visitor_cnt) as 방문객수
             
-FROM customer c,address a
+FROM customer a,reservation b
+WHERE a.customer_id = b.customer_id
+AND b.cancel NOT IN 'Y'
 
-WHERE     c.zip_code = a.zip_code
-AND SUBSTR(r.branch,1,2) =SUBSTR(a.address_detail,1,2);
+GROUP BY  a.customer_id,a.customer_name,b.branch
+HAVING(count(b.visitor_cnt) >= 4)
+ORDER BY 4 DESC,5 DESC;
 
+--가장 방문을 많이 한 고객의 그동안 구매한 품목별 합산금액을 출력하시오
+--W1338910
+
+SELECT reserv_no
+FROm reservation
+WHERE cancel = 'N'
+AND customer_id = 'W1338910';
+
+SELECT (SELECT product_name FROM item WHERE item_id = a.item_id) as category
+            ,SUM(sales) as 구매합계
+FROM order_info a
+WHERE a.reserv_no IN(2017111303)
+GROUP BY a.item_id;
+
+SELECT (SELECT product_name FROM item WHERE item_id = a.item_id) as category
+            ,SUM(sales) as 구매합계
+FROM order_info a
+WHERE a.reserv_no IN(2017111303)
+GROUP BY a.item_id;
+
+
+SELECT customer_id
+FROM(
+    SELECT a.customer_id
+                ,a.customer_name
+                ,b.branch
+                ,COUNT (b.visitor_cnt) as 방문횟수
+                ,SUM(b.visitor_cnt) as 방문객수
+                
+    FROM customer a,reservation b
+    WHERE a.customer_id = b.customer_id
+    AND b.cancel NOT IN 'Y'
+    
+    GROUP BY  a.customer_id,a.customer_name,b.branch
+    ORDER BY 4 DESC,5 DESC
+)
+WHERE ROWNUM <= 1;
