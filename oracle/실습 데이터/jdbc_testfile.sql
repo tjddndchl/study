@@ -8,7 +8,8 @@ CREATE TABLE tb_user(
     ,update_dt DATE DEFAULT SYSDATE
     ,use_yn VARCHAR2(1) DEFAULT 'Y'
 );
-drop table tb_user;
+
+
 --select * insert 로 tb_user 테이블에 데이터 삽입
 SELECT mem_id, mem_pass, mem_name, mem_mail,mem_mileage, sysdate
 FROM member;

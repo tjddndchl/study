@@ -56,4 +56,12 @@ public class connectionFactory {
 			e.printStackTrace();
 		}
 	}
+	public int getMaxConn() {
+		return maxConn;
+	}
+	public void setMaxConn(int maxConn) {
+		this.maxConn = maxConn;
+	}
+	
+	
 }

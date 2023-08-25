@@ -7,6 +7,7 @@ public class OperatorMain {
 	public static void main(String[] args) {
 		// 연산자 operator
 		// 1.증감 연산자
+		
 		int num = 10;
 		System.out.println(num);
 		num++;// 후위 증가1

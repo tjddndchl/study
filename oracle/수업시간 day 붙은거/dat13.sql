@@ -48,3 +48,21 @@ SELECT emp_name
 FROM employees) a1
 WHERE rank = 1;
 
+--학생중 학과별 평점이 가장 높은 학생의 정보를 출력하시오
+
+SELECT * FROM 학생;
+
+
+SELECT   b.*
+            
+FROM(
+SELECT 학번,이름,주소,전공,부전공,생년월일,학기,평점,
+            DENSE_RANK() OVER(PARTITION BY 전공
+                                                ORDER BY a.평점 DESC) as DENSE_전공
+FROM 학생 a
+)   b
+WHERE DENSE_전공 = 1;
+
+
+
+
