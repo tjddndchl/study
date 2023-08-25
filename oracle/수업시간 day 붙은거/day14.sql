@@ -29,21 +29,7 @@ WHERE DENSE_전공 = 1;
 -- CART, PROD 물품별 prod_sale 합계의 상위 10개 상품을 출력하시오
 
 
-SELECT  c.* 
-FROM(
-SELECT  a.cart_prod
-            , b.prod_name
-            ,a.cart_qty
-            ,b.prod_sale
-             ,(b.prod_sale) *(a.cart_qty)  
-            ,DENSE_RANK() OVER(ORDER BY ((b.prod_sale) * (a.cart_qty)) DESC) as 합계  
-FROM cart a,prod b
-WHERE a.cart_prod = b.prod_id
-GROUP BY  a.cart_prod
-            , b.prod_name
-            ,a.cart_qty
-            ,b.prod_sale) c
-WHERE 합계  <= 10;
+
 
 
 
