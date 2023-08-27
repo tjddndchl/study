@@ -10,7 +10,7 @@ public class MultiInterfaceImplExample {
 		Searchable searchable = new SmartTelevision();
 		
 		searchable.search("https://www.tourube.com");
-
+		
 	}
 
 }

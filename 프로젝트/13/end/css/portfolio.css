@@ -1,3 +1,8 @@
+section .portfolio-me::after{
+    content: "";
+    display: block;
+    clear: both;
+}
 section .portfolio-me .portfolio-inner{
     width: 30%;
     margin-right: 5%;

@@ -1,30 +1,54 @@
 <html>
     <head>
-        <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js">
-
-        </script>
-    </head>
-    <body>
-        <h1>Send Eamil</h1>
-        sender Name
-        <input type="text" id="sendername"> <br>
-        To (email)
-        <input type="text" id="to"> <br>
-        Subject
-        <input type="text" id="subject"> <br>
-        Reply To (Email)
-        <input type="text" id="replyto"> <br>
-        Message <br>
-        <textarea name="" id="message" cols="40" rows="8"></textarea> <br>
-        <button onclick="sendMail();">Send</button>
-
+        <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
         <script>
             function sendMail(){
                 (function(){
                     emailjs.init("GOj1TgK6D1-0TzBrd");//ACCOUNT PUBLIC KEY
                 })();
-            }
-            var parms
+                var params ={
+                    sendername: document.querySelector("#sendername").value,
+                    to: document.querySelector("#to").value,
+                    subject: document.querySelector("#subject").value,
+                    replyto: document.querySelector("#replyto").value,
+                    message: document.querySelector("#message").value,
+                };
+            
+            var serviceID ="tjddndchl";//이메일 서비스 아이디
+            var templateID = "template_97aunfy"; //이메일 템플릿 아이디
+
+            emailjs.send(serviceID, templateID, params)
+            .then(res => {
+                alert("이메일이 성공적으로 보내줬습니다.");
+            })
+            
+            .catch();
+            location.reload();
+
+            setTimeout(function(){
+            location.reload();
+            }, 3000);
+            
+        }
+
+
         </script>
+
+    </head>
+    <body>
+        <h1>이메일 보내기</h1>
+        이름
+        <input type="text" id="sendername"> <br>
+        보내는분 (email)
+        <input type="text" id="to"> <br>
+        제목
+        <input type="text" id="subject"> <br>
+        받을이메일 (Email)
+        <input type="text" id="replyto"> <br>
+        내용 <br>
+        <textarea name="" id="message" cols="40" rows="8"></textarea> <br>
+        <button onclick="sendMail();">보내기</button>
+
+   
     </body>
 </html>
