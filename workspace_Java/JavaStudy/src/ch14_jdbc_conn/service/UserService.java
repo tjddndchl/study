@@ -8,6 +8,7 @@ import java.util.ArrayList;
 import ch14_jdbc_conn.dao.UserDao;
 import ch14_jdbc_conn.jdbc.ConnectionPool;
 import ch14_jdbc_conn.model.BbsVo;
+import ch14_jdbc_conn.model.DetailedBbsVo;
 import ch14_jdbc_conn.model.UserVO;
 
 public class UserService {
@@ -56,5 +57,15 @@ public class UserService {
 		}
 		return null;
 	}
-	
+	public ArrayList<DetailedBbsVo> DetailList (int bbsno){
+		Connection conn = cp.getConnection();
+		
+		try {
+			return dao.DetailList(conn, bbsno);
+		} catch (SQLException e) {
+			
+			e.printStackTrace();
+		}
+		return null;
+	}
 }

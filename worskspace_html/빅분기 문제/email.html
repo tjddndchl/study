@@ -19,18 +19,17 @@
 
             emailjs.send(serviceID, templateID, params)
             .then(res => {
-                alert("이메일이 성공적으로 보내줬습니다.");
+                alert("메일이 성공적으로 보내졌습니다.")
             })
             
             .catch();
-            location.reload();
-
-            setTimeout(function(){
-            location.reload();
-            }, 3000);
             
-        }
 
+        }
+        function deleteStar(name) {
+            alert("hi")
+            window.location.reload();
+        }
 
         </script>
 
@@ -48,6 +47,7 @@
         내용 <br>
         <textarea name="" id="message" cols="40" rows="8"></textarea> <br>
         <button onclick="sendMail();">보내기</button>
+        <button onclick="deleteStar()">새로고침</button>
 
    
     </body>

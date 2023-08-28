@@ -258,9 +258,23 @@ select * FROM bbs;
 SELECT bbs_no
             ,parent_no
             ,bbs_title
-            ,bbs_contet
+            ,bbs_content
             ,author_id
             ,create_dt
             ,update_dt
 FROM bbs
- where bbs_no= ?   
+ where bbs_no= 1;   
+ 
+ 
+ 
+	SELECT 
+ 	   DECODE(level, 1, '∏ﬁ¿Œ±€','¥Ò±€')
+ 	     , bbs_no    as bbs_no         
+ 		
+         ,LPAD(' ',3 * (level-1))|| a.bbs_content    as bbs_content         
+ 	    ,author_id    as author_id      
+ 		 ,update_dt      as update_dt   
+    	FROM bbs a
+ 		START WITH bbs_no = 1
+ 		CONNECT BY PRIOR bbs_no = parent_no 
+ 		ORDER SIBLINGS BY update_dt desc;

@@ -8,7 +8,9 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 
 import ch14_jdbc_conn.model.BbsVo;
+import ch14_jdbc_conn.model.DetailedBbsVo;
 import ch14_jdbc_conn.model.UserVO;
+import oracle.jdbc.AdditionalDatabaseMetaData;
 import pratice.submit01.result01;
 
 public class UserDao {
@@ -82,6 +84,8 @@ public class UserDao {
  			ResultSet rs = ps.executeQuery();
  			 while (rs.next()) {
  		        BbsVo bbsVo = new BbsVo();
+ 		       bbsVo.setRnum(rs.getInt("rnum"));
+ 		
  		        bbsVo.setBbsNo(rs.getInt("bbs_no"));
  		        bbsVo.setBbsTitle(rs.getString("bbs_title"));
  		        bbsVo.setAuthorId(rs.getString("author_id"));
@@ -95,6 +99,38 @@ public class UserDao {
  		    return bbsList;
  	}
  		
- 	
+	public ArrayList<DetailedBbsVo> DetailList(Connection conn, int bbsno) throws SQLException{
+ 		ArrayList<DetailedBbsVo> DetailList= new ArrayList<DetailedBbsVo>();
+ 		StringBuffer query = new StringBuffer();
+ 		query.append("	SELECT ");
+ 		query.append("    DECODE(level, 1, '메인글','댓글')");
+ 		query.append("     , bbs_no    as bbs_no         ");
+ 		
+ 		query.append("     ,LPAD(' ',3 * (level-1))|| a.bbs_content    as bbs_content          ");
+ 		query.append("     ,author_id    as author_id      ");
+ 		query.append("    ,update_dt      as update_dt   ");
+ 		query.append("	FROM bbs a");
+ 		query.append("	START WITH bbs_no = ? ");
+ 		query.append("	CONNECT BY PRIOR bbs_no = parent_no ");
+ 		query.append("	ORDER SIBLINGS BY update_dt desc ");
+ 		PreparedStatement ps =
+ 			conn.prepareStatement(query.toString());
+ 			ps.setInt(1,bbsno);
+ 			ResultSet rs = ps.executeQuery();
+ 			 while (rs.next()) {
+ 		        DetailedBbsVo BBSVO = new DetailedBbsVo();
+ 		       BBSVO.setBbsNo(rs.getInt("bbs_no"));
+ 		       BBSVO.setBbsContent(rs.getString("bbs_content"));
+ 		       BBSVO.setAuthorId(rs.getString("author_id"));
+ 		      BBSVO.setUpdateDt(rs.getString("update_dt"));
+ 		      DetailList.add(BBSVO);
+ 		    }
+ 		    
+ 		    if (ps != null) ps.close();
+ 		    if (rs != null) rs.close();
+ 		    
+ 		    return DetailList;
+ 	}
+ 		
  	
 }
