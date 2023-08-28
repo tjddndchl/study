@@ -1,13 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <qualifiedTypeNameHistroy>
-    <fullyQualifiedTypeName name="ch08_interpace.pratice08.B"/>
-    <fullyQualifiedTypeName name="ch14_jdbc_conn.jdbc.connectionFactory"/>
-    <fullyQualifiedTypeName name="ch08_interpace.pratice08.C"/>
-    <fullyQualifiedTypeName name="ch09.sec06.exam02.Button.ClickListener"/>
-    <fullyQualifiedTypeName name="OkListener"/>
-    <fullyQualifiedTypeName name="ch09.sec06.exam03.ButtonExample"/>
-    <fullyQualifiedTypeName name="javax.swing.ButtonModel"/>
-    <fullyQualifiedTypeName name="CancelListener"/>
     <fullyQualifiedTypeName name="ch09.sec07.exam01.Car"/>
     <fullyQualifiedTypeName name="ch09.sec07.exam01.Tire"/>
     <fullyQualifiedTypeName name="ch09.sec07.exam02.HOme"/>
@@ -58,6 +50,14 @@
     <fullyQualifiedTypeName name="java.sql.Connection"/>
     <fullyQualifiedTypeName name="ch14_jdbc_conn.model.DetailedBbsVo"/>
     <fullyQualifiedTypeName name="java.util.concurrent.ConcurrentNavigableMap"/>
-    <fullyQualifiedTypeName name="java.lang.String"/>
     <fullyQualifiedTypeName name="java.lang.Integer"/>
+    <fullyQualifiedTypeName name="java.lang.Runnable"/>
+    <fullyQualifiedTypeName name="java.awt.Toolkit"/>
+    <fullyQualifiedTypeName name="ch13_thread.sec05.exam02.SumThread"/>
+    <fullyQualifiedTypeName name="java.lang.String"/>
+    <fullyQualifiedTypeName name="ch13_thread.sec05.exam03.WorkThread"/>
+    <fullyQualifiedTypeName name="java.lang.Thread"/>
+    <fullyQualifiedTypeName name="ch13_thread.sec06.exam01.Calculator"/>
+    <fullyQualifiedTypeName name="ch13_thread.sec06.exam01.User1Thread"/>
+    <fullyQualifiedTypeName name="ch13_thread.sec06.exam01.User2Thread"/>
 </qualifiedTypeNameHistroy>
