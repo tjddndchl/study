@@ -2,5 +2,3 @@ INDEX VERSION 1.134+C:\dev\study\workspace_Java\.metadata\.plugins\org.eclipse.j
 3632953489.index
 3134411186.index
 1865797976.index
-1761185797.index
-3509504163.index
