@@ -1,0 +1,12 @@
+CREATE TABLE dept_tcl
+    as SELECT *
+        FROM dept;
+SELECT * FROM dept_tcl;
+
+INSERT INTO dept_tcl VALUES(50,'DATABASE','SEOUL');
+
+UPDATE dept_tcl SET loc = 'BUSAN';
+
+DELETE from dept_tcl WHERE dname = 'RESEARCH';
+
+ROLLBACK;

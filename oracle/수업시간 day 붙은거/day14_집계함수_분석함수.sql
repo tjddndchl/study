@@ -87,6 +87,8 @@ SELECT emp_name, salary
 FROM employees;
 
 
+
+
 --오라클 랜덤값
 CREATE TABLE temp_team AS
 SELECT nm
@@ -104,7 +106,7 @@ SELECT ROWNUM as seq
             ,'2023' || LPAD(CEIL(ROWNUM/1000), 2, '0') as month
             ,ROUND(DBMS_RANDOM.VALUE(100, 1000)) as amt
 FROM dual
-CONNECT BY LEVEL <= 12000;
+CONNECT BY LEVEL <= 10;
 SELECT * FROM tb_sample;
 
 SELECT DBMS_RANDOM.STRING('U', 5)--알파벳 대문자 5자리 랜덤생성
@@ -271,7 +273,7 @@ FROM bbs
  	   DECODE(level, 1, '메인글','댓글')
  	     , bbs_no    as bbs_no         
  		
-         ,LPAD(' ',3 * (level-1))|| a.bbs_content    as bbs_content         
+         ,LPAD(' ',5 * (level-1))|| a.bbs_content    as bbs_content         
  	    ,author_id    as author_id      
  		 ,update_dt      as update_dt   
     	FROM bbs a
