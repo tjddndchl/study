@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!-- <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -30,5 +30,58 @@
 <body>
     <input type="text" id="search">
     <button id="btn" type="button">검색</button>
+</body>
+</html> -->
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://code.jquery.com/jquery-3.7.0.js"></script>
+    <script>
+        $(document).ready(function(){
+            // 네이버 장소검색
+            let naver_serach ='http://openapi.naver.com/v1/search/local';
+            const CLIENT_ID ='RS5ewPzA5BRAOXwjODCl';
+            const SECRET = 'jlca33FFh2';
+            $("#btn").click(function(){
+                 let q = $('#search').val();
+                 $.ajax({
+                     url : 'http://127.0.0.1:3000/search'
+                    ,type :'GET'
+                    ,data : {'query': q}
+                    ,success :function(res){
+                        // console.log(res['items']);
+                        $.each(res['items'], function(i, v){
+                            console.log(v['title'], v['link'],v['category']);
+                        });
+                    },error(e){
+                        console.log(e);
+                    }
+                 });
+                //  $.ajax({
+                //      url : naver_serach
+                //     ,type :'GET'
+                //     ,data : {'query': q}
+                //     ,contentType : 'application/json'
+                //     ,headers  : { 'X-Naver-Client-Id': CLIENT_ID
+                //                ,  'X-Naver-Client-Secret': SECRET
+                //                }
+                //     ,success :function(res){
+                //         console.log(res);
+                //     },error(e){
+                //         console.log(e);
+                //     }
+                //  });
+            });
+        });
+    </script>
+</head>
+<body>
+        <input type="text" id="search">
+        <button id="btn" type="button">검색</button>
 </body>
 </html>
