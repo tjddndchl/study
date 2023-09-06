@@ -73,4 +73,27 @@ public class UserService {
 		}
 		return null;
 	}
+	public UserVO userInfo(String id) {
+		Connection conn = cp.getConnection();
+		try {
+			UserVO vo = dao.loginUser(conn, id);
+			return vo;
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}finally {
+			if (conn != null)cp.releaseConnection(conn);
+				
+		}
+		return null;
+	}
+	public int updateUser(UserVO user) {
+		Connection conn =cp.getConnection();
+		try {
+			return dao.updateUser(conn, user);
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return 0;
+	} 
 }

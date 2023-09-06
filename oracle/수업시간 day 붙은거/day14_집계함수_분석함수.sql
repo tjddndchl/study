@@ -280,3 +280,15 @@ FROM bbs
  		START WITH bbs_no = 1
  		CONNECT BY PRIOR bbs_no = parent_no 
  		ORDER SIBLINGS BY update_dt desc;
+        
+insert into bbs(bbs_no,bbs_title,bbs_content,author_id)
+select bbs_seq.nextval,'게시글'||level,'내용'||level,'a001'
+from dual
+connect by level <=100;
+commit;
+
+
+
+
+
+

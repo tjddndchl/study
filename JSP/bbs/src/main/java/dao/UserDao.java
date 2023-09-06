@@ -130,6 +130,19 @@ public class UserDao {
  		    
  		    return DetailList;
  	}
+	public int updateUser(Connection conn,UserVO user) throws SQLException {
+ 		StringBuffer query = new StringBuffer();
+ 		query.append(" UPDATE tb_user ");
+ 		query.append("	SET user_nm=? ");
+ 		query.append("	WHERE user_id=? ");
+ 		PreparedStatement ps = conn.prepareStatement(query.toString());
+ 		int idx =1;
+ 		ps.setString(1, user.getUserNm());
+ 		ps.setString(2, user.getUserId());
  		
+ 		int cnt = ps.executeUpdate();
+ 		if(ps != null)ps.close();
+ 		return cnt;
+ 	}
  	
 }

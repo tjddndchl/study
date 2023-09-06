@@ -54,3 +54,5 @@ WHERE user_nm = 'ÆØÇÏ';
 commit;
 
 select * from tb_user;
+
+
