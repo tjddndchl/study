@@ -14,3 +14,5 @@ WHERE username = 'SCOTT';
 
 SELECT *
 FROM user_indexes;
+
+SELECT * FROM tb_user;
