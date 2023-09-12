@@ -37,5 +37,20 @@ WHEN NOT MATCHED THEN
                 a.update_date)
     VALUES (:7, :8, :9, :10, to_date(:11,'YYYY-MM-DD HH24:MI:SS'), :12, :13, :14, :15, SYSDATE);
     
-SELECT * 
+    
+    
+SELECT *
 FROM tb_stock_bbs;
+
+
+SELECT a.item_code, a.stock_nm
+        ,sum(readcount) as read_cnt
+        ,sum(goodcount) as good_cnt
+        ,sum(badcount) as bad_cnt
+        ,sum(commentcount) as comment_cnt
+from md_stock a, tb_stock_bbs b
+where a.item_code =b.item_code
+and regexp_like(a.stock_nm, '^[°¡-Èþ]+$')
+group by a.item_code, a.stock_nm
+order by good_cnt desc;
+
