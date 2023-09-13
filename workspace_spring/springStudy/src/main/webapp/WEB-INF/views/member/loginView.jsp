@@ -24,8 +24,8 @@
                     <div class="col-lg-8 col-xl-7">
                         <form method="post" action= "<c:url value ="/loginDo" />">
                         	<div class="form-floation mb-3">
-                        		<input class="form-control" name="memId" type="text"
-                        		placeholder="아이디를 입력해주세요">
+                        		<input class="form-control" name="memId" type="text" value="${cookie.rememberId.value}" 
+                        		placeholder="아이디를 입력해주세요" />
                         		<label>아이디</label>
                         	</div>	
                         	<div class="form-floation mb-3">
@@ -33,6 +33,12 @@
                         		placeholder="비밀번호를 입력해주세요">
                         		<label>비밀번호</label>
                         	</div>	
+						<!-- 아이디 기억     -->
+						<div class="form-floating mb-3">
+							아이디 기억하기 <input class="form-check-input" name="remember" type="checkbox"
+										${cookie.rememberId.value==null ? "":"checked" }/>
+							<input name="fromUrl" type="hidden" value="${fromUrl }"/>
+						</div>
 
                         	<button class="btn btn-primary btn-xl" type="submit">로그인</button>
                         </form>

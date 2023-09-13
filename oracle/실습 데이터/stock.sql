@@ -54,3 +54,4 @@ and regexp_like(a.stock_nm, '^[°¡-Èþ]+$')
 group by a.item_code, a.stock_nm
 order by good_cnt desc;
 
+
