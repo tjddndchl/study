@@ -74,4 +74,18 @@ commit;
 	FROM board a
      	 , member b
 	WHERE a.mem_id = b.mem_id
-	ORDER BY a.update_date DESC
+	ORDER BY a.update_date DESC;
+    
+    
+ SELECT a.board_no
+         ,a.board_title
+         ,a.board_content
+         ,b.mem_id
+         ,b.mem_nm
+         ,a.create_date
+         ,a.update_date
+	FROM board a
+     	 , member b
+	WHERE a.mem_id = b.mem_id
+	AND a.board_no = 1;
+    
