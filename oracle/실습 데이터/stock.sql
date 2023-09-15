@@ -55,3 +55,55 @@ group by a.item_code, a.stock_nm
 order by good_cnt desc;
 
 
+CREATE TABLE replys (
+     reply_no NUMBER
+    ,board_no NUMBER(10)
+    ,mem_id VARCHAR2(100)
+    ,reply_content VARCHAR2(1000)
+    ,reply_date DATE DEFAULT SYSDATE
+    ,del_yn     VARCHAR2(1) DEFAULT 'N'
+);
+
+SELECT *
+FROM board;
+select *
+from member;
+INSERT INTO replys (reply_no, board_no, mem_id, reply_content)
+VALUES(1,  4,  'asdf',  '´ñ±Û Å×½ºÆ®');
+
+select *
+from replys;
+
+
+SELECT a.reply_no
+            ,a.mem_id
+            ,b.mem_nm
+            ,a.reply_content
+            ,TO_CHAR(a.reply_date, 'MM/DD HH24:MI') as reply_date
+FROM replys a, member b
+WHERE a.mem_id = b.mem_id
+AND a.reply_no =1;
+
+ALTER TABLE replys ADD CONSTRAINT pk_reply PRIMARY KEY(reply_no);
+ALTER TABLE replys ADD CONSTRAINT fk_board2 
+FOREIGN KEY (board_no) REFERENCES board(board_no);
+	SELECT a.reply_no
+		            ,a.mem_id
+		            ,b.mem_nm
+		            ,a.reply_content
+		            ,TO_CHAR(a.reply_date, 'MM/DD HH24:MI') as reply_date
+			FROM replys a, member b
+			WHERE a.mem_id = b.mem_id
+			AND a.reply_no =230915160958920;
+            
+SELECT a.reply_no
+            ,a.mem_id
+            ,b.mem_nm
+            ,a.reply_content
+            ,TO_CHAR(a.reply_date, 'MM/dd HH24:MI') as reply_date
+FROM replys a, member b
+WHERE a.mem_id = b.mem_id
+AND     a.board_no = 4
+AND     a.del_yn = 'N'
+ORDER BY reply_date DESC;
+commit;
