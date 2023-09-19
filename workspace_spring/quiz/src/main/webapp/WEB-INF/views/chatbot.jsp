@@ -1,59 +1,16 @@
-<!DOCTYPE html>
-<html lang="en">
-
-<style>
-
-        .message {
-            border-top: 1px solid #ccc;
-            padding: 10px;
-            margin-top: 5px;
-            background-color: #e6e6e6;
-        }
-        #chat-container {
-            width: 400px;
-            display: flex;
-            flex-direction: column;
-            border: 1px solid #ccc;
-           
-            justify-content: center;
-            align-items: center;
-            height: 600px;
-            margin: 20px auto 0; /* Add this line to create space at the top */
-            position: relative;
-            z-index: 1;
-        }
-        #chat-messages {
-            flex: 1;
-            overflow-y: auto;
-            padding: 10px;
-            display: flex;
-            flex-direction: column-reverse;
-        }
-        #user-input {
-            display: flex;
-            padding: 10px;
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+ pageEncoding="UTF-8"%>
  
-        }
-        #user-input input {
-            flex: 1;
-            padding: 10px;
-            outline: none;
-        }
-        #user-input button {
-            border: none;
-            background-color: #1e88e5;
-            color: white;
-            padding: 10px 15px;
-            cursor: pointer;
-        }
-</style>
+<!DOCTYPE html>
+<html>
 <script src="https://code.jquery.com/jquery-3.6.1.js"></script>
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet">
+<link href="css/chatbot.css" rel="stylesheet">
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm" crossorigin="anonymous"></script>
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+<meta charset="UTF-8">
+<title>챗봇</title>
 </head>
 <body>
     <nav class="navbar navbar-expand-lg bg-body-tertiary">
@@ -104,6 +61,6 @@
             <button>전송</button>
         </div>
     </div>
-    <script src="../js/chatbot.js"></script>
+    <script src="js/chatbot.js"></script>
 </body>
 </html>

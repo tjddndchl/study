@@ -29,5 +29,13 @@ CREATE SEQUENCE SEQ_QUIZ_NUM
 select * FROM quiz;
 
 
+INSERT INTO quiz (quiz_num, quiz_pb, quiz_ans)
+VALUES (10, 10, 10);
+
+
+SELECT quiz_num
+            ,quiz_pb
+            ,quiz_ans
+FROM quiz;
 
 commit;

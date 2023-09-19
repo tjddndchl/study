@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org/DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.me.quiz.member.dao.IQuizDAO">
+    <insert id="registQuiz" parameterType="com.me.quiz.member.vo.QuizVO">
+		INSERT INTO quiz (quiz_num
+						, quiz_pb
+						, quiz_ans)
+			VALUES (
+						#{quizNm}
+					,   #{quizPb}
+					,   #{quizAns}
+					)
+		
+    </insert>
+    
+   <select id="selectQuiz" parameterType="QuizVO" resultType="QUizVO">
+
+		SELECT   quiz_num
+            	,quiz_pb
+            	,quiz_ans
+		FROM quiz
+		
+
+    </select>
+    
+</mapper>

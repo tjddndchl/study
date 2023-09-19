@@ -1,3 +1,6 @@
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
+<%@ page session="false" %>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -5,8 +8,8 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Quiz Website HTML CSS JS | Codehal</title>
-    <link rel="stylesheet" href="style.css">
+    <title>Quiz Website HTML CSS JS</title>
+    <link rel="stylesheet" href="css/style.css">
 
 </head>
 
@@ -17,7 +20,7 @@
             <nav class="navbar">
                 <a href="#" class="active">Home</a>
                 <a href="#">검색</a>
-                <a href="login.html" id="login-link">로그인</a>
+                <a href="login.jsp" id="login-link">로그인</a>
                 <a href="#">접촉</a>
             </nav>
         </header>
@@ -25,9 +28,9 @@
         <div class="container">
             <section class="quiz-section">
                 <div class="quiz-box">
-                    <h1>Codehal Quiz</h1>
+                    <h1>빅분기 퀴즈</h1>
                     <div class="quiz-header">
-                        <span>Quiz website Tutorials</span>
+                        <span>퀴즈 토튜리얼</span>
                         <span class="header-score">score:0 / 5</span>
                     </div>
 
@@ -90,8 +93,8 @@
             <a href="#" class="info-btn continue-btn">Continue</a>
         </div>
     </div>
-    <script src="questions.js"></script>
-    <script src="script.js"></script>
+    <script src="js/questions.js"></script>
+    <script src="js/script.js"></script>
 </body>
 
 </html>
