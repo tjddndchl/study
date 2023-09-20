@@ -1,6 +1,7 @@
 /**
  * 
  */
+console.log(questions[0]);
  let questions = [
     {
         numb: 1,

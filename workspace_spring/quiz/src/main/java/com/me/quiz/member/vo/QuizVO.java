@@ -3,9 +3,16 @@ package com.me.quiz.member.vo;
 public class QuizVO {
 	private String quizPb;
 	private String quizAns;
-	private String quizNm;
+	private int quizNm;
 	
 	public QuizVO() {}
+
+	public QuizVO(String quizPb, String quizAns, int quizNm) {
+		super();
+		this.quizPb = quizPb;
+		this.quizAns = quizAns;
+		this.quizNm = quizNm;
+	}
 
 	public String getQuizPb() {
 		return quizPb;
@@ -23,18 +30,11 @@ public class QuizVO {
 		this.quizAns = quizAns;
 	}
 
-	public String getQuizNm() {
+	public int getQuizNm() {
 		return quizNm;
 	}
 
-	public void setQuizNm(String quizNm) {
-		this.quizNm = quizNm;
-	}
-
-	public QuizVO(String quizPb, String quizAns, String quizNm) {
-		super();
-		this.quizPb = quizPb;
-		this.quizAns = quizAns;
+	public void setQuizNm(int quizNm) {
 		this.quizNm = quizNm;
 	}
 
@@ -42,6 +42,7 @@ public class QuizVO {
 	public String toString() {
 		return "QuizVO [quizPb=" + quizPb + ", quizAns=" + quizAns + ", quizNm=" + quizNm + "]";
 	}
+
 	
 	
 }

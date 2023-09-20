@@ -38,4 +38,11 @@ SELECT quiz_num
             ,quiz_ans
 FROM quiz;
 
+
+		SELECT   quiz_num
+            	,quiz_pb
+            	,quiz_ans
+		FROM quiz
+        WHERE quiz_num=7;
+
 commit;

@@ -13,7 +13,8 @@
 		
     </insert>
     
-   <select id="selectQuiz" parameterType="QuizVO" resultType="QUizVO">
+    <!-- 퀴즈 조회 SQL 질의 -->
+   <select id="quizList" parameterType="QuizVO" resultType="QUizVO">
 
 		SELECT   quiz_num
             	,quiz_pb
@@ -22,5 +23,18 @@
 		
 
     </select>
+    
+       <select id="selectQuiz" parameterType="QuizVO" resultType="QUizVO">
+
+				SELECT   quiz_num
+            	,quiz_pb
+            	,quiz_ans
+				FROM quiz
+       			 WHERE quiz_num=#{quizNm}
+		
+		
+		
+
+     </select>
     
 </mapper>

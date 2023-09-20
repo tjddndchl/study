@@ -42,6 +42,7 @@ ADD CONSTRAINT fk_board FOREIGN KEY(mem_id) REFERENCES member (mem_id);
 
 
 
+
 INSERT INTO board(board_no, board_title, board_content, mem_id)
 VALUES ((SELECT NVL(MAX(board_no), 0) + 1
             FROM board)
@@ -89,3 +90,31 @@ commit;
 	WHERE a.mem_id = b.mem_id
 	AND a.board_no = 1;
     
+    
+select *
+FROM reserv;
+   
+   
+   
+SELECT TO_CHAR(sysdate, 'YYYYMMDD') as today
+    ,TO_CHAR(TO_DATE('06:00', 'HH24:MI') + (level-1)*(1/48), 'HH24:MI') as st_dt
+    ,TO_CHAR(TO_DATE('06:30', 'HH24:MI')+ (level-1)*(1/48), 'HH24:MI') as en_dt
+    ,level
+FROM dual
+CONNECT BY level <= 37;
+)a,
+    reserv b
+WHERE a.today = b.reserv_date(+)
+AND a.st_dt = b.start_date(+);
+CREATE TABLE RESERV(
+    reserv_no NUMBER
+    ,reserv_date varchar2(8)
+    ,start_date VARCHAR2(5)
+    ,end_date varchar2(5)
+    ,reserv_yn varchar2(1) default 'Y'
+    ,update_date date default sysdate
+    
+);
+
+INSERT INTO RESERV(reserv_no, reserv_date, start_date, end_date)
+VALUES (1, '20230920', '18:00', '18:30');

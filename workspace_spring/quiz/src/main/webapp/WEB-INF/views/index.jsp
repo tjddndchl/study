@@ -93,7 +93,13 @@
             <a href="#" class="info-btn continue-btn">Continue</a>
         </div>
     </div>
-    <script src="js/questions.js"></script>
+    <!-- <script> console.log("${quizList[1]}");</script> -->
+    
+
+    <!--<script src="js/questions.js"></script>-->
+    <script>
+  		<%= request.getAttribute("javascriptCode") %>
+	</script>
     <script src="js/script.js"></script>
 </body>
 
