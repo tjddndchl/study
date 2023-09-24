@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org/DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.me.quiz.common.dao.ICommonDAO">
+    <insert id="registCommon" parameterType="com.me.quiz.common.vo.CommonVO">
+	INSERT INTO members(
+    					mem_id
+    					,mem_pw
+    					,mem_name
+						) VALUES (
+    					#{memId}
+    				   ,#{memPw}
+    				   ,#{memNm}
+						)
+		
+    </insert>
+    <select id="loginCommon" parameterType="CommonVO" resultType="CommonVO">
+    	SELECT
+    		mem_id
+    	   ,mem_pw
+    	   ,mem_name
+    	FROM
+    		members
+    	WHERE mem_id = #{memId}
+    	<!-- AND   mem_pw = #{memPw} -->
+    </select>
+</mapper>

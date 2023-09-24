@@ -10,6 +10,7 @@
 	<!-- mapper vo 매핑 -->
 	<typeAliases>
 		<typeAlias type="com.me.quiz.member.vo.QuizVO" alias="QuizVO"></typeAlias>
+		<typeAlias type="com.me.quiz.common.vo.CommonVO" alias="CommonVO"></typeAlias>
 	</typeAliases>
 	
 </configuration>

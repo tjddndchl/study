@@ -20,8 +20,10 @@
             <nav class="navbar">
                 <a href="#" class="active">Home</a>
                 <a href="#">검색</a>
-                <a href="login.jsp" id="login-link">로그인</a>
-                <a href="#">접촉</a>
+            <c:if test="${sessionScope.login == null}">
+                <a href="#" >${sessionScope.login.memId}님</a>
+            </c:if>
+                <a href="#">로그아웃</a>
             </nav>
         </header>
 

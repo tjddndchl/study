@@ -1,4 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -9,25 +10,29 @@
     <section>
         <div class="form-box">
             <div class="form-value">
-                <form action="">
+                <form method="post" action= "<c:url value ='/loginDo' />">
                     <h2>Login</h2>
                     <div class="inputbox">
                         <ion-icon name="mail-outline"></ion-icon>
-                        <input type="email" required>
-                        <label for="">ID</label>
+                        <input type="text" name="memId" value="${cookie.rememberId.value}" placeholder="아이디를 입력해주세요" />
+                                                		
+                        <label>아이디</label>
                     </div>
                     <div class="inputbox">
                         <ion-icon name="lock-closed-outline"></ion-icon>
-                        <input type="password" required>
-                        <label for="">Password</label>
+                        <input type="password" name="memPw" value="${cookie.rememberPw.value}" placeholder="비번를 입력해주세요" />
+                        <label for="">비번</label>
                     </div>
                     <div class="forget">
-                        <label for=""><input type="checkbox">Remember Me  <a href="#">Forget Password</a></label>
+                        <label for=""><input type="checkbox"  name="remember" ${cookie.rememberId.value==null ? "":"checked" }>
+                        기억하기  <a href="#">아이디 기억안날시</a></label>
+                        <input name="fromUrl" type="hidden" value="${fromUrl }"/>
+                        
                       
                     </div>
-                    <button>Log in</button>
+                    <button type="submit">로그인</button>
                     <div class="register">
-                        <p>Don't have a account <a href="#">Register</a></p>
+                        <p>아이디가 없으면 <a href="#">등록</a></p>
                     </div>
                 </form>
             </div>

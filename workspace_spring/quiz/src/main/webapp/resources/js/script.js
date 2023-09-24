@@ -13,10 +13,7 @@ const resultBox = document.querySelector('.result-box');
 const tryAgainBtn = document.querySelector('.tryAgain-btn');
 const goHomeBtn = document.querySelector('.goHome-btn');
 
-//로그인버튼
-document.getElementById('login-link').addEventListener('click', function () {
-    window.location.href = 'login.html';
-});
+
 
 startBtn.onclick = () => {
     popupInfo.classList.add('active');

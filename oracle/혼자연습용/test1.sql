@@ -46,3 +46,33 @@ FROM quiz;
         WHERE quiz_num=7;
 
 commit;
+
+
+
+
+--member 抛捞喉积己
+
+
+CREATE TABLE members(
+     mem_id VARCHAR2(100) PRIMARY KEY
+    ,mem_pw VARCHAR2(100)
+    ,mem_name VARCHAR2(100)
+);
+
+INSERT INTO members(
+    mem_id 
+    ,mem_pw
+    ,mem_name
+) VALUES (
+    'admin'
+    ,'admin'
+    ,'包府磊'
+);
+
+SELECT 
+    mem_id
+    ,mem_pw
+    ,mem_name
+FROM members;
+
+commit;
