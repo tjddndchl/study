@@ -78,5 +78,19 @@ public class CommonController {
 		
 		return "redirect:quiz";
 	}
+	
+	@RequestMapping("/logoutDo")
+	public String logoutDo(HttpSession session,
+							HttpServletRequest request) {
+		
+		//세션 종료
+		session.invalidate();
+		//현재 요청이 어느 URL을 바라보는지
+		String requestToURL = request.getRequestURI().toString();
+		System.out.println(requestToURL);
+		String requestUrl = request.getHeader("Referer");
+		System.out.println(requestUrl);
+		return "redirect:loginView"; 
+	}
     
 }

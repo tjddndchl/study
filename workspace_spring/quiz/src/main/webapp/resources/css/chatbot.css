@@ -14,7 +14,7 @@
     justify-content: center;
     align-items: center;
     height: 600px;
-    margin: 20px auto 0; /* Add this line to create space at the top */
+    margin: 120px auto 0; /* Add this line to create space at the top */
     position: relative;
     z-index: 1;
 }

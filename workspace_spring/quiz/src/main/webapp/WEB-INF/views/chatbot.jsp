@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
  pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"  %>
  
 <!DOCTYPE html>
 <html>
@@ -13,47 +14,7 @@
 <title>챗봇</title>
 </head>
 <body>
-    <nav class="navbar navbar-expand-lg bg-body-tertiary">
-		<div class="container-fluid">
-			<a class="navbar-brand" href="#">게시판</a>
-			<button class="navbar-toggler" type="button"
-					data-bs-toggle="collapse" data-bs-target="#navbarContent"
-					aria-controls="navbarContent" aria-expanded="false"
-					aria-label="Toggle naviation">
-					<span class="navbar-toggler-icon"></span>
-			</button>
-			<div class="collapse navbar-collapse" id="navbarContent">
-				<ul class="navbar-nav me-auto mb-lg-0">
-					<li class="nav-item">
-						<a class="nav-link active" aria-current="page"
-							href="main.jsp">메인</a>
-					</li>
-					<li class="nav-item">
-						<a class="nav-link" href="bbs.jsp">게시판</a>
-					</li>
-				</ul>
-				<ul class="nav navbar-nav navbar-righ">
-					<li class="nav-item dropdown">
-						<a class="nav-link dropdown-toggle" href="#"
-							role="button" data-bs-toggle="dropdown"
-							aria-expanded="false">
-							접속하기
-						</a>
-						<ul class="dropdown-menu">
-							<li>
-								<a class="dropdown-item" href="login.jsp">로그인</a>
-							</li>
-								<hr class="dropdown-divider">
-							<li>
-								<a class="dropdown-item" href="join.jsp">회원가입</a>
-							</li>
-						</ul>
-					</li>
-				</ul>
-				
-			</div>
-		</div>
-	</nav>
+	<%@include file="/WEB-INF/inc/top.jsp" %>
     <div id="chat-container">
         <div id="chat-messages"></div>
         <div id="user-input">

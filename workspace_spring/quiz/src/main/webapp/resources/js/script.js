@@ -155,18 +155,21 @@ function showResultBox() {
     scoreText.textContent = `Your Score ${userScore} out of ${questions.length}`;
     const circularProgress = document.querySelector('.circular-progress');
     const progressValue = document.querySelector('.progress-value');
-    let progressStartValue = -1;
-    let progressEndValue = (userScore / questions.length) * 100;
-    let speed =20;
+    const progressEndValue = (userScore / questions.length) * 100;
+    let speed = 20;
 
-    let progress = setInterval(() => {
-        progressStartValue++;
+    let progressStartValue = 0;
+
+    const updateProgress = () => {
         console.log(progressStartValue);
         progressValue.textContent = `${progressStartValue}%`;
         circularProgress.style.background = `conic-gradient(#c40094 ${progressStartValue * 3.6}deg, rgba(255, 255, 255, .1) 0deg)`;
 
-        if(progressStartValue == progressEndValue){
-            clearInterval(progress);
+        if (progressStartValue < progressEndValue) {
+            progressStartValue++;
+            requestAnimationFrame(updateProgress); // 다음 프레임에 업데이트
         }
-    }, speed);
+    };
+
+    updateProgress();
 }

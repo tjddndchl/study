@@ -75,4 +75,6 @@ SELECT
     ,mem_name
 FROM members;
 
+
+
 commit;
