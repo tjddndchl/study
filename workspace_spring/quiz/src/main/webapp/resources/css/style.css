@@ -53,7 +53,7 @@ body {
 
 .main {
     min-height: 100vh;
-    background: url('../assets/image/background.jpg')no-repeat;
+    background: url('../assets/image/wallpaper2.jpg')no-repeat;
     background-size: cover;
     background-position: center;
     pointer-events: auto;

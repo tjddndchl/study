@@ -95,7 +95,7 @@
         <span class="info">1. 재미로만들어봄</span>
         <span class="info">2. 버그나면 나도몰름</span>
         <span class="info">3. 이미지 넣을때 png로만 넣어야함</span>
-        <span class="info">4. </span>
+        <span class="info">4. 개 어렵네;;</span>
         <span class="info">5. 개수맞춤용</span>
 
         <div class="btn-group">

@@ -8,7 +8,7 @@ const userInput = document.querySelector('#user-input input');
 
 const sendButton = document.querySelector('#user-input button');
 
-const apiKey = "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";
+const apiKey = "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";
 
 const apiEndpoint = 'https://api.openai.com/v1/chat/completions'
 
@@ -21,7 +21,7 @@ function addMessage(sender, message) {
     messageElement.textContent = `${sender}: ${message}`;
     chatMessages.prepend(messageElement);
 }
-
+;
 async function fetchAIResponse(prompt) {
   
     const requestOptions = {
@@ -73,5 +73,5 @@ sendButton.addEventListener('click', async () => {
 userInput.addEventListener('keydown', (event) => {
     if (event.key === 'Enter') {
         sendButton.click();
-    }
+    };
 });

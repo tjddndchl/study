@@ -41,8 +41,11 @@ public class CommonController {
 			commonService.registCommon(common);
 		} catch (Exception e) {
 			e.printStackTrace();
-			return "errorView";
+			return "registView";
 		}
+
+		    
+		System.out.println("====================회원가입성공======================");
 		return "redirect:loginView";
 	}
 	
@@ -75,7 +78,7 @@ public class CommonController {
 			response.addCookie(cookie); //응답하는 객체에 담아서 전달
 			
 		}
-		
+		System.out.println("===============로그인 성공================");
 		return "redirect:quiz";
 	}
 	
@@ -90,6 +93,7 @@ public class CommonController {
 		System.out.println(requestToURL);
 		String requestUrl = request.getHeader("Referer");
 		System.out.println(requestUrl);
+		System.out.println("===================로그아웃====================");
 		return "redirect:loginView"; 
 	}
     

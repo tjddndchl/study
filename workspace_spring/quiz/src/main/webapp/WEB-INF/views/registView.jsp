@@ -29,7 +29,7 @@
                     </div>
                     <button type="submit">회원 가입</button> 
                     <div class="login">
-                        <p>이미 계정이 있으신가요? <a href="#">로그인</a></p>
+                        <p>이미 계정이 있으신가요? <a href="${pageContext.request.contextPath}/loginView">로그인</a></p>
                     </div>
                 </form>
 

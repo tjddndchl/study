@@ -25,7 +25,6 @@
 	</div><p> 
 	
 	<a href='${pageContext.request.contextPath }/form'> 다시 업로드 하기 </a> 
-	<a href='${pageContext.request.contextPath }/initializeStartupPy'>업로드 버튼</a>
 	</p>
 	
 	

@@ -32,7 +32,7 @@
                     </div>
                     <button type="submit">로그인</button>
                     <div class="register">
-                        <p>아이디가 없으면 <a href="#">등록</a></p>
+                        <p>아이디가 없으면 <a href="${pageContext.request.contextPath}/registView">등록</a></p>
                     </div>
                 </form>
             </div>
