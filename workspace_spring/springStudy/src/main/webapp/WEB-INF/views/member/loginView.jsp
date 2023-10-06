@@ -24,8 +24,8 @@
                     <div class="col-lg-8 col-xl-7">
                         <form method="post" action= "<c:url value ="/loginDo" />">
                         	<div class="form-floation mb-3">
-                        		<input class="form-control" name="memId" type="text" value="${cookie.rememberId.value}" 
-                        		placeholder="아이디를 입력해주세요" />
+                        		<input class="form-control" name="memId" type="text" value="${cookie.rememberId.value }"
+                        		   placeholder="아이디를 입력해주세요 ">
                         		<label>아이디</label>
                         	</div>	
                         	<div class="form-floation mb-3">

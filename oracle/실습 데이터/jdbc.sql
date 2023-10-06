@@ -17,6 +17,8 @@ CREATE TABLE member(
     ,mem_nm VARCHAR2(100)
 );
 
+
+
 INSERT INTO member (mem_id, mem_pw, mem_nm)
 
 VALUES('admin', 'admin', '관리자');
@@ -118,3 +120,80 @@ CREATE TABLE RESERV(
 
 INSERT INTO RESERV(reserv_no, reserv_date, start_date, end_date)
 VALUES (1, '20230920', '18:00', '18:30');
+
+
+
+
+--채팅방----------------
+create table rooms(
+    room_no NUMBER PRIMARY KEY
+    ,room_name VARCHAR2(1000)
+    ,mem_id VARCHAR2(100)
+    ,reg_date DATE
+    ,del_yn VARCHAR2(1)
+    
+);
+
+CREATE SEQUENCE room_seq INCREMENT BY 1 START WITH 1;
+--채팅기록
+CREATE TABLE chatlog(
+     chat_no NUMBER PRIMARY KEY
+    ,mem_id VARCHAR2(100)
+    ,room_no NUMBER
+    ,chat_msg VARCHAR2(4000)
+    ,send_date DATE
+);
+
+CREATE SEQUENCE chat_seq INCREMENT BY 1 START WITH 1;
+
+
+---채팅방 리스트 조회
+SELECT a.room_no
+            ,a.room_name
+            ,a.mem_id
+            ,b.mem_nm
+            ,a.reg_date
+            ,a.del_yn
+from rooms a, member b
+where a.mem_id = b.mem_id
+AND a.del_yn = 'N'
+ORDER BY 1 DESC;
+
+
+--채팅방 생성 쿼리
+INSERT INTO rooms (room_no, room_name, mem_id, reg_date, del_yn)
+VALUES(room_seq.NEXTVAL, '모두 모여', 'a001', SYSDATE, 'N');
+
+
+
+
+SELECT a.room_no
+            ,a.room_name
+            ,a.mem_id
+            ,b.mem_nm
+            ,a.reg_date
+            ,a.del_yn
+from rooms a, member b
+where a.mem_id = b.mem_id
+AND a.del_yn = 'N'
+AND a.room_no = 1;
+
+--채팅방 내용저장
+INSERT INTO chatlog (chat_no, mem_id, room_no, chat_msg, send_date)
+VALUES (chat_seq.NEXTVAL, 'a002', 1 , '처음 내용', SYSDATE);
+--채팅방 내용 조회
+SELECT a.chat_no
+            ,a.mem_id
+            ,b.mem_nm
+            ,a.room_no
+            ,a.chat_msg
+            ,TO_CHAR(a.send_date, 'RR/MM/DD HH24:MI') AS send_date
+FROM chatlog a, member b
+WHERE a.mem_id = b.mem_id
+AND a.room_no = 22
+ORDER BY 1;
+
+select *
+from chatlog;
+
+commit;
