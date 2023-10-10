@@ -43,21 +43,21 @@
     <fullyQualifiedTypeName name="java.util.Scanner"/>
     <fullyQualifiedTypeName name="java.lang.System"/>
     <fullyQualifiedTypeName name="java.lang.StringBuffer"/>
-    <fullyQualifiedTypeName name="pratice.ex.Solution"/>
     <fullyQualifiedTypeName name="pratice.ex.Basic01"/>
     <fullyQualifiedTypeName name="java.lang.Boolean"/>
     <fullyQualifiedTypeName name="oracle.net.aso.b"/>
     <fullyQualifiedTypeName name="pratice.submit01.result01"/>
     <fullyQualifiedTypeName name="int"/>
     <fullyQualifiedTypeName name="oracle.jdbc.dcn.QueryChangeDescription.QueryChangeEventType"/>
-    <fullyQualifiedTypeName name="java.util.Arrays"/>
     <fullyQualifiedTypeName name="java.lang.Math"/>
     <fullyQualifiedTypeName name="javax.management.MBeanServer"/>
     <fullyQualifiedTypeName name="oracle.net.aso.a"/>
-    <fullyQualifiedTypeName name="java.lang.String"/>
     <fullyQualifiedTypeName name="java.util.Set"/>
     <fullyQualifiedTypeName name="java.util.LinkedHashSet"/>
+    <fullyQualifiedTypeName name="java.lang.String"/>
+    <fullyQualifiedTypeName name="pratice.ex.Solution"/>
     <fullyQualifiedTypeName name="java.util.List"/>
     <fullyQualifiedTypeName name="java.lang.Integer"/>
     <fullyQualifiedTypeName name="java.util.ArrayList"/>
+    <fullyQualifiedTypeName name="java.util.Arrays"/>
 </qualifiedTypeNameHistroy>

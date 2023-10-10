@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // function a(){
+        //     const b =10;
+        //     console.log(b);
+        // }
+        // a();
+        //console.log(b);
+
+        // let b = 10;
+        // function a(){
+        //     console.log(b);
+        // }
+
+        // a();
+
+        const b = 20;
+        function a(){
+            const b = 20;
+            console.log(b);
+        }
+        a();
+
+        function something(a,b,...rest){
+            console.log(a);
+            console.log(b);
+            console.log(rest);
+        }
+        something(1,2,3,4,5,6)
+
+        const sum = function(a,b){
+            return a + b;
+        };
+        console.log(sum(10,20));
+    </script>
+</body>
+</html>

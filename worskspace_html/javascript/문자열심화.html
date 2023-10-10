@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        let str = 'hello world'
+        console.log(str.toUpperCase);
+
+        str = 'HELLO WORLD'
+        console.log(str.toLowerCase);
+
+        str = '   hi hl     '
+        console.log(str.trim());
+
+        // function convert(){
+        //     const str = prompt();
+        //     return str.trim().toUpperCase();
+        // }
+
+        // console.log(convert());
+
+        const str1 = '안녕하세요. 개발자 최성웅 입니다.';
+        console.log(str1.indexOf('개발자'));
+        console.log(str1.indexOf('디자이너'));
+
+        // includes() 주어진 키워드 값을 문자열에서 검색하여 일치하는 값을 찾은 
+        //경우 true 아닐 경우 false
+
+        //startsWith(),endsWith() 해당 문자열이 주저인 문자열로 시작하는지 여부
+        //해당 문자열이 주어진 문자열로 끝나는지 여부를 true, false값으로 반환한다.
+
+        const str2 = 'What are you doing now?';
+        console.log(str2.replace('you', 'we'));
+        //repalcaAll() 은 주어인 패턴과 일치하는 모든 부분을 교체한다.
+    </script>
+</body>
+</html>
