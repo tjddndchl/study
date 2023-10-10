@@ -1,0 +1,5 @@
+2023-09-25 16:02:54,049 - WARNING: Neither CUDA nor MPS are available - defaulting to CPU. Note: This module is much faster with a GPU.
+2023-09-25 16:03:15,261 - WARNING: Neither CUDA nor MPS are available - defaulting to CPU. Note: This module is much faster with a GPU.
+2023-09-25 16:08:26,824 - WARNING: Neither CUDA nor MPS are available - defaulting to CPU. Note: This module is much faster with a GPU.
+2023-09-25 16:48:25,779 - WARNING: Neither CUDA nor MPS are available - defaulting to CPU. Note: This module is much faster with a GPU.
+2023-10-04 10:20:01,361 - WARNING: Neither CUDA nor MPS are available - defaulting to CPU. Note: This module is much faster with a GPU.

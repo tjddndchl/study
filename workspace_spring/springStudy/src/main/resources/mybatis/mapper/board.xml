@@ -121,6 +121,15 @@
 	AND   a.del_yn = 'N'
 	ORDER BY reply_date DESC
 </select>
+<select id = 'selectKeywordSearch' resultType="String" parameterType="String">
+	select board_title 
+	from board
+	where board_title like '%'|| #{keyword} || '%'
+	order by create_date desc
+</select>
+
+
+
 <update id="delReply" parameterType="String">
 	UPDATE replys
 	SET del_yn = 'Y'

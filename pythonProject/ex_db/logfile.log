@@ -1,0 +1,41 @@
+2023-09-07 10:28:40,601-root-DEBUG-test
+2023-09-07 10:28:40,601-root-INFO-info test
+2023-09-07 10:28:40,601-root-WARNING-warning test
+2023-09-07 10:28:40,601-root-ERROR-division by zero
+Traceback (most recent call last):
+  File "C:\dev\pythonProject\ex_db\test_logger.py", line 10, in test
+    result = a/b
+ZeroDivisionError: division by zero
+2023-09-07 10:35:09,061-root-DEBUG-test
+2023-09-07 10:35:09,061-root-INFO-info test
+2023-09-07 10:35:09,061-root-WARNING-warning test
+2023-09-07 10:35:09,061-root-ERROR-division by zero
+Traceback (most recent call last):
+  File "C:\dev\pythonProject\ex_db\test_logger.py", line 10, in test
+    result = a/b
+ZeroDivisionError: division by zero
+2023-09-07 10:35:33,981-root-DEBUG-test
+2023-09-07 10:35:33,982-root-INFO-info test
+2023-09-07 10:35:33,982-root-WARNING-warning test
+2023-09-07 10:35:33,982-root-ERROR-division by zero
+Traceback (most recent call last):
+  File "C:\dev\pythonProject\ex_db\test_logger.py", line 10, in test
+    result = a/b
+ZeroDivisionError: division by zero
+2023-09-07 12:40:34,613-root-DEBUG-test
+2023-09-07 12:40:34,613-root-INFO-info test
+2023-09-07 12:40:34,613-root-WARNING-warning test
+2023-09-07 12:40:34,613-root-ERROR-division by zero
+Traceback (most recent call last):
+  File "C:\dev\pythonProject\ex_db\test_logger.py", line 10, in test
+    result = a/b
+ZeroDivisionError: division by zero
+2023-09-07 12:47:50,427-root-DEBUG-test
+2023-09-07 12:47:50,428-root-INFO-info test
+2023-09-07 12:47:50,428-root-WARNING-warning test
+2023-09-07 12:47:50,428-root-ERROR-division by zero
+Traceback (most recent call last):
+  File "C:\dev\pythonProject\ex_db\test_logger.py", line 10, in test
+    result = a/b
+ZeroDivisionError: division by zero
+2023-09-07 13:48:09,729-__main__-INFO-42¹ÙÄû µ¹¾Æ°¨

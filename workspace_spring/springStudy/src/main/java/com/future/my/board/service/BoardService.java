@@ -81,5 +81,11 @@ public class BoardService {
 			throw new Exception();
 		}
 	}
+	public List<String> keywordSearch(String keyword) {
+		// TODO Auto-generated method stub
+		
+		
+		return null;
+	}
 		
 }
