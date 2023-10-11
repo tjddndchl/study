@@ -1,10 +1,12 @@
-def solution(a, b):
-    answer = 0
-    if a  < b :
-        for i in range(a, b +1):
-            answer += i
-    else:
-        for i in range(b, a + 1):
-            answer += i
-
+def gcdlcm(a, b):
+    c,d = max(a, b), min(a, b)
+    t = 1
+    while t>0:
+        t = c%d
+        c, d = d, t
+    answer = [ c, int (a*b/c)]
     return answer
+
+# 아래는 테스트로 출력해 보기 위한 코드입니다.
+print(gcdlcm(123123,5234952))
+
