@@ -92,5 +92,6 @@
 `` 배지 샘플 <img src ="https://img.shields.io/badge/JAVA-0073796?style=flat$logo=Java&logoColor=white" /> ```
 
 <img src ="https://img.shields.io/badge/JAVA-0073796?style=flat$logo=Java&logoColor=white" /> 
+<img src ="https://img.shields.io/badge/JAVA-0073796?style=flat$logo=javascript&logoColor=#F7DF1E" /> 
 
 - style 배지모양 (plastic, flat, flat - square, for - the - badge, social), logo 정식모양 사이트참조, logoColor 컬럼럼
