@@ -82,4 +82,9 @@
 
 [이모지검색 및 다운드로 사이트](https://emojipedia.org/)
 
-🖥️
+   🖥️
+
+
+14.뱃지 추가
+
+[배지 달기(언어, 기술, 개발, 도구, 자격)](https://simpleicons.org) 
