@@ -1,14 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <qualifiedTypeNameHistroy>
-    <fullyQualifiedTypeName name="ch15_input.FileBasic"/>
-    <fullyQualifiedTypeName name="java.io.FileInputStream"/>
-    <fullyQualifiedTypeName name="byte"/>
-    <fullyQualifiedTypeName name="java.io.File"/>
-    <fullyQualifiedTypeName name="java.io.FileOutputStream"/>
-    <fullyQualifiedTypeName name="java.text.SimpleDateFormat"/>
-    <fullyQualifiedTypeName name="java.sql.Date"/>
-    <fullyQualifiedTypeName name="java.text.Format"/>
-    <fullyQualifiedTypeName name="java.util.Date"/>
     <fullyQualifiedTypeName name="java.io.Reader"/>
     <fullyQualifiedTypeName name="ch12_exception.pratice08.FileWriter"/>
     <fullyQualifiedTypeName name="char"/>
@@ -32,7 +23,6 @@
     <fullyQualifiedTypeName name="ch16_network.SendTread"/>
     <fullyQualifiedTypeName name="ch16_network.ReceiveThread"/>
     <fullyQualifiedTypeName name="java.lang.Thread"/>
-    <fullyQualifiedTypeName name="java.io.PrintWriter"/>
     <fullyQualifiedTypeName name="java.io.BufferedReader"/>
     <fullyQualifiedTypeName name="java.net.ServerSocket"/>
     <fullyQualifiedTypeName name="java.net.Socket"/>
@@ -46,18 +36,28 @@
     <fullyQualifiedTypeName name="pratice.ex.Basic01"/>
     <fullyQualifiedTypeName name="java.lang.Boolean"/>
     <fullyQualifiedTypeName name="oracle.net.aso.b"/>
-    <fullyQualifiedTypeName name="pratice.submit01.result01"/>
-    <fullyQualifiedTypeName name="int"/>
     <fullyQualifiedTypeName name="oracle.jdbc.dcn.QueryChangeDescription.QueryChangeEventType"/>
     <fullyQualifiedTypeName name="java.lang.Math"/>
     <fullyQualifiedTypeName name="javax.management.MBeanServer"/>
-    <fullyQualifiedTypeName name="oracle.net.aso.a"/>
     <fullyQualifiedTypeName name="java.util.Set"/>
     <fullyQualifiedTypeName name="java.util.LinkedHashSet"/>
-    <fullyQualifiedTypeName name="java.lang.String"/>
     <fullyQualifiedTypeName name="pratice.ex.Solution"/>
-    <fullyQualifiedTypeName name="java.util.List"/>
-    <fullyQualifiedTypeName name="java.lang.Integer"/>
-    <fullyQualifiedTypeName name="java.util.ArrayList"/>
     <fullyQualifiedTypeName name="java.util.Arrays"/>
+    <fullyQualifiedTypeName name="java.util.HashSet"/>
+    <fullyQualifiedTypeName name="java.util.List"/>
+    <fullyQualifiedTypeName name="programmers.levle01.Solution"/>
+    <fullyQualifiedTypeName name="oracle.net.aso.a"/>
+    <fullyQualifiedTypeName name="java.util.ArrayList"/>
+    <fullyQualifiedTypeName name="java.io.PrintWriter"/>
+    <fullyQualifiedTypeName name="java.lang.StringBuilder"/>
+    <fullyQualifiedTypeName name="java.util.Map"/>
+    <fullyQualifiedTypeName name="java.util.HashMap"/>
+    <fullyQualifiedTypeName name="java.lang.Integer"/>
+    <fullyQualifiedTypeName name="programmers.levle01.Kakao2021"/>
+    <fullyQualifiedTypeName name="oracle.net.aso.i"/>
+    <fullyQualifiedTypeName name="oracle.net.aso.n"/>
+    <fullyQualifiedTypeName name="int"/>
+    <fullyQualifiedTypeName name="pratice.submit01.result01"/>
+    <fullyQualifiedTypeName name="java.lang.String"/>
+    <fullyQualifiedTypeName name="programmers.levle01.Solution3"/>
 </qualifiedTypeNameHistroy>

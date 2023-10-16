@@ -1,25 +1,35 @@
 package pratice.ex;
 
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
 
 public class Solution {
 
 	public static void main(String[] args) {
 
 	}
-	
-    public String solution(String phone_number) {
-        String answer = "";
-        for (int i = 0; i < phone_number.length(); i++) {
-			if(i < phone_number.length()- 4) {
-				answer += "*";
+    boolean solution(String s) {
+        boolean answer = true;
+        int count = 0;
+        
+        for(char c: s.toCharArray()) {
+        	if (c== '(') {
+				count++;
 			}else {
-				answer += phone_number.charAt(i);
+				count--;
 			}
-			
-			
+        }
+        
+        if (count == 0) {
+			answer = true;
+		}else {
+			answer = false;
 		}
+		
+		
         
-        
+
         return answer;
     }
 }
