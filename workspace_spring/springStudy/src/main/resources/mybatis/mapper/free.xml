@@ -65,16 +65,28 @@
 		ORDER by bo_no desc
 		<include refid="postPage"></include>
 	</select>
+	
+	<insert id="insertFreeBoard" parameterType="FreeBoardVO">
+		INSERT INTO free_board(bo_no, bo_title,bo_category, bo_writer, bo_pass, bo_content
+                                     ,bo_reg_date,bo_hit)
+		values(seq_free_board.nextval, #{boTitle},#{boCategory},#{boWriter}
+            , #{boPass}, #{boContent}, SYSDATE, 0)
+	</insert>
+	
+	<select id="getBoard" resultType="FreeBoardVO" >
+		select bo_no, bo_title, bo_category
+        		,bo_writer, bo_content
+        		, b.comm_nm as bo_category_nm
+		from free_board a, comm_code b
+		where a.bo_category = b.comm_cd
+		AND a.bo_no=#{boNo}
+	</select>
+	
+	<update id="increaseHit" parameterType="int">
+		UPDATE free_board
+		SET bo_hit = bo_hit +1
+		WHERE bo_no = #{boNo}
+	</update>
 
 </mapper>
-
-
-
-
-
-
-
-
-
-
 

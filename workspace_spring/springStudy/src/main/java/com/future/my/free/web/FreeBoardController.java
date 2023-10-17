@@ -7,6 +7,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import com.future.my.commons.service.CodeService;
 import com.future.my.commons.vo.CodeVO;
@@ -39,5 +40,28 @@ public class FreeBoardController {
 		model.addAttribute("freeList", freeBoardList);
 		
 		return "free/freeList";
+	}
+	@RequestMapping("/freeForm")
+	public String fileBoardForm() {
+		return "free/freeForm";
+	}
+	
+	@RequestMapping("/freeBoardWriteDo")
+	public String freeBoardWriteDo(FreeBoardVO freeBoardVO) throws Exception {
+		freeBoardService.insertFreeBoard(freeBoardVO);
+		return "redirect:/free/freeList";
+	}
+	
+	@RequestMapping("/freeView")
+	public String freeView(Model model, @RequestParam("boNo")int boNo) throws Exception {
+		
+		FreeBoardVO freeBoard = freeBoardService.getBoard(boNo);
+		if (freeBoard != null) {
+			freeBoardService.increaseHit(boNo);
+		}else {
+			return "redirect:/free/freeList";
+		}
+		model.addAttribute("freeBoard", freeBoard);
+		return "free/freeView";
 	}
 }

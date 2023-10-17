@@ -86,7 +86,7 @@
 							<td>${free.boNo }</td>
 							<td>${free.boCategoryNm }</td>
 							<td class="text-left">
-								<a>${free.boTitle }</a>
+								<a href="freeView?boNo=${free.boNo}">${free.boTitle }</a>
 							</td>
 							<td>${free.boWriter }</td>
 							<td>${free.boModDate eq null ? free.boRegDate:free.boModDate }</td>

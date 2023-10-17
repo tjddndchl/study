@@ -12,4 +12,7 @@ public interface IFreeBoardDAO {
 	
 	public int getTotalRowCount(FreeBoardSearchVO searchVO); //전체카운트조회
 	public List<FreeBoardVO> getBoardList(FreeBoardSearchVO searchVO); // 보드게시물조회
+	public int insertFreeBoard(FreeBoardVO freeBoardVO);
+	public int increaseHit(int boNo);
+	public FreeBoardVO getBoard(int boNo);
 }

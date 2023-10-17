@@ -20,4 +20,26 @@ public class FreeBoardService {
 		searchVO.pageSetting();
 		return dao.getBoardList(searchVO);
 	}
+	
+	public void insertFreeBoard(FreeBoardVO freeBoardVO) throws Exception {
+		int result = dao.insertFreeBoard(freeBoardVO);
+		if (result == 0) {
+			throw new Exception();
+		}
+	}
+	
+	public FreeBoardVO getBoard(int boNo) throws Exception {
+		FreeBoardVO freeBoard = dao.getBoard(boNo);
+		if (freeBoard == null) {
+			throw new Exception();
+		}
+		return freeBoard;
+	}
+	public void increaseHit(int boNo) throws Exception {
+		int result = dao.increaseHit(boNo);
+		if (result == 0) {
+			throw new Exception();
+		}
+	}
+	
 }
