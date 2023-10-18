@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        let test = async() => {
+            let res =await fetch("https://api.upbit.com/v1/market/all")
+            console.log(res);
+            let result = res.json();
+            console.log(result);
+
+        }
+        test();
+    </script>
+</body>
+</html>
