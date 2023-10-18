@@ -13,8 +13,8 @@ conn = cx_Oracle.connect("test", "test", "localhost:1521/xe")
 
 # 이미지에서 텍스트 추출
 reader = easyocr.Reader(['ko', 'en'])
-image_directory = "C:/dev/pythonProject/OCR/test/"  # 이미지 파일이 있는 디렉토리 경로
-backup_directory = "C:/dev/pythonProject/OCR/backup/"  # 백업할 디렉토리 경로
+image_directory = "C:/dev/study/pythonProject/OCR/test/"  # 이미지 파일이 있는 디렉토리 경로
+backup_directory = "C:/dev/study/pythonProject/OCR/backup/"  # 백업할 디렉토리 경로
 
 
 if not os.path.exists(backup_directory):
