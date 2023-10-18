@@ -8,7 +8,7 @@ const userInput = document.querySelector('#user-input input');
 
 const sendButton = document.querySelector('#user-input button');
 
-const apiKey = "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";
+const apiKey = "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";
 
 const apiEndpoint = 'https://api.openai.com/v1/chat/completions'
 
