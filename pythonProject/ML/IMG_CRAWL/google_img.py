@@ -5,7 +5,7 @@ import time
 import os
 
 url = "https://www.google.com/search?q="
-img_dir = "./dataset/"
+img_dir = "./dataset2/"
 if not os.path.exists(img_dir):
     os.mkdir(img_dir)
 

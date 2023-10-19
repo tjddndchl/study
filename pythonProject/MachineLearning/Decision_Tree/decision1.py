@@ -63,3 +63,13 @@ plot_tree(dt, filled=True, feature_names=['alcohol', 'sugar', 'pH'])
 plt.show()
 
 print(dt.feature_importances_)
+
+
+dt = DecisionTreeClassifier(min_impurity_decrease=0.0005, random_state=42)
+dt.fit(train_input, train_target)
+print(dt.score(train_input, train_target))
+print(dt.score(test_input, test_target))
+
+plt.figure(figsize=(20, 15))
+plot_tree(dt, filled=True, feature_names=['alcohol', 'sugar', 'pH'])
+plt.show()
