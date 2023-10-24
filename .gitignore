@@ -1,0 +1,3 @@
+# Ignore NLP and .npy files in all folders
+**/nlp
+**/npy
