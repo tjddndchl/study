@@ -1,7 +1,9 @@
 from flask import Flask, request, jsonify, render_template
 import pandas as pd
 from sklearn.feature_extraction.text import TfidfVectorizer
+from sklearn.model_selection import train_test_split
 from sklearn.metrics.pairwise import linear_kernel
+from sklearn.metrics import precision_score, recall_score, f1_score, average_precision_score
 
 app = Flask(__name__)
 
@@ -17,12 +19,18 @@ tfidf_matrix = tfidf_Vectorizer.fit_transform(data['Genre'].apply(lambda x: ' '.
 
 cosine_sim = linear_kernel(tfidf_matrix, tfidf_matrix)
 
+
+# 데이터 분할 (평가 지표 개선을 위한 추가적인 데이터 준비)
+
+
+
 def get_recommendations(title):
     idx = data[data['Title'] == title].index[0]
     sim_scores = list(enumerate(cosine_sim[idx]))
     sim_scores = sorted(sim_scores, key=lambda x: x[1], reverse=True)
     sim_scores = sim_scores[1:11]
     anime_indices = [i[0] for i in sim_scores]
+
     return data[['Title', 'Genre', 'User Rating', 'Gross']].iloc[anime_indices].to_dict(orient='records')
 
 @app.route('/recommendations', methods=['GET','POST'])
