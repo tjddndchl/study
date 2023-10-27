@@ -1,46 +1,55 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>추천</title>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" integrity="sha384-rT5ktShI9wr45W6Vh0XBSta6UVe22VjMZcxuaRA/B2mFFJFEkqFZ1n1g91x1a3g2" crossorigin="anonymous">
+    <title>Anime Recommendation System</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script type="text/javascript" src="{{url_for('static', filename='anime.js')}}"></script>
 </head>
 <body>
-    <div class="container">
-        <h1 class="mt-4">Anime Recommendation System</h1>
-        <form method="POST" class="mt-4">
-            <div class="mb-3">
-                <label for="anime_title" class="form-label">제목입력:</label>
-                <input type="text" name="anime_title" class="form-control" required>
-            </div>
-            <button type="submit" class="btn btn-primary">Get Recommendations</button>
-        </form>
-        <h2 class="mt-4">Recommended Anime:</h2>
-        <table class="table table-bordered">
-            <thead>
-                <tr>
-                    <th>Title</th>
-                    <th>Genre</th>
-                    <th>User Rating</th>
-                    <th>Gross</th>
-                </tr>
-            </thead>
-            <tbody>
-                {% if recommendations %}
-                    {% for anime in recommendations %}
-                        <tr>
-                            <td>{{ anime['Title'] }}</td>
-                            <td>{{ anime['Genre'] }}</td>
-                            <td>{{ anime['User Rating'] }}</td>
-                            <td>{{ anime['Gross'] }}</td>
-                        </tr>
-                    {% endfor %}
-                {% else %}
-                    <tr>
-                        <td colspan="4">No recommendations available.</td>
-                    </tr>
-                {% endif %}
-            </tbody>
-        </table>
-    </div>
+    <h1>Anime Recommendation System</h1>
+    <form id="searchForm" method="post">
+        <label for="anime_title">Enter Anime Title:</label>
+        <input type="text" id="anime_title" name="anime_title" required>
+        <button type="button" id="btn">Get Recommendations</button>
+    </form>
+    <h2>Recommended Anime:</h2>
+    <ul id="recommendationsList">
+    </ul>
+
+    <script>
+        $(document).ready(function() {
+            $("#btn").click(function(e) {
+                var user_input = $("#anime_title").val();
+                $.ajax({
+                    type: "POST",
+                    url: "/recommendations",  // 서버의 엔드포인트를 정확하게 지정해야 합니다.
+                    data: { "anime_title": user_input },
+                    success: function(data) {
+                        alert("응답");
+                        displayRecommendations(data);
+                    }
+                });
+            });
+
+            function displayRecommendations(recommendations) {
+                var recommendationsList = $("#recommendationsList");
+                recommendationsList.empty();
+                if (recommendations.length > 0) {
+                    $.each(recommendations, function(index, anime) {
+                        var listItem = $("<li></li>").html(
+                            "<strong>Title:</strong> " + anime.Title + "<br>" +
+                            "<strong>Genre:</strong> " + anime.Genre + "<br>" +
+                            "<strong>User Rating:</strong> " + anime['User Rating'] + "<br>" +
+                            "<strong>Gross:</strong> $" + anime.Gross
+                        );
+                        recommendationsList.append(listItem);
+                    });
+                } else {
+                    var listItem = $("<li>No recommendations available.</li>");
+                    recommendationsList.append(listItem);
+                }
+            }
+        });
+    </script>
 </body>
 </html>

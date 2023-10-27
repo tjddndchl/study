@@ -1,4 +1,4 @@
-from flask import Flask, render_template, request
+from flask import Flask, request, jsonify, render_template
 import pandas as pd
 from sklearn.feature_extraction.text import TfidfVectorizer
 from sklearn.metrics.pairwise import linear_kernel
@@ -25,15 +25,14 @@ def get_recommendations(title):
     anime_indices = [i[0] for i in sim_scores]
     return data[['Title', 'Genre', 'User Rating', 'Gross']].iloc[anime_indices].to_dict(orient='records')
 
-@app.route('/', methods=['GET', 'POST'])
+@app.route('/recommendations', methods=['GET','POST'])
 def index():
+    recommendations = []
     if request.method == 'POST':
         user_input = request.form['anime_title']
         recommendations = get_recommendations(user_input)
-        return render_template('index.html', recommendations=recommendations)
-
-    return render_template('index.html', recommendations=None)
-
+        return jsonify(recommendations)
+    else:
+        return render_template('index.html')
 if __name__ == '__main__':
-    app.run(debug=True )
-
+    app.run(debug=True)
