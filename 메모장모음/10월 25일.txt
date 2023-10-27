@@ -1,0 +1,258 @@
+10월 26일
+
+impdp jdbc/jdbc DIRECTORY=MY_DUMP_DIR DUMPFILE=JDBC.DMP
+
+FIleZilla 업로드 JDBC 덤프파일
+
+Microsoft Windows [Version 10.0.22621.2283]
+(c) Microsoft Corporation. All rights reserved.
+
+C:\Windows\System32>cd ..
+
+C:\Windows>cd ..
+
+C:\>cd tools
+
+C:\tools>cd AWS
+
+C:\tools\AWS> ssh -i "firstAWS.pem" ubuntu@ec2-13-209-43-89.ap-northeast-2.compute.amazonaws.com
+Welcome to Ubuntu 22.04.3 LTS (GNU/Linux 6.2.0-1012-aws x86_64)
+
+ * Documentation:  https://help.ubuntu.com
+ * Management:     https://landscape.canonical.com
+ * Support:        https://ubuntu.com/advantage
+
+  System information as of Wed Oct 25 10:57:19 KST 2023
+
+  System load:  0.13330078125      Processes:                137
+  Usage of /:   18.1% of 28.89GB   Users logged in:          0
+  Memory usage: 40%                IPv4 address for docker0: 172.17.0.1
+  Swap usage:   0%                 IPv4 address for eth0:    172.31.41.77
+
+ * Ubuntu Pro delivers the most comprehensive open source security and
+   compliance features.
+
+   https://ubuntu.com/aws/pro
+
+Expanded Security Maintenance for Applications is not enabled.
+
+0 updates can be applied immediately.
+
+Enable ESM Apps to receive additional future security updates.
+See https://ubuntu.com/esm or run: sudo pro status
+
+
+*** System restart required ***
+Last login: Wed Oct 25 10:51:49 2023 from 121.183.211.160
+ubuntu@ip-172-31-41-77:~$ ll
+total 44
+drwxr-x--- 7 ubuntu ubuntu 4096 Oct 25 09:34 ./
+drwxr-xr-x 3 root   root   4096 Oct 23 10:24 ../
+-rw------- 1 ubuntu ubuntu 2182 Oct 25 10:52 .bash_history
+-rw-r--r-- 1 ubuntu ubuntu  220 Jan  7  2022 .bash_logout
+-rw-r--r-- 1 ubuntu ubuntu 3771 Jan  7  2022 .bashrc
+drwx------ 2 ubuntu ubuntu 4096 Oct 23 10:57 .cache/
+-rw-r--r-- 1 ubuntu ubuntu  807 Jan  7  2022 .profile
+drwx------ 2 ubuntu ubuntu 4096 Oct 23 10:24 .ssh/
+-rw-r--r-- 1 ubuntu ubuntu    0 Oct 23 11:00 .sudo_as_admin_successful
+drwxrwxr-x 2 ubuntu ubuntu 4096 Oct 23 11:52 firstApp/
+drwxrwxr-x 2 ubuntu ubuntu 4096 Oct 24 11:21 secondApp/
+drwxrwxr-x 2 ubuntu ubuntu 4096 Oct 25 10:57 tmp/
+ubuntu@ip-172-31-41-77:~$ cd tmp
+ubuntu@ip-172-31-41-77:~/tmp$ sudo docker cp JDBC.DMP oracle11g:/root/
+Successfully copied 587kB to oracle11g:/root/
+ubuntu@ip-172-31-41-77:~/tmp$ sudo docker exec -it oracle11g /bin/bash
+root@d5fdd5906c96:/# cd root
+root@d5fdd5906c96:~# ll
+total 596
+drwx------ 1 root   root   4096 Oct 25 01:58 ./
+drwxr-xr-x 1 root   root   4096 Oct 25 01:58 ../
+-rw------- 1 root   root    168 Oct 25 01:52 .bash_history
+-rw-r--r-- 1 root   root   3106 Feb 20  2014 .bashrc
+-rw-r--r-- 1 root   root    140 Feb 20  2014 .profile
+-rw-rw-r-- 1 oracle dba  585728 Oct 25 01:57 JDBC.DMP
+drwxr-xr-x 3 root   root   4096 Oct 24 00:54 oradiag_root/
+root@d5fdd5906c96:~# sudo chmod 777 JDBC.DMP
+root@d5fdd5906c96:~# impdp jdbc/jdbc DIRECTORY=MY_DUMP_DIR DUMPFILE=JDBC.DMP
+
+Import: Release 11.2.0.2.0 - Production on Wed Oct 25 01:59:34 2023
+
+Copyright (c) 1982, 2009, Oracle and/or its affiliates.  All rights reserved.
+
+Connected to: Oracle Database 11g Express Edition Release 11.2.0.2.0 - 64bit Production
+ORA-39002: invalid operation
+ORA-39070: Unable to open the log file.
+ORA-29283: invalid file operation
+ORA-06512: at "SYS.UTL_FILE", line 536
+ORA-29283: invalid file operation
+
+
+root@d5fdd5906c96:sudo rm -f JDBC.DMP
+
+/# sudo chmod 777 root #루트 권환 주기
+/#
+Microsoft Windows [Version 10.0.22621.2283]
+(c) Microsoft Corporation. All rights reserved.
+
+C:\Windows\System32>cd ..
+
+C:\Windows>cd ..
+
+C:\>cd tools
+
+C:\tools>cd AWS
+
+C:\tools\AWS> ssh -i "firstAWS.pem" ubuntu@ec2-13-209-43-89.ap-northeast-2.compute.amazonaws.com
+ssh: connect to host ec2-13-209-43-89.ap-northeast-2.compute.amazonaws.com port 22: Connection refused
+
+C:\tools\AWS>ssh -i "firstAWS.pem" ubuntu@ec2-13-209-43-89.ap-northeast-2.compute.amazonaws.com
+Welcome to Ubuntu 22.04.3 LTS (GNU/Linux 6.2.0-1014-aws x86_64)
+
+ * Documentation:  https://help.ubuntu.com
+ * Management:     https://landscape.canonical.com
+ * Support:        https://ubuntu.com/advantage
+
+  System information as of Wed Oct 25 11:45:08 KST 2023
+
+  System load:  0.78857421875      Processes:                107
+  Usage of /:   18.1% of 28.89GB   Users logged in:          0
+  Memory usage: 24%                IPv4 address for docker0: 172.17.0.1
+  Swap usage:   0%                 IPv4 address for eth0:    172.31.41.77
+
+ * Ubuntu Pro delivers the most comprehensive open source security and
+   compliance features.
+
+   https://ubuntu.com/aws/pro
+
+Expanded Security Maintenance for Applications is not enabled.
+
+0 updates can be applied immediately.
+
+Enable ESM Apps to receive additional future security updates.
+See https://ubuntu.com/esm or run: sudo pro status
+
+
+Last login: Wed Oct 25 11:27:03 2023 from 121.183.211.160
+ubuntu@ip-172-31-41-77:~$ ll
+total 44
+drwxr-x--- 7 ubuntu ubuntu 4096 Oct 25 09:34 ./
+drwxr-xr-x 3 root   root   4096 Oct 23 10:24 ../
+-rw------- 1 ubuntu ubuntu 2629 Oct 25 11:39 .bash_history
+-rw-r--r-- 1 ubuntu ubuntu  220 Jan  7  2022 .bash_logout
+-rw-r--r-- 1 ubuntu ubuntu 3771 Jan  7  2022 .bashrc
+drwx------ 2 ubuntu ubuntu 4096 Oct 23 10:57 .cache/
+-rw-r--r-- 1 ubuntu ubuntu  807 Jan  7  2022 .profile
+drwx------ 2 ubuntu ubuntu 4096 Oct 23 10:24 .ssh/
+-rw-r--r-- 1 ubuntu ubuntu    0 Oct 23 11:00 .sudo_as_admin_successful
+drwxrwxr-x 2 ubuntu ubuntu 4096 Oct 23 11:52 firstApp/
+drwxrwxr-x 2 ubuntu ubuntu 4096 Oct 24 11:21 secondApp/
+drwxrwxr-x 2 ubuntu ubuntu 4096 Oct 25 11:30 tmp/
+ubuntu@ip-172-31-41-77:~$ cd tmp
+ubuntu@ip-172-31-41-77:~/tmp$ ll
+total 656
+drwxrwxr-x 2 ubuntu ubuntu   4096 Oct 25 11:30 ./
+drwxr-x--- 7 ubuntu ubuntu   4096 Oct 25 09:34 ../
+-rw-rw-r-- 1 ubuntu ubuntu 663552 Oct 25 11:30 JDBC.DMP
+ubuntu@ip-172-31-41-77:~/tmp$ sudo docker cp JDBC.DMP oracle11g:/root/
+Successfully copied 665kB to oracle11g:/root/
+ubuntu@ip-172-31-41-77:~/tmp$ sudo docker exec -it oracle11g /bin/bash
+Error response from daemon: Container d5fdd5906c96e62f7bdd1c38a230dd7263fdd995ffdcf9137939bbd4aa383e4c is not running
+ubuntu@ip-172-31-41-77:~/tmp$ sudo docker exec -it oracle11g /bin/bash
+Error response from daemon: Container d5fdd5906c96e62f7bdd1c38a230dd7263fdd995ffdcf9137939bbd4aa383e4c is not running
+ubuntu@ip-172-31-41-77:~/tmp$ sudo docker ps -a
+CONTAINER ID   IMAGE                   COMMAND             CREATED        STATUS                       PORTS                                                 NAMES
+d5fdd5906c96   jaspeen/oracle-xe-11g   "/entrypoint.sh "   26 hours ago   Exited (255) 3 minutes ago   0.0.0.0:1521->1521/tcp, :::1521->1521/tcp, 8080/tcp   oracle11g
+ubuntu@ip-172-31-41-77:~/tmp$ docker start <container-d5fdd5906c96>
+-bash: syntax error near unexpected token `newline'
+ubuntu@ip-172-31-41-77:~/tmp$ sudo docker start <container-d5fdd5906c96>
+-bash: syntax error near unexpected token `newline'
+ubuntu@ip-172-31-41-77:~/tmp$ sudo docker start d5fdd5906c96
+d5fdd5906c96
+ubuntu@ip-172-31-41-77:~/tmp$ sudo docker exec -it oracle11g /bin/bash
+root@d5fdd5906c96:/# sudo chmod 777 root
+root@d5fdd5906c96:/# impdp jdbc/jdbc DIRECTORY=MY_DUMP_DIR DUMPFILE=JDBC.DMP
+
+
+
+Import: Release 11.2.0.2.0 - Production on Wed Oct 25 02:51:23 2023
+
+Copyright (c) 1982, 2009, Oracle and/or its affiliates.  All rights reserved.
+
+Connected to: Oracle Database 11g Express Edition Release 11.2.0.2.0 - 64bit Production
+Master table "JDBC"."SYS_IMPORT_FULL_01" successfully loaded/unloaded
+Starting "JDBC"."SYS_IMPORT_FULL_01":  jdbc/******** DIRECTORY=MY_DUMP_DIR DUMPFILE=JDBC.DMP
+Processing object type SCHEMA_EXPORT/ROLE_GRANT
+ORA-39083: Object type ROLE_GRANT failed to create with error:
+ORA-31625: Schema SYSTEM is needed to import this object, but is unaccessible
+ORA-01031: insufficient privileges
+Failing sql is:
+ GRANT "DBA" TO "JDBC"
+Processing object type SCHEMA_EXPORT/DEFAULT_ROLE
+ORA-39083: Object type DEFAULT_ROLE failed to create with error:
+ORA-31625: Schema SYSTEM is needed to import this object, but is unaccessible
+ORA-01031: insufficient privileges
+Failing sql is:
+ ALTER USER "JDBC" DEFAULT ROLE ALL
+Processing object type SCHEMA_EXPORT/PRE_SCHEMA/PROCACT_SCHEMA
+Processing object type SCHEMA_EXPORT/SEQUENCE/SEQUENCE
+Processing object type SCHEMA_EXPORT/TABLE/TABLE
+Processing object type SCHEMA_EXPORT/TABLE/TABLE_DATA
+. . imported "JDBC"."BOARD"                              8.078 KB       7 rows
+. . imported "JDBC"."CHATLOG"                            6.945 KB       6 rows
+. . imported "JDBC"."COMMON"                             7.117 KB      44 rows
+. . imported "JDBC"."COMM_CODE"                          6.562 KB      31 rows
+. . imported "JDBC"."FREE_BOARD"                         42.86 KB     493 rows
+. . imported "JDBC"."MEMBER"                             7.703 KB       8 rows
+. . imported "JDBC"."REPLYS"                             7.937 KB      17 rows
+. . imported "JDBC"."RESERV"                             7.726 KB       3 rows
+. . imported "JDBC"."ROOM"                               7.164 KB       2 rows
+. . imported "JDBC"."ROOMS"                              6.859 KB       3 rows
+. . imported "JDBC"."USER_RESERV"                        10.10 KB       5 rows
+Processing object type SCHEMA_EXPORT/TABLE/COMMENT
+Processing object type SCHEMA_EXPORT/TABLE/INDEX/INDEX
+Processing object type SCHEMA_EXPORT/TABLE/CONSTRAINT/CONSTRAINT
+Processing object type SCHEMA_EXPORT/TABLE/INDEX/STATISTICS/INDEX_STATISTICS
+Processing object type SCHEMA_EXPORT/TABLE/CONSTRAINT/REF_CONSTRAINT
+Job "JDBC"."SYS_IMPORT_FULL_01" completed with 2 error(s) at 02:51:35
+
+root@d5fdd5906c96:/# ll
+total 100
+drwxr-xr-x   1 root root 4096 Oct 25 02:46 ./
+drwxr-xr-x   1 root root 4096 Oct 25 02:46 ../
+-rwxr-xr-x   1 root root    0 Oct 24 00:52 .dockerenv*
+drwxr-xr-x   1 root root 4096 Nov 26  2015 bin/
+drwxr-xr-x   2 root root 4096 Apr 10  2014 boot/
+drwxr-xr-x   5 root root  340 Oct 25 02:50 dev/
+-rwxr-xr-x   1 root root 3002 Nov 26  2015 entrypoint.sh*
+drwxr-xr-x   1 root root 4096 Oct 24 00:53 etc/
+drwxr-xr-x   2 root root 4096 Apr 10  2014 home/
+drwxr-xr-x   1 root root 4096 Oct 28  2015 lib/
+drwxr-xr-x   2 root root 4096 Oct 28  2015 lib64/
+drwxr-xr-x   2 root root 4096 Oct 28  2015 media/
+drwxr-xr-x   2 root root 4096 Apr 10  2014 mnt/
+drwxr-xr-x   2 root root 4096 Oct 28  2015 opt/
+-rwxr-xr-x   1 root root  824 Nov 26  2015 oracle-install.sh*
+dr-xr-xr-x 199 root root    0 Oct 25 02:50 proc/
+drwxrwxrwx   1 root root 4096 Oct 25 02:51 root/
+drwxr-xr-x   1 root root 4096 Oct 28  2015 run/
+drwxr-xr-x   1 root root 4096 Nov 26  2015 sbin/
+drwxr-xr-x   2 root root 4096 Oct 28  2015 srv/
+dr-xr-xr-x  13 root root    0 Oct 25 02:50 sys/
+drwxrwxrwt   1 root root 4096 Oct 24 00:53 tmp/
+drwxr-xr-x   1 root root 4096 Nov 26  2015 u01/
+drwxr-xr-x   1 root root 4096 Nov 10  2015 usr/
+drwxr-xr-x   1 root root 4096 Nov 10  2015 var/
+root@d5fdd5906c96:/#
+
+
+1.아마존 인스턴스 서비스 실행
+2. AWS_system 생성 system계정으로 만들어야함
+3.jdbc 파일 임포트 
+4.파일질라에 올려야함
+5.AWS 에 있는 테이블 다 삭제
+6.우분투 실행
+7.도커 실행
+8.루트 경로 복사, JDBC파일 복사
+9. 루트에 권한 줘야함
+10.임포트 실행
+

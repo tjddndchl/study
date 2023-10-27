@@ -1,0 +1,26 @@
+war파일 만들기
+톰캣에 war 파일 만들어줌
+bin파일안에 start.bat 파일 실행(서버기동하고 똑같음) 포트번호 변경
+
+스프링 프로젝트 root-context 파일에서 localhost 내 아이피로
+
+아파치 톰캣 압축 풀기
+
+
+
+
+
+
+mkdir ~/tomcat9 (폴더만들기)
+
+mv apache-tomcat-9.0.82 ~/tomcat9
+cd tomcat0
+ll
+
+tomcat의 webapps 쪽에 만들어놓은 war파일을 올려놓음
+
+tomcat의 server.xml을 수정함(Host 이름수정)
+
+로컬의 server.xml 덮어쓰기
+
+우분투에서는 startup.sh로 실행해야함 bin폴더에있음

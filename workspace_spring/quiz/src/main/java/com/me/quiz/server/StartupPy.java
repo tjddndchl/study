@@ -18,7 +18,7 @@ public class StartupPy {
 		logger.info("python start");
 		System.out.println("python start");
 		try {
-			Process proc = rt.exec("C:\\dev\\anaconda\\envs\\bigdata\\python C:\\dev\\study\\pythonProject\\OCR\\ocrbackup.py");
+			Process proc = rt.exec("C:\\dev\\anaconda\\envs\\bigdata\\python C:\\dev\\pythonProject\\OCR\\ocrbackup.py");
 			
 			 // 결과를 읽기 위한 BufferedReader 생성
             BufferedReader stdInput = new BufferedReader(new InputStreamReader(proc.getInputStream()));

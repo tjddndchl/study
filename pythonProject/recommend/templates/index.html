@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>추천</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" integrity="sha384-rT5ktShI9wr45W6Vh0XBSta6UVe22VjMZcxuaRA/B2mFFJFEkqFZ1n1g91x1a3g2" crossorigin="anonymous">
+</head>
+<body>
+    <div class="container">
+        <h1 class="mt-4">Anime Recommendation System</h1>
+        <form method="POST" class="mt-4">
+            <div class="mb-3">
+                <label for="anime_title" class="form-label">제목입력:</label>
+                <input type="text" name="anime_title" class="form-control" required>
+            </div>
+            <button type="submit" class="btn btn-primary">Get Recommendations</button>
+        </form>
+        <h2 class="mt-4">Recommended Anime:</h2>
+        <table class="table table-bordered">
+            <thead>
+                <tr>
+                    <th>Title</th>
+                    <th>Genre</th>
+                    <th>User Rating</th>
+                    <th>Gross</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% if recommendations %}
+                    {% for anime in recommendations %}
+                        <tr>
+                            <td>{{ anime['Title'] }}</td>
+                            <td>{{ anime['Genre'] }}</td>
+                            <td>{{ anime['User Rating'] }}</td>
+                            <td>{{ anime['Gross'] }}</td>
+                        </tr>
+                    {% endfor %}
+                {% else %}
+                    <tr>
+                        <td colspan="4">No recommendations available.</td>
+                    </tr>
+                {% endif %}
+            </tbody>
+        </table>
+    </div>
+</body>
+</html>

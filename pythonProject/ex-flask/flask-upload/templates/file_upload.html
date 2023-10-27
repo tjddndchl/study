@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <form action="http://127.0.0.1:5000/file_upload" method="POST"
+          enctype="multipart/form-data">
+        <input type="file" name="file" value="파일선택" onchange="preview(event)">
+        <input type="submit" value="저장">
+        <img id="preview_img" src="" alt="파일없음">
+    </form>
+    <script>
+        function preview(event){
+            let reader = new FileReader();
+            reader.onload = function(e){
+                document.getElementById('preview_img').src = e.target.result;
+            };
+            reader.readAsDataURL(event.target.files[0])
+        }
+    </script>
+</body>
+</html>
