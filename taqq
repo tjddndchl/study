@@ -1,0 +1,625 @@
+[33mcommit bf0735d2a9238523b577c6bb07eca1d6ca5bb84d[m[33m ([m[1;36mHEAD -> [m[1;32mmaster[m[33m, [m[1;31morigin/master[m[33m, [m[1;31morigin/HEAD[m[33m)[m
+Author: DESKTOP-LKQL5MH\choi <tjddndchl1@naver.com>
+Date:   Thu Oct 26 02:34:26 2023 +0900
+
+    파일 여러가지 추가
+
+[33mcommit fcfaabdb37d0ffe7c3a5acad7ec5c3e670e8549b[m
+Author: nick <tjddndchl134@gmail.com>
+Date:   Tue Oct 24 12:49:11 2023 +0900
+
+    진짜 자연어 처리한거다시올림 gitignore로 nlp, npy파일 제외함
+
+[33mcommit 5111068ddd4bb85b9dcf91f0e3d49c42895740e7[m
+Author: nick <tjddndchl134@gmail.com>
+Date:   Tue Oct 24 12:47:21 2023 +0900
+
+    10월24일 자연어처리한거
+
+[33mcommit d2eb6f63e2c543c5af96645be27ecbd9f1760373[m
+Author: DESKTOP-LKQL5MH\choi <tjddndchl1@naver.com>
+Date:   Tue Oct 24 02:13:31 2023 +0900
+
+    모델추가
+
+[33mcommit 19d7750f12cb5405bfbb2d6b6756582382bb1e71[m
+Author: nick <tjddndchl134@gmail.com>
+Date:   Mon Oct 23 14:30:53 2023 +0900
+
+    깃 스프링부트 연습
+
+[33mcommit 96e1f65366554a392e9164994ae378e9b86f1e50[m
+Author: DESKTOP-LKQL5MH\choi <tjddndchl1@naver.com>
+Date:   Sun Oct 22 03:21:23 2023 +0900
+
+    로그인 페이지 만들어봄
+
+[33mcommit 52ffbd1d080e162073806d549711c7760a94bb2b[m
+Author: nick <tjddndchl134@gmail.com>
+Date:   Fri Oct 20 19:28:36 2023 +0900
+
+    스프링부트 댓글 목록 뽑아오기
+
+[33mcommit 501bcfadc6b4306b7b20f349d0f3e657f2dfe9c3[m
+Author: nick <tjddndchl134@gmail.com>
+Date:   Fri Oct 20 15:35:36 2023 +0900
+
+    자르파일 생성, 스프링부트 프로젝트 시작
+
+[33mcommit b133ccc960a225866ec37bab2ae0433cd2c6d07b[m
+Author: nick <tjddndchl134@gmail.com>
+Date:   Fri Oct 20 14:03:17 2023 +0900
+
+    욜로 구현, 주식시장 시계열 분석
+
+[33mcommit eb4485f6581eb205598b61d0f55b451e7eab38c9[m
+Author: nick <tjddndchl134@gmail.com>
+Date:   Thu Oct 19 17:51:44 2023 +0900
+
+    1
+
+[33mcommit 777f6ae7986588abcde481a5db99f46e10d0e4bb[m
+Author: nick <tjddndchl134@gmail.com>
+Date:   Thu Oct 19 16:14:45 2023 +0900
+
+    의사결정나무, 앙상블기법 연습, VGG 모델로 이미지 분류적용
+
+[33mcommit 7c23ca21a8860b0e9c07db0962340f91af1a7c5d[m
+Author: DESKTOP-LKQL5MH\choi <tjddndchl1@naver.com>
+Date:   Thu Oct 19 01:13:03 2023 +0900
+
+    와인 결정트리
+
+[33mcommit 5fe399810411a756e24a73928b581acd49d45a00[m
+Author: DESKTOP-LKQL5MH\choi <tjddndchl1@naver.com>
+Date:   Thu Oct 19 00:39:05 2023 +0900
+
+    확률적경사하강법 연습
+
+[33mcommit c9c1e9d79d921bc9fb75e339b65db0d3297f3c73[m
+Author: nick <tjddndchl134@gmail.com>
+Date:   Wed Oct 18 18:11:10 2023 +0900
+
+    개인 프로젝트 chat gpt 적용하는중
+
+[33mcommit 61e7742470d2ff00e81fbcd2270c016245f69b51[m
+Author: nick <tjddndchl134@gmail.com>
+Date:   Wed Oct 18 14:34:35 2023 +0900
+
+    파이썬 CNN 텐서플로우 사용
+
+[33mcommit effeda1a639e0b83d05dec6f169400cdd1132e96[m
+Author: nick <tjddndchl134@gmail.com>
+Date:   Wed Oct 18 11:26:26 2023 +0900
+
+    자바스크립트 텐서플로우
+
+[33mcommit 0120007f093cf90bfaa73b93ad3a3cf2339062ca[m
+Author: DESKTOP-LKQL5MH\choi <tjddndchl1@naver.com>
+Date:   Wed Oct 18 00:22:49 2023 +0900
+
+    희귀분석
+
+[33mcommit 34cc20f91561dc3c15e8257f844dba943cd36fa0[m
+Author: DESKTOP-LKQL5MH\choi <tjddndchl1@naver.com>
+Date:   Wed Oct 18 00:22:23 2023 +0900
+
+    로지스틱 회귀, 회귀분석
+
+[33mcommit 3047939dcfa61bcdc577dbca2b0ea525d8d9763c[m
+Author: nick <tjddndchl134@gmail.com>
+Date:   Tue Oct 17 20:01:31 2023 +0900
+
+    머신러닝 ANN , JSP 게시판 글 편집기
+
+[33mcommit 6f0349b5e1866a1604db76e6afdac7d150b2a605[m
+Author: DESKTOP-LKQL5MH\choi <tjddndchl1@naver.com>
+Date:   Tue Oct 17 01:07:48 2023 +0900
+
+    10월 17일 집에서 연습 자바 파이썬
+
+[33mcommit b404cf510bbaca699a521e8e4f014a39b4192067[m
+Author: nick <tjddndchl134@gmail.com>
+Date:   Mon Oct 16 20:42:45 2023 +0900
+
+    DNN , 코딩 연습
+
+[33mcommit cf62681b645a68a77b9785828036f4d252392140[m
+Author: nick <tjddndchl134@gmail.com>
+Date:   Fri Oct 13 21:11:39 2023 +0900
+
+    10월 13일
+
+[33mcommit 5798f6467232b437937a10c32de16b8ec6c0a92b[m
+Author: nick <tjddndchl134@gmail.com>
+Date:   Fri Oct 13 15:47:21 2023 +0900
+
+    ss
+
+[33mcommit 353988f8c678bdb57592880d7de852c8cc66987e[m
+Author: nick <tjddndchl134@gmail.com>
+Date:   Wed Oct 11 21:31:58 2023 +0900
+
+    10월 11일 학원
+
+[33mcommit 3bfe7f33c59d5a714e81066ed5d035243e6009cd[m
+Author: choi <104568586+tjddndchl@users.noreply.github.com>
+Date:   Wed Oct 11 15:52:42 2023 +0900
+
+    Update README.md
+
+[33mcommit 0fdd03ee708375200fd3dcf6b7f443a846aad3f6[m
+Author: choi <104568586+tjddndchl@users.noreply.github.com>
+Date:   Wed Oct 11 15:49:16 2023 +0900
+
+    Update README.md
+
+[33mcommit 757c62d96fc7356343e1424a2fe7c32c90e8160d[m
+Author: choi <104568586+tjddndchl@users.noreply.github.com>
+Date:   Wed Oct 11 15:47:55 2023 +0900
+
+    Update README.md
+
+[33mcommit d33be012c576c306d804302878ef6c0dff1395d0[m
+Author: choi <104568586+tjddndchl@users.noreply.github.com>
+Date:   Wed Oct 11 15:46:46 2023 +0900
+
+    Update README.md
+
+[33mcommit abc8dcff3b7824f7f1140feefa225d3c613e1cfa[m
+Author: choi <104568586+tjddndchl@users.noreply.github.com>
+Date:   Wed Oct 11 15:40:42 2023 +0900
+
+    Update README.md
+
+[33mcommit f579352458fbc5e46ba40d7ff729148bf73938a7[m
+Author: choi <104568586+tjddndchl@users.noreply.github.com>
+Date:   Wed Oct 11 15:39:12 2023 +0900
+
+    Update README.md
+
+[33mcommit c7b8e08964b0654f1a56fda62ea71d5ddcf52ac9[m
+Author: choi <104568586+tjddndchl@users.noreply.github.com>
+Date:   Wed Oct 11 15:38:43 2023 +0900
+
+    Update README.md
+
+[33mcommit 215fdd5ea2b28a5220b102a79c9ca529fe011bb2[m
+Author: choi <104568586+tjddndchl@users.noreply.github.com>
+Date:   Wed Oct 11 15:37:14 2023 +0900
+
+    Update README.md
+
+[33mcommit fc68dd76b3a4f41da35bfb6212e620f4642448c4[m
+Author: choi <104568586+tjddndchl@users.noreply.github.com>
+Date:   Wed Oct 11 15:32:59 2023 +0900
+
+    Update README.md
+
+[33mcommit e71d49bb6f1b476270270bd00e572ffb023deb7c[m
+Author: choi <104568586+tjddndchl@users.noreply.github.com>
+Date:   Wed Oct 11 15:28:41 2023 +0900
+
+    Update README.md
+
+[33mcommit 5fe0aa299ef97c84df2b43a03078dc000547166f[m
+Author: choi <104568586+tjddndchl@users.noreply.github.com>
+Date:   Wed Oct 11 15:25:50 2023 +0900
+
+    Update README.md
+
+[33mcommit df0f312fcd8d2c78b3451bd2f38f46a438109fae[m
+Author: choi <104568586+tjddndchl@users.noreply.github.com>
+Date:   Wed Oct 11 15:25:03 2023 +0900
+
+    Update README.md
+
+[33mcommit 2fc7eb4ccd272a4be04e843f2561270925066134[m
+Author: choi <104568586+tjddndchl@users.noreply.github.com>
+Date:   Wed Oct 11 15:23:32 2023 +0900
+
+    Update README.md
+
+[33mcommit 0ea43fc8d4b65676e6cc93452829748620700c53[m
+Author: choi <104568586+tjddndchl@users.noreply.github.com>
+Date:   Wed Oct 11 15:17:10 2023 +0900
+
+    Update README.md
+
+[33mcommit 42f832d8e800b4b63dfed9de02f60804ca924957[m
+Author: choi <104568586+tjddndchl@users.noreply.github.com>
+Date:   Wed Oct 11 15:12:58 2023 +0900
+
+    Update README.md
+
+[33mcommit 7df46f28753aec6b9025ecf34fb4be5266276ffc[m
+Author: choi <104568586+tjddndchl@users.noreply.github.com>
+Date:   Wed Oct 11 15:05:46 2023 +0900
+
+    Update README.md
+
+[33mcommit 06effe90beaee8e57df1a2408d983eb25d9c4815[m
+Author: choi <104568586+tjddndchl@users.noreply.github.com>
+Date:   Wed Oct 11 15:03:55 2023 +0900
+
+    Update README.md
+
+[33mcommit 043993edf8424605c886e16465971e8ef6ca57f5[m
+Author: choi <104568586+tjddndchl@users.noreply.github.com>
+Date:   Wed Oct 11 14:49:26 2023 +0900
+
+    Create README.md
+
+[33mcommit a41e7dd188b8c3b7ef6d0d4a001ae18fc961764c[m
+Author: DESKTOP-LKQL5MH\choi <tjddndchl1@naver.com>
+Date:   Wed Oct 11 01:37:22 2023 +0900
+
+    10월 11일 집
+
+[33mcommit af2b9397de628b91375393cc1cbc3b79fd5b05e9[m
+Author: tjddndchl <tjddndchl134@gmail.com>
+Date:   Tue Oct 10 21:15:05 2023 +0900
+
+    10월 10일 학원
+
+[33mcommit e478c532b21ac53f4077802df4942d8d734a7249[m
+Author: tjddndchl <tjddndchl134@gmail.com>
+Date:   Fri Oct 6 20:36:15 2023 +0900
+
+    10월 6일
+
+[33mcommit cbddde35404ca675aa64de154d2d298a61e05844[m
+Author: tjddndchl <tjddndchl134@gmail.com>
+Date:   Wed Sep 27 17:32:48 2023 +0900
+
+    9월27일
+
+[33mcommit 7bc6f807876d926a17c36ab63b89375879467cb0[m
+Author: tjddndchl <tjddndchl134@gmail.com>
+Date:   Mon Sep 25 21:12:51 2023 +0900
+
+    개인프로젝트 끝
+
+[33mcommit 9212023e7ac3bc46bb5724a1c2bb2625be79058f[m
+Author: tjddndchl <tjddndchl134@gmail.com>
+Date:   Sun Sep 24 19:17:49 2023 +0900
+
+    9월24일 학원
+
+[33mcommit a701395a4978a0894839a1f1affdabab41060888[m
+Author: tjddndchl <tjddndchl134@gmail.com>
+Date:   Wed Sep 20 21:25:51 2023 +0900
+
+    9월20일
+
+[33mcommit 21252312214817baeb66a96e7280a90bf73263bf[m
+Author: tjddndchl <tjddndchl134@gmail.com>
+Date:   Tue Sep 19 17:56:47 2023 +0900
+
+    9월19일
+
+[33mcommit 3f1d63cb01630a6fdb05cd799bfde9626d892228[m
+Author: tjddndchl <tjddndchl134@gmail.com>
+Date:   Mon Sep 18 20:21:18 2023 +0900
+
+    9월 18일
+
+[33mcommit 8a493a5eff3615158b2176db9e1d1c5801c7dd6f[m
+Author: tjddndchl <tjddndchl134@gmail.com>
+Date:   Fri Sep 15 21:35:26 2023 +0900
+
+    9월15일
+
+[33mcommit efe6472b8e08f0790ce595dc1d4da557c474edb6[m
+Author: tjddndchl <tjddndchl134@gmail.com>
+Date:   Thu Sep 14 17:46:28 2023 +0900
+
+    9월 14일 학원
+
+[33mcommit bddfb354d0da848c5a585187d8daaf727945e452[m
+Author: tjddndchl <tjddndchl134@gmail.com>
+Date:   Wed Sep 13 21:24:59 2023 +0900
+
+    9월13일
+
+[33mcommit 442842356ade5e1e1a3b4b8d0ff1358cd6cb6810[m
+Author: tjddndchl <tjddndchl134@gmail.com>
+Date:   Tue Sep 12 21:24:54 2023 +0900
+
+    9월 12일 로그인부분구현
+
+[33mcommit a71f49ccc638daa9afcd64045f8351baa983ccbf[m
+Author: tjddndchl <tjddndchl134@gmail.com>
+Date:   Mon Sep 11 21:07:42 2023 +0900
+
+    9월11일 스프링 시작
+
+[33mcommit 764b7e00cc9dc483c9439c790c7c4fa87fc8f5ad[m
+Author: tjddndchl <tjddndchl134@gmail.com>
+Date:   Fri Sep 8 18:06:14 2023 +0900
+
+    1일
+
+[33mcommit 582706a2bd5f78ee62ae7faabb9b39a871034011[m
+Author: tjddndchl <tjddndchl134@gmail.com>
+Date:   Thu Sep 7 17:52:46 2023 +0900
+
+    9월 7일
+
+[33mcommit e60ad873f31e423fe652ff55bc6c3d48d4cd76c2[m
+Author: tjddndchl <tjddndchl134@gmail.com>
+Date:   Wed Sep 6 20:57:49 2023 +0900
+
+    9월6일 학원
+
+[33mcommit 8e68fae859eb0b9d0b6f472bc45eb93eaeba931a[m
+Author: tjddndchl <tjddndchl134@gmail.com>
+Date:   Tue Sep 5 20:28:23 2023 +0900
+
+    9월5일
+
+[33mcommit deb9d19ed2e37404a7db5793ae9d7fb1bc8a74a4[m
+Author: tjddndchl <tjddndchl134@gmail.com>
+Date:   Mon Sep 4 21:13:28 2023 +0900
+
+    9월 4일학원
+
+[33mcommit 1b1bf8b2990cc4381d080967eb27fa596dfe5cfe[m
+Author: tjddndchl <tjddndchl134@gmail.com>
+Date:   Fri Sep 1 19:03:49 2023 +0900
+
+    9월1일 학원
+
+[33mcommit 5cd6d4eb3e56489bd9735989ffb72eb7f28a007f[m
+Author: tjddndchl <tjddndchl134@gmail.com>
+Date:   Thu Aug 31 21:52:21 2023 +0900
+
+    8월31일 학원
+
+[33mcommit fdffe66cc1d85daa72f2ab96cc588aeb78dd6008[m
+Author: tjddndchl <tjddndchl134@gmail.com>
+Date:   Wed Aug 30 21:08:49 2023 +0900
+
+    8월30일
+
+[33mcommit 1e45fa4da07797c255041db21387f47c51041148[m
+Author: DESKTOP-LKQL5MH\choi <tjddndchl1@naver.com>
+Date:   Tue Aug 29 23:13:31 2023 +0900
+
+    8월29일집
+
+[33mcommit b78802eae9052faecad4d8bf9d97398ca7d744a0[m
+Author: tjddndchl <tjddndchl134@gmail.com>
+Date:   Tue Aug 29 20:13:51 2023 +0900
+
+    8월29일 학원
+
+[33mcommit ddbcbc00f4fe890c1e64e26535b9af1bec44c155[m
+Author: DESKTOP-LKQL5MH\choi <tjddndchl1@naver.com>
+Date:   Tue Aug 29 00:06:22 2023 +0900
+
+    8월28일 집
+
+[33mcommit 00881e8b54b1826a9a917254a999b7874927f1be[m
+Author: tjddndchl <tjddndchl134@gmail.com>
+Date:   Mon Aug 28 18:31:07 2023 +0900
+
+    8월28일 학원
+
+[33mcommit cdd5254988cd16a9f0a9ea0641b9ad81f7d9800e[m
+Author: DESKTOP-LKQL5MH\choi <tjddndchl1@naver.com>
+Date:   Mon Aug 28 00:58:24 2023 +0900
+
+    8월 28일 집 HTML 수코딩 자바 예외처리 연습
+
+[33mcommit 2514e22f3f5913d3f05ea817e8bf4186573d8089[m
+Author: tjddndchl <tjddndchl134@gmail.com>
+Date:   Fri Aug 25 20:13:05 2023 +0900
+
+    오라클 수정
+
+[33mcommit a4a4587006d73649a7d46d019086c4a5637b68ec[m
+Author: tjddndchl <tjddndchl134@gmail.com>
+Date:   Fri Aug 25 20:02:21 2023 +0900
+
+    8월25일 학원
+
+[33mcommit b711643095113d2a2de4eec9b23ce1d8f25d6bc4[m
+Author: DESKTOP-LKQL5MH\choi <tjddndchl1@naver.com>
+Date:   Fri Aug 25 01:09:53 2023 +0900
+
+    8월24일 집에서 한 자바8장
+
+[33mcommit 3b805b264fc5d8c88f3a28879dd7ea28b6543b84[m
+Author: tjddndchl <tjddndchl134@gmail.com>
+Date:   Thu Aug 24 21:21:11 2023 +0900
+
+    8월24일 자바 쓰레드 수업
+
+[33mcommit c1484460608e8075dca366e9636e6651f501689d[m
+Author: tjddndchl <tjddndchl134@gmail.com>
+Date:   Wed Aug 23 18:32:26 2023 +0900
+
+    8월23일 학원
+
+[33mcommit de024cc83d69a653167d67a49a23a05cbb4b989f[m
+Merge: 76c9cf3 1203209
+Author: DESKTOP-LKQL5MH\choi <tjddndchl1@naver.com>
+Date:   Wed Aug 23 00:31:14 2023 +0900
+
+    8월23일 집
+
+[33mcommit 1203209b604625b11640a1de148e8ec6e7139e61[m
+Author: tjddndchl <tjddndchl134@gmail.com>
+Date:   Tue Aug 22 21:00:58 2023 +0900
+
+    8월22일 학원
+
+[33mcommit 6b366af34829a00f265e8054ecd3b5bb07a217db[m
+Author: tjddndchl <tjddndchl134@gmail.com>
+Date:   Mon Aug 21 17:51:28 2023 +0900
+
+    8월21일
+
+[33mcommit 76c9cf3ac920e3575dc42b176a0ec81472339bc7[m
+Merge: 78354e2 2287836
+Author: DESKTOP-LKQL5MH\choi <tjddndchl1@naver.com>
+Date:   Fri Aug 18 23:11:47 2023 +0900
+
+    error
+
+[33mcommit 2287836df98b9381842dedef6241a0d9009b5c52[m
+Author: tjddndchl <tjddndchl134@gmail.com>
+Date:   Fri Aug 18 21:29:51 2023 +0900
+
+    8월 18일 학원
+
+[33mcommit 78354e21859de8f80949bc1c4b6b504c6cdcadfe[m
+Author: DESKTOP-LKQL5MH\choi <tjddndchl1@naver.com>
+Date:   Fri Aug 18 01:36:20 2023 +0900
+
+    8월18일 집에서 한거
+
+[33mcommit 0ae6e59216c29463ebd819a6e6b1332f99dc9b14[m
+Author: tjddndchl <tjddndchl134@gmail.com>
+Date:   Thu Aug 17 21:22:52 2023 +0900
+
+    8월17일 학원
+
+[33mcommit 0918bedbc5429f9451a962e1d44b21362685ad76[m
+Author: DESKTOP-LKQL5MH\choi <tjddndchl1@naver.com>
+Date:   Thu Aug 17 00:35:01 2023 +0900
+
+    프로젝트중
+
+[33mcommit 01d14750d3899b518d15e028e9ed5f5b2a740c4e[m
+Author: tjddndchl <tjddndchl134@gmail.com>
+Date:   Wed Aug 16 21:05:13 2023 +0900
+
+    오늘 한거
+
+[33mcommit 07a37ded1841664effecfefb094b4949c943de15[m
+Author: DESKTOP-LKQL5MH\choi <tjddndchl1@naver.com>
+Date:   Wed Aug 16 00:05:43 2023 +0900
+
+    8월16일
+
+[33mcommit 6dba1c4a7ee45d241a0a040c9da744f6005ee471[m
+Author: tjddndchl <tjddndchl134@gmail.com>
+Date:   Mon Aug 14 21:56:21 2023 +0900
+
+    혼자한거
+
+[33mcommit 0059e3234dc3db7b39e8a7996ca6ad49f4d65993[m
+Author: tjddndchl <tjddndchl134@gmail.com>
+Date:   Mon Aug 14 18:11:30 2023 +0900
+
+    8월 15일
+
+[33mcommit 433757b24f59294655e9725518e36d9940678200[m
+Author: tjddndchl <tjddndchl134@gmail.com>
+Date:   Mon Aug 14 12:39:52 2023 +0900
+
+    8월14일 점심시간전
+
+[33mcommit 61b423f42e4e52c21e439e48b0a4970c85a33bbf[m
+Author: tjddndchl <tjddndchl134@gmail.com>
+Date:   Fri Aug 11 21:26:33 2023 +0900
+
+    ㅁㄴㅇㄻㄴㅇㄹ
+
+[33mcommit dd3c85e274e22a3002c0c63eff4e2c23b6d0236c[m
+Author: tjddndchl <tjddndchl134@gmail.com>
+Date:   Thu Aug 10 21:29:35 2023 +0900
+
+    8월10일
+
+[33mcommit 9229f13c148d9af8ee9c8886b44f95c673eb0377[m
+Author: tjddndchl <tjddndchl134@gmail.com>
+Date:   Wed Aug 9 17:27:24 2023 +0900
+
+    8월9일
+
+[33mcommit 0b46db5b5b4c73ba2d5ef3b4520f024bc5a6b351[m
+Author: DESKTOP-LKQL5MH\choi <tjddndchl1@naver.com>
+Date:   Wed Aug 9 01:02:27 2023 +0900
+
+    131
+
+[33mcommit b8fe7edd20a32245d17c7953155db170f447598c[m
+Author: tjddndchl <tjddndchl134@gmail.com>
+Date:   Tue Aug 8 21:27:35 2023 +0900
+
+    8월8일22
+
+[33mcommit a573840f0914a833192994cc619f37286b5be03a[m
+Author: tjddndchl <tjddndchl134@gmail.com>
+Date:   Tue Aug 8 17:48:37 2023 +0900
+
+    8월 8일
+
+[33mcommit 76e5bfb276029957cc1836809b13189b27c471f2[m
+Author: tjddndchl <tjddndchl134@gmail.com>
+Date:   Mon Aug 7 17:48:52 2023 +0900
+
+    8월7일
+
+[33mcommit 71eb26272e7643b767a878beb560ee813d72f001[m
+Author: tjddndchl <tjddndchl134@gmail.com>
+Date:   Fri Aug 4 17:39:35 2023 +0900
+
+    8월 4아리
+
+[33mcommit d97d22584aa7bbc5b29c0cf876b849014d3c6b72[m
+Author: tjddndchl <tjddndchl134@gmail.com>
+Date:   Wed Aug 2 18:27:45 2023 +0900
+
+    8월2일 수업시간에 한거
+
+[33mcommit aa77714e0489586c9a1b6e3f49b103027d386285[m
+Author: DESKTOP-LKQL5MH\choi <tjddndchl1@naver.com>
+Date:   Wed Aug 2 01:08:17 2023 +0900
+
+    숙제
+
+[33mcommit f067ab3db62c9f09e7ec979cd462c55beaa8f31c[m
+Author: tjddndchl <tjddndchl134@gmail.com>
+Date:   Tue Aug 1 17:52:37 2023 +0900
+
+    8월1일
+
+[33mcommit 9e729f35c6fd43936b694b92616231774702abc1[m
+Author: DESKTOP-LKQL5MH\choi <tjddndchl1@naver.com>
+Date:   Mon Jul 31 23:52:47 2023 +0900
+
+    7월31일집
+
+[33mcommit ed37b5738174b16e83498b35374aeeab5e95ae72[m
+Author: tjddndchl <tjddndchl134@gmail.com>
+Date:   Mon Jul 31 17:50:53 2023 +0900
+
+    7월31일
+
+[33mcommit af73022e28e54047ee07c0f40f176592b9242f1f[m
+Author: tjddndchl <tjddndchl134@gmail.com>
+Date:   Fri Jul 28 17:50:21 2023 +0900
+
+    7월28일
+
+[33mcommit b039a22d6ac90f4eb4431c189769b57190ab3958[m
+Author: tjddndchl <tjddndchl134@gmail.com>
+Date:   Thu Jul 27 18:57:26 2023 +0900
+
+    7월28일
+
+[33mcommit 7e765e18b80ac75e911d0157d724bfd1d02c3b12[m
+Author: tjddndchl <tjddndchl134@gmail.com>
+Date:   Wed Jul 26 18:25:16 2023 +0900
+
+    7월26일 파일
+
+[33mcommit 28dd2d152e4be741df217a064726af28c8609741[m
+Author: tjddndchl <tjddndchl134@gmail.com>
+Date:   Tue Jul 25 17:14:43 2023 +0900
+
+    25일
