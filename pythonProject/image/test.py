@@ -4,7 +4,7 @@ from diffusers import StableDiffusionPipeline
 import torch
 import uuid
 
-openai.api_key = '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'
+openai.api_key = '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'
 
 model_id = 'dreamlike-art/dreamlike-photoreal-2.0'
 pipe = StableDiffusionPipeline.from_pretrained(model_id, torch_dtype=torch.float16)
@@ -60,10 +60,10 @@ with gr.Blocks(css='#chatbot .overflow-y-auto{height:500px}') as demo:
     with gr.Row():
         gr.HTML("""<div style="text-align: center; max-width: 500px; margin: 0 auto;">
             <div>
-                <h1>Chat2Image Creator</h1>
+                <h1>대화 이미지 생성</h1>
             </div>
             <p style="margin-bottom: 10px; font-size: 94%">
-                YouTube <a href="https://www.youtube.com/@bbanghyong">빵형의 개발도상국</a>
+                github <a href="https://github.com/tjddndchl">tjddndchl 깃</a>
             </p>
         </div>""")
 
@@ -78,3 +78,4 @@ with gr.Blocks(css='#chatbot .overflow-y-auto{height:500px}') as demo:
 
 
 demo.launch(debug=True, share=True)
+#Condense the description to focus on nouns and adjectives separated by ,
