@@ -44,3 +44,13 @@ print(encode_df)
 
 encode_df = pd.get_dummies(df['Species'], drop_first=True)
 print(encode_df)
+
+
+#gorup by 함수
+# group by 함수는 데이터를 특정 기준으로 그룹화하는 기능을 제공하는 함수
+# mean: 그룹별 평균, var:그룹별 분산, std:그룹별 표준편차, SUM:그룹별 합계, size:그룹별 빈도
+iris = load_iris()
+df = pd.DataFrame(data=iris.data, columns=iris.feature_names)
+df['target'] = iris.target
+a = df.groupby('target').std()
+print(df.groupby('target').mean())
