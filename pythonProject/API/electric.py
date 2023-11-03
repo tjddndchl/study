@@ -5,7 +5,7 @@ api_key = "G9j3UecL6Z7D7IwrMAQ6cG2UIaYgy1KPQKwPbUDr"  # 본인의 API 키로 변
 
 year = "2022"
 month = "08"
-metroCd = "25"  # 모든 시도를 조회하려면 빈 문자열로 설정
+metroCd = "29"  # 모든 시도를 조회하려면 빈 문자열로 설정
 cityCd = ""  # 모든 시군구를 조회하려면 빈 문자열로 설정
 
 # API 요청을 보낼 URL 생성
