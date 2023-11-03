@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>KEPCO API 예제</title>
+    <script src="https://code.jquery.com/jquery-3.7.0.js"></script>
+</head>
+<body>
+    <button id="getDataButton">데이터 가져오기</button>
+
+    <script>
+        $(document).ready(function() {
+            $('#getDataButton').click(function() {
+                var api_url = "https://bigdata.kepco.co.kr/openapi/v1/powerUsage/houseAve.do";
+                var api_key = "G9j3UecL6Z7D7IwrMAQ6cG2UIaYgy1KPQKwPbUDr";
+
+                var year = "2020";
+                var month = "11";
+                var metroCd = "11";
+                var cityCd = "12";
+
+                // KEPCO API 요청 URL 생성
+                var requestUrl = api_url + "?year=" + year + "&month=" + month + "&metroCd=" + metroCd + "&cityCd=" + cityCd + "&apiKey=" + api_key + "&returnType=json";
+
+                // JSONP 요청 보내기
+                $.ajax({
+                    url: requestUrl,
+                    type: 'GET',
+                    dataType: 'jsonp',
+                    success: function(data) {
+                        var year = data.data[0].year;
+                        var month = data.data[0].month;
+                        var metro = data.data[0].metro;
+                        var city = data.data[0].city;
+                        var houseCnt = data.data[0].houseCnt;
+                        var powerUsage = data.data[0].powerUsage;
+                        var bill = data.data[0].bill;
+
+                        // 데이터를 콘솔에 출력
+                        console.log("Year: " + year);
+                        console.log("Month: " + month);
+                        console.log("Metropolitan: " + metro);
+                        console.log("City: " + city);
+                        console.log("House Count: " + houseCnt);
+                        console.log("Power Usage: " + powerUsage);
+                        console.log("Bill: " + bill);
+                    },
+                    error: function(xhr, status, error) {
+                        alert("API 요청 실패. 상태 코드: " + xhr.status + "\n에러: " + error);
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+</html>

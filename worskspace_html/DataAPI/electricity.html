@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://code.jquery.com/jquery-3.7.0.js"></script>
+    <script>
+        var api_url = '	https://bigdata.kepco.co.kr/openapi/v1/powerUsage/houseAve.do'; /*URL*/
+        let api_key = "G9j3UecL6Z7D7IwrMAQ6cG2UIaYgy1KPQKwPbUDr"
+        $(document).ready(function(){
+            $('#btn').click(function(){
+                let rows = $('#rows').val();
+                let page = $('#page').val();
+                $.ajax({
+                    url : api_url
+                    ,type : 'GET'
+                    ,dataType: 'xml'
+                    ,data : {
+                        serviceKey : api_key
+                        , year : rows
+                        , month : page
+
+                    }
+                    ,success : function(res){
+                        console.log(res);
+                        $('#tb').empty();
+                        let cnt = $(res).find('totalCount').text();
+                        console.log(cnt);
+                        $('#tb').append("<tr><th>이름</th><th>위도</th><th>경도</th><th>주소</th></tr>")
+                        $(res).find('item').each(function(){
+                           
+                           
+                            let item = $(this);
+                            let nm = item.find('name').text();
+                            let lat = item.find('lat').text();//위도
+                            let lon = item.find('lon').text();//경도
+                            let addr = item.find('address').text();
+                            console.log(nm, lat, lon, addr);
+                      
+                       
+                           
+                            
+                            let str ='';
+                                 str += '<tr>';
+                                str += '<td>'+ nm + '</td>';
+                                str += '<td>'+ lat + '</td>';
+                                str += '<td>'+ lon + '</td>';
+                                str += '<td>'+ addr + '</td>';
+                                str+='</tr>';    
+                                $('#tb').append(str);
+                        })
+                    },error(e){
+                        alert(e);
+                    }
+                })
+            })
+        })
+    </script>
+</head>
+<body>
+        <input type="text" id="rows">
+        <input type="text" id="page">
+        <button id="btn">가져오기</button>
+        <table id="tb">
+            
+        </table>
+</body>
+</html>
