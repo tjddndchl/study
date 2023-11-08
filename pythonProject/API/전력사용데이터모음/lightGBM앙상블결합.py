@@ -4,7 +4,7 @@ from sklearn.model_selection import GridSearchCV
 from sklearn.ensemble import RandomForestRegressor, GradientBoostingRegressor
 from sklearn.ensemble import VotingRegressor
 from sklearn.preprocessing import LabelEncoder, StandardScaler
-from sklearn.metrics import r2_score, mean_squared_error
+from sklearn.metrics import r2_score, mean_squared_error, mean_absolute_error, mean_absolute_percentage_error
 import numpy as np
 import matplotlib.pyplot as plt
 from sklearn.model_selection import learning_curve
@@ -16,7 +16,7 @@ font_name = font_manager.FontProperties(fname=font_path).get_name()
 rc('font', family=font_name)
 
 # 데이터를 데이터프레임으로 읽어오기
-data = pd.read_excel('../전력사용데이터_2013_2023.xlsx')
+data = pd.read_excel('../전력사용데이터_마지막 2달 삭제.xlsx')
 
 data.info()
 data.head()
@@ -54,7 +54,7 @@ param_grid = {
 }
 
 # 그리드 탐색
-grid_search = GridSearchCV(lgb_model, param_grid, cv=3, scoring='neg_mean_squared_error')
+grid_search = GridSearchCV(lgb_model, param_grid, cv=3, scoring='neg_mean_squared_error', refit=False)
 grid_search.fit(X, y)
 
 # 최적 하이퍼파라미터 출력
@@ -62,7 +62,8 @@ print("Best Hyperparameters for LightGBM:")
 print(grid_search.best_params_)
 
 # 최적 모델 획득
-best_lgb_model = grid_search.best_estimator_
+best_params = grid_search.best_params_
+best_lgb_model = lgb.LGBMRegressor(**best_params)
 
 # 랜덤 포레스트 모델
 rf_model = RandomForestRegressor(n_estimators=100, random_state=42)
@@ -113,15 +114,35 @@ print(f'예측된 전력 사용량: {prediction[0]}')
 
 # 모델의 성능 평가
 y_pred = loaded_ensemble_model.predict(X)
-r2 = r2_score(y, y_pred)
-print(f'R-squared: {r2}')
 
-plt.scatter(y, y_pred)
+
+# 산점도(Scatter Plot) 그리기
+plt.scatter(y, y_pred, color='blue', alpha=0.5)
+plt.plot([y.min(), y.max()], [y.min(), y.max()], 'k--', lw=2)
 plt.xlabel('실제 값')
 plt.ylabel('예측 값')
 plt.title('실제 값 vs. 예측 값')
 plt.show()
 
+
+#r score
+r2 = r2_score(y, y_pred)
+print(f'R-squared: {r2}')
+
+# MAE (Mean Absolute Error)
+mae = mean_absolute_error(y, y_pred)
+print(f'Mean Absolute Error: {mae}')
+
+# MSE (Mean Squared Error)
+mse = mean_squared_error(y, y_pred)
+print(f'Mean Squared Error: {mse}')
+
+# MAPE (Mean Absolute Percentage Error)
+mape = mean_absolute_percentage_error(y, y_pred) * 100  # MAPE를 백분율로 표시
+print(f'Mean Absolute Percentage Error: {mape:.2f}%')
+
+
+#Learning Curve
 train_sizes, train_scores, test_scores = learning_curve(loaded_ensemble_model, X, y, cv=3)
 train_scores_mean = np.mean(train_scores, axis=1)
 test_scores_mean = np.mean(test_scores, axis=1)
@@ -134,5 +155,4 @@ plt.legend(loc='best')
 plt.title('Learning Curve')
 plt.show()
 
-mse = mean_squared_error(y, y_pred)
-print(f'Mean Squared Error: {mse}')
+

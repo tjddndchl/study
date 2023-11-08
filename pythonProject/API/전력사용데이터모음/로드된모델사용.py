@@ -11,7 +11,7 @@ features = ['year', 'month', 'metro', 'city']
 label_encoders = loaded_label_encoders  # 필요한 경우 label_encoders도 복원
 
 # 새로운 입력 데이터 설정
-year = 2018
+year = 2023
 month = 10
 metro = '제주특별자치도'
 city = '제주시'
