@@ -21,12 +21,12 @@ data = pd.read_csv('temp1_daejun.csv', encoding='cp949')
 data.info()
 data.head()
 data.dropna()
-columns_to_drop = ['SGNG_CD', 'STDG_CD', 'LOTNO_MNO', 'LOTNO_SNO', 'SUM_NRG_USQNT','ELRW_TOE_USQNT','CTY_GAS_TOE_USQNT','SUM_NRG_TOE_USQNT','ELRW_GRGS_DSAMT','CTY_GAS_GRGS_DSAMT','SUM_GRGS_DSAMT']
+columns_to_drop = ['LOTNO_SNO','LOTNO_SNO','SUM_NRG_USQNT','ELRW_TOE_USQNT','CTY_GAS_TOE_USQNT','SUM_NRG_TOE_USQNT','ELRW_GRGS_DSAMT','CTY_GAS_GRGS_DSAMT','SUM_GRGS_DSAMT']
 print(data.columns)
 
 
 # 필요한 특성(features)과 타겟(target) 선택
-features = ['LOTNO_ADDR', 'STNDD_YR', 'USE_MM']
+features = ['LOTNO_ADDR', 'STNDD_YR', 'USE_MM','SGNG_CD', 'STDG_CD','LOTNO_MNO', 'LOTNO_SNO']
 target = 'ELRW_USQNT'
 
 value = data.value_counts()
@@ -99,10 +99,11 @@ loaded_scaler = joblib.load('전기scaler.pk1')
 loaded_ensemble_model = joblib.load('전기ensemble_model.pk1')
 
 # 사용자 입력을 받아 전력 사용량 예측
-
+SGNG_CD = '30110'
+STDG_CD = '11800'
 LOTNO_ADDR = '대전광역시 동구 삼성동 459번지'
-STNDD_YR = '2020'
-USE_MM = '7'
+STNDD_YR = '2015'
+USE_MM = '1'
 
 input_data = [[LOTNO_ADDR, STNDD_YR, USE_MM]]
 
