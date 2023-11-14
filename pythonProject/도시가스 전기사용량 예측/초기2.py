@@ -21,12 +21,13 @@ data = pd.read_csv('temp1_daejun.csv', encoding='cp949')
 data.info()
 data.head()
 data.dropna()
-columns_to_drop = ['LOTNO_SNO','LOTNO_SNO','SUM_NRG_USQNT','ELRW_TOE_USQNT','CTY_GAS_TOE_USQNT','SUM_NRG_TOE_USQNT','ELRW_GRGS_DSAMT','CTY_GAS_GRGS_DSAMT','SUM_GRGS_DSAMT']
+columns_to_drop = ['LOTNO_MNO','LOTNO_SNO','SUM_NRG_USQNT','ELRW_TOE_USQNT','CTY_GAS_TOE_USQNT','SUM_NRG_TOE_USQNT','ELRW_GRGS_DSAMT','CTY_GAS_GRGS_DSAMT','SUM_GRGS_DSAMT']
 print(data.columns)
 
+print(data)
 
 # 필요한 특성(features)과 타겟(target) 선택
-features = ['LOTNO_ADDR', 'STNDD_YR', 'USE_MM','SGNG_CD', 'STDG_CD','LOTNO_MNO', 'LOTNO_SNO']
+features = ['LOTNO_ADDR', 'STNDD_YR', 'USE_MM','SGNG_CD', 'STDG_CD']
 target = 'CTY_GAS_USQNT'
 
 value = data.value_counts()
@@ -86,27 +87,28 @@ ensemble_model = VotingRegressor(estimators=[('lgb', best_lgb_model), ('rf', rf_
 ensemble_model.fit(X, y)
 
 # label encoder, scaler 및 ensemble 모델 저장
-joblib.dump(label_encoders, '전기label_encoders.pk1')
-joblib.dump(scaler, '전기scaler.pk1')
-joblib.dump(ensemble_model, '전기ensemble_model.pk1')
+joblib.dump(label_encoders, '가스label_encoders.pk1')
+joblib.dump(scaler, '가스scaler.pk1')
+joblib.dump(ensemble_model, '가스ensemble_model.pk1')
 
 # label encoder 로드
-loaded_label_encoders = joblib.load('전기label_encoders.pk1')
+loaded_label_encoders = joblib.load('가스label_encoders.pk1')
 
 # StandardScaler (scaler) 로드
-loaded_scaler = joblib.load('전기scaler.pk1')
+loaded_scaler = joblib.load('가스scaler.pk1')
 
 # Ensemble 모델 로드
-loaded_ensemble_model = joblib.load('전기ensemble_model.pk1')
+loaded_ensemble_model = joblib.load('가스ensemble_model.pk1')
 
 # 사용자 입력을 받아 전력 사용량 예측
-SGNG_CD = '30110'
-STDG_CD = '11800'
-LOTNO_ADDR = '대전광역시 동구 삼성동 459번지'
-STNDD_YR = '2015'
-USE_MM = '1'
 
-input_data = [[SGNG_CD,STDG_CD , LOTNO_ADDR,STNDD_YR,USE_MM]]
+LOTNO_ADDR = '대전광역시 동구 삼성동 459번지'
+SGNG_CD = 30110
+STDG_CD = 11800
+STNDD_YR = 2015
+USE_MM = 1
+
+input_data = [[SGNG_CD, STDG_CD , LOTNO_ADDR, STNDD_YR, USE_MM]]
 
 # 범주형 특성 변환
 for i, feature in enumerate(features):
@@ -114,6 +116,7 @@ for i, feature in enumerate(features):
         input_data[0][i] = loaded_label_encoders[feature].transform([input_data[0][i]])
 
 # input_data를 DataFrame으로 변환
+
 
 input_data_df = pd.DataFrame(input_data, columns=features)
 
