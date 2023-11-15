@@ -27,7 +27,7 @@ print(data.columns)
 print(data)
 
 # 필요한 특성(features)과 타겟(target) 선택
-features = ['LOTNO_ADDR', 'STNDD_YR', 'USE_MM','SGNG_CD', 'STDG_CD']
+features = ['LOTNO_ADDR', 'SGNG_CD', 'STDG_CD','STNDD_YR', 'USE_MM',]
 target = 'CTY_GAS_USQNT'
 
 value = data.value_counts()
@@ -95,7 +95,7 @@ joblib.dump(ensemble_model, '가스ensemble_model.pk1')
 loaded_label_encoders = joblib.load('가스label_encoders.pk1')
 
 # StandardScaler (scaler) 로드
-loaded_scaler = joblib.load('가스scaler.pk1')
+loaded_scaler , loaded_features= joblib.load('가스scaler.pk1')
 
 # Ensemble 모델 로드
 loaded_ensemble_model = joblib.load('가스ensemble_model.pk1')
@@ -108,7 +108,7 @@ STDG_CD = 11800
 STNDD_YR = 2015
 USE_MM = 1
 
-input_data = [[SGNG_CD, STDG_CD , LOTNO_ADDR, STNDD_YR, USE_MM]]
+input_data = [[ LOTNO_ADDR,SGNG_CD, STDG_CD , STNDD_YR, USE_MM]]
 
 # 범주형 특성 변환
 for i, feature in enumerate(features):
@@ -118,7 +118,7 @@ for i, feature in enumerate(features):
 # input_data를 DataFrame으로 변환
 
 
-input_data_df = pd.DataFrame(input_data, columns=features)
+input_data_df = pd.DataFrame(input_data, columns=loaded_features)
 
 # input_data_df를 2D 배열로 변환한 후 예측
 new_input_data_np = loaded_scaler.transform(input_data_df)

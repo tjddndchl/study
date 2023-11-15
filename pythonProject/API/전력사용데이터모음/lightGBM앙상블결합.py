@@ -1,3 +1,4 @@
+import matplotlib
 import pandas as pd
 import lightgbm as lgb
 from sklearn.model_selection import GridSearchCV
@@ -14,9 +15,10 @@ import joblib
 font_path = 'C:/Windows/Fonts/malgun.ttf'  # 사용할 한글 폰트 파일 경로를 지정합니다.
 font_name = font_manager.FontProperties(fname=font_path).get_name()
 rc('font', family=font_name)
+matplotlib.rcParams['axes.unicode_minus'] = False
 
 # 데이터를 데이터프레임으로 읽어오기
-data = pd.read_excel('../전력사용데이터_마지막 2달 삭제.xlsx')
+data = pd.read_excel('전력사용데이터.xlsx')
 
 data.info()
 data.head()
@@ -155,4 +157,8 @@ plt.legend(loc='best')
 plt.title('Learning Curve')
 plt.show()
 
+# 전력 사용량에 대한 박스 플롯 추가
+plt.boxplot(y)
+plt.title('전력 사용량 Box Plot')
+plt.show()
 

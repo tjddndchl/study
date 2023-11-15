@@ -16,12 +16,24 @@ font_name = font_manager.FontProperties(fname=font_path).get_name()
 rc('font', family=font_name)
 
 # 데이터를 데이터프레임으로 읽어오기
-data = pd.read_excel('../전력사용데이터.xlsx')
+data = pd.read_excel('전력사용데이터.xlsx')
 
-data.info()
-data.head()
-data.dropna()
-value = data.value_counts()
+# 이상치 제거를 위한 함수 정의
+def remove_outliers_iqr(df, columns, multiplier=1.5):
+    for column in columns:
+        q1 = df[column].quantile(0.25)
+        q3 = df[column].quantile(0.75)
+        iqr = q3 - q1
+        lower_bound = q1 - multiplier * iqr
+        upper_bound = q3 + multiplier * iqr
+        df = df[(df[column] >= lower_bound) & (df[column] <= upper_bound)]
+    return df
+
+# 이상치 제거 적용
+columns_to_remove_outliers = ['powerUsage']  # 이상치를 제거할 특성 선택
+data = remove_outliers_iqr(data, columns_to_remove_outliers)
+
+
 
 # 필요한 특성(features)과 타겟(target) 선택
 features = ['year', 'month', 'metro', 'city']
@@ -149,3 +161,15 @@ print(f'Adjusted R-squared: {adjusted_r2}')
 mbd = np.mean(y - y_pred)
 print(f'Mean Bias Deviation: {mbd}')
 
+#Learning Curve
+train_sizes, train_scores, test_scores = learning_curve(loaded_ensemble_model, X, y, cv=3)
+train_scores_mean = np.mean(train_scores, axis=1)
+test_scores_mean = np.mean(test_scores, axis=1)
+
+plt.plot(train_sizes, train_scores_mean, label='Training score')
+plt.plot(train_sizes, test_scores_mean, label='Cross-validation score')
+plt.xlabel('Training Examples')
+plt.ylabel('Score')
+plt.legend(loc='best')
+plt.title('Learning Curve')
+plt.show()
