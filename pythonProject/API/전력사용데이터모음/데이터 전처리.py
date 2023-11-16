@@ -17,6 +17,8 @@ statistics_before = data.describe()
 # 결측치 제거
 data = data.dropna()
 
+print(data.info())
+
 # 범주형 데이터를 인코딩
 label_encoders = {}
 categorical_features = ['metro', 'city']
