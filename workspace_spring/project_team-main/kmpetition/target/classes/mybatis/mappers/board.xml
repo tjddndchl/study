@@ -1,0 +1,272 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="mapper.board">
+
+	<resultMap type="memberVO" id="memResult">
+		<result property="id" column="id" />
+		<result property="pwd" column="pwd" />
+		<result property="name" column="name" />
+		<result property="phone" column="phone" />
+		<result property="email" column="email" />
+		<result property="lastlogin" column="lastlogin" />
+	</resultMap>
+	
+	<resultMap type="noticeVO" id="noticeResult">
+		<result property="articleNO" column="articleNO" />
+		<result property="title" column="title" />
+		<result property="content" column="content" />
+		<result property="createdate" column="createdate" />
+	</resultMap>
+	
+	<resultMap type="boardVO" id="boardResult">
+		<result property="articleNO" column="articleNO" />
+		<result property="id" column="id" />
+		<result property="title" column="title" />
+		<result property="content" column="content" />
+		<result property="createdate" column="createdate" />
+		<result property="reply" column="reply" />
+		<result property="visible" column="visible" />
+	</resultMap>
+	<resultMap type="uploadVO" id="uploadResult">
+		<result property="articleNO" column="articleNO" />
+		<result property="uploadfile" column="uploadfile" />
+	</resultMap>
+	<resultMap type="petitionVO" id="petitionResult">
+		<result property="NO" column="NO" />
+		<result property="code" column="code" />
+		<result property="title" column="title" />
+		<result property="subdate" column="subdate" />
+	</resultMap>
+	<resultMap type="replyVO" id="replyResult">
+		<result property="articleNO" column="articleNO" />
+		<result property="title" column="title" />
+		<result property="content" column="content" />
+	</resultMap>
+	
+	
+	<!-- 페이징 적용한 sql -->
+	<select id="selectAllNotice" parameterType="Integer" resultMap="noticeResult">
+		<![CDATA[ 
+			select * from notice  
+			order by articleNO desc 
+			limit #{startNum}, 10 
+		]]>
+	</select>
+	
+	<select id="selectTotNotice" resultType="Integer">
+		<![CDATA[ 
+			select count(*) from notice 
+		]]>
+	</select>
+	
+	<select id="selectNotice" parameterType="Integer" resultMap="noticeResult">
+		<![CDATA[ 
+			select * from notice 
+			where articleNO=#{articleNO}  
+		]]>
+	</select>
+	<select id="selectNoticeFile" parameterType="Integer" resultMap="uploadResult">
+		<![CDATA[ 
+			select * from noticeupload  
+			where articleNO=#{articleNO} 
+		]]>
+	</select>
+	
+	
+	
+	<select id="selectAllBoard" parameterType="Integer" resultMap="boardResult">
+		<![CDATA[ 
+			select * from board  
+			order by articleNO desc 
+			limit #{startNum}, 10 
+		]]>
+	</select>
+	
+	<select id="selectTotboard" resultType="Integer">
+		<![CDATA[ 
+			select count(*) from board  
+		]]>
+	</select>
+	
+	
+	<!-- ~~~~~~~~~문의게시판~~~~~~~~~~ -->
+	
+	
+	<!-- 1:1문의 게시판 게시글 상세 관련 -->
+	<select id="selectBoard" parameterType="Integer" resultMap="boardResult">
+		<![CDATA[ 
+			select * from board  
+			where articleNO=#{articleNO} 
+		]]>
+	</select>
+	<select id="selectArticleFile" parameterType="Integer" resultMap="uploadResult">
+		<![CDATA[ 
+			select * from boardupload  
+			where articleNO=#{articleNO} 
+		]]>
+	</select>
+	
+	<select id="selectReply" parameterType="Integer" resultMap="replyResult">
+		<![CDATA[ 
+			select * from reply  
+			where articleNO=#{articleNO} 
+		]]>
+	</select>
+	<select id="selectReplyFile" parameterType="Integer" resultMap="uploadResult">
+		<![CDATA[ 
+			select * from replyupload  
+			where articleNO=#{articleNO} 
+		]]>
+	</select>
+	
+	<select id="selectArticleUploadList" parameterType="Integer" resultMap="uploadResult">
+		<![CDATA[ 
+			select uploadfile from boardupload  
+			where articleNO=#{articleNO} 
+		]]>
+	</select>
+	<select id="selectReplyUploadList" parameterType="Integer" resultMap="uploadResult">
+		<![CDATA[ 
+			select uploadfile from replyupload  
+			where articleNO=#{articleNO} 
+		]]>
+	</select>
+	
+	
+	
+	<select id="maxArticleNO" resultType="Integer">
+		<![CDATA[ 
+			select max(articleNO) from board  
+		]]>
+	</select>
+	
+	
+	<insert id="insertArticle" parameterType="boardVO">
+		insert into BOARD(id, title, content, createDate, visible)
+		VALUES (#{id}, #{title}, #{content}, curdate(), #{visible})
+	</insert>
+	
+	<!-- SQL문에 List나 배열을 전달하면 자동으로 Map에 전달됨. 이 때 List는 list를 키로 사용. 교재 p.882 
+	<insert id="insertArticleUpload" parameterType="java.util.Map">
+		insert into BOARDUPLOAD(articleNO, uploadfile) 
+		VALUES 
+		<foreach collection="list" item="item" separator=", " >
+			(#{articleNO}, #{uploadfile})
+		</foreach>
+	</insert>-->
+	<update id="updateArticle" parameterType="boardVO">
+		update BOARD
+		set TITLE=#{title}, CONTENT=#{content}, visible=#{visible}
+		where ARTICLENO=#{articleNO}
+				and REPLY=FALSE
+	</update>
+	
+	
+	<delete id="deleteArticle" parameterType="int">
+		delete from BOARD
+		where articleNO=#{articleNO}
+	</delete>
+	
+	
+	<select id="selectSearchList" parameterType="java.util.Map" resultMap="petitionResult">
+		select *
+   		from PETITION
+  		where
+  		<!-- 1. searchWord 또는 exceptWord가 존재하면 -->
+      <if test="searchWord != null  or exceptWord != null ">
+         NO in (select NO
+            from PETITIONRAW
+            where
+            
+            <!-- (1). searchWord가 존재하면 -->
+            <if test="searchWord != null">
+               rawdata like
+               <foreach item="item" collection="searchWord" separator="and rawdata like">
+                  CONCAT('%',#{item},'%')
+               </foreach>
+               
+               <!-- (1-2). searchWord가 존재하고 exceptWord도 존재하면 -->
+               <if test ="exceptWord != null">
+               and
+               </if>    
+            </if>
+            
+            <!-- (2). exceptWord가 존재하면(searchWord는 null)    -->
+            <if test="exceptWord != null">
+               rawdata not like
+               <foreach item="item" collection="exceptWord" separator="and rawdata not like">
+                  CONCAT('%',#{item},'%')
+               </foreach>
+            </if>
+            
+		<choose>
+       	 	<!-- 1-2. searchWord 또는 exceptWord가 있고 startDate가 존재하면 -->
+			<when test="startDate != null">
+        	 ) and
+        	 </when>
+        	 
+        	 <!-- 1-2. searchWord 또는 exceptWord가 있고 startDate가 존재하지 않으면 -->
+        	 <otherwise>
+        	 ) limit #{startNum}, 10
+        	 </otherwise>
+         </choose>
+      </if>
+      
+      <!-- 2. searchWord, exceptWord는 없고 startDate가 존재하면 -->
+      <if test="startDate != null">
+      subdate between #{startDate} and #{endDate} 
+      limit #{startNum}, 10
+      </if>
+</select>
+
+
+
+<select id="searchNum" parameterType="java.util.Map" resultType="java.lang.Integer">
+		select count(NO) 
+   		from PETITION
+  		where
+  		<!-- 1. searchWord 또는 exceptWord가 존재하면 -->
+      <if test="searchWord != null  or exceptWord != null ">
+         NO in (select NO
+            from PETITIONRAW
+            where
+            
+            <!-- (1). searchWord가 존재하면 -->
+            <if test="searchWord != null">
+               rawdata like
+               <foreach item="item" collection="searchWord" separator="and rawdata like">
+                  CONCAT('%',#{item},'%')
+               </foreach>
+               
+               <!-- (1-2). searchWord가 존재하고 exceptWord도 존재하면 -->
+               <if test ="exceptWord != null">
+               and
+               </if>    
+            </if>
+            
+            <!-- (2). exceptWord가 존재하면(searchWord는 null)    -->
+            <if test="exceptWord != null">
+               rawdata not like
+               <foreach item="item" collection="exceptWord" separator="and rawdata not like">
+                  CONCAT('%',#{item},'%')
+               </foreach>
+            </if>
+            
+       	 	<!-- 1-2. searchWord 또는 exceptWord가 있고 startDate가 존재하면 -->
+			<if test="startDate != null">
+        	 ) and
+        	 </if>
+        	 <if test="startDate == null">
+        	  )
+        	 </if>
+      </if>
+      
+      <!-- 2. searchWord, exceptWord는 없고 startDate가 존재하면 -->
+      <if test="startDate != null">
+      subdate between #{startDate} and #{endDate} 
+      </if>
+      </select>
+
+	
+</mapper>

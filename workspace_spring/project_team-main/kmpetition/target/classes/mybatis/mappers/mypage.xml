@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="mapper.mypage">
+
+<resultMap type="mypageVO" id="myResult">
+	<result property="viewdate" column="viewdate" />
+	<result property="title" column="title" />
+	<result property="no" column="no" />
+	<result property="rawdata" column="rawdata" />
+</resultMap>
+
+	<update id="updateMember" parameterType="memberVO">
+	<![CDATA[
+		update member 
+		set pwd=#{pwd}, name=#{name}, phone=#{phone}, email=#{email} 
+		where id=#{id}
+	 ]]>
+	</update>
+
+
+<!-- 내가 쓴 글 조회 SQL문  -->
+	<select id="myList" parameterType="Map" resultType="boardVO">
+		select *
+		from board
+		where id = #{member_id}
+		order by ARTICLENO asc
+		limit #{startNum}, 10
+	</select>
+
+	<select id="selectTotList" parameterType="String"
+		resultType="Integer">
+		<![CDATA[ 
+			select count(*)
+			from board
+			where id = #{member_id}
+		]]>
+	</select>
+
+
+
+	<select id="myVisitSite" resultMap="myResult" parameterType="Map">
+		select history.viewdate, petition.title, petition.no, petitionraw.rawdata 
+		from history 
+		inner join petition on history.no = petition.no 
+		inner join petitionraw on petition.no = petitionraw.no 
+		where id = #{id}
+		order by viewdate desc;
+	</select>
+	
+	<select id="selectTotVisit" parameterType="String"
+		resultType="Integer">
+		<![CDATA[ 
+			select count(*)
+			from history
+			where id = #{id}
+		]]>
+	</select>
+</mapper>

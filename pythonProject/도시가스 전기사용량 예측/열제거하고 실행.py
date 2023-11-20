@@ -17,7 +17,7 @@ font_name = font_manager.FontProperties(fname=font_path).get_name()
 rc('font', family=font_name)
 
 # 데이터를 데이터프레임으로 읽어오기
-data = pd.read_csv('temp1_daejun - 복사본.csv', encoding='cp949')
+data = pd.read_csv('2019~2021.csv', encoding='cp949')
 
 # 10번째 열부터 마지막 열까지 삭제
 df = data.iloc[:, :9]

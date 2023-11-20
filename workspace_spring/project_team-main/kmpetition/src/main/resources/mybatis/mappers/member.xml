@@ -1,0 +1,168 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="mapper.member">
+
+
+	<resultMap type="memberVO" id="memResult">
+		<result property="id" column="id" />
+		<result property="pwd" column="pwd" />
+		<result property="name" column="name" />
+		<result property="phone" column="phone" />
+		<result property="email" column="email" />
+		<result property="lastlogin" column="lastlogin" />
+	</resultMap>
+	<resultMap type="historyVO" id="hisResult">
+		<result property="id" column="id" />
+		<result property="viewDate" column="viewDate" />
+		<result property="no" column="no" />
+	</resultMap>
+
+
+
+<!-- 로그인 -->
+	<select id="login" resultType="memberVO"
+		parameterType="java.util.Map">
+	    <![CDATA[
+			select * from member 
+			 where id=#{user_id}
+			 and pwd=#{user_pw}			
+			 
+		]]>
+	</select>
+	<update id="updateLastLogin" parameterType="String">
+		<![CDATA[ 
+			update member 
+			set lastlogin=curdate() 
+			where id=#{id} 
+		]]>
+		
+	</update>
+	
+	<select id="selectForAwake" parameterType="memberVO" resultMap="memResult">
+			select * from member 
+			where id=#{id} 
+				and pwd=#{pwd} 
+				and email=#{email} 
+				and name=#{name} 	
+	</select>
+	
+	<!-- 회원가입 
+	<insert id="insertMember" parameterType="memberVO">
+		<![CDATA[
+			insert into member(id, pwd, name, phone, email) 
+			values(#{id}, #{pwd}, #{name}, #{phone}, #{email})
+		]]>
+	</insert>
+	-->
+	
+	<!-- 이메일 드롭박스 테스트용 회원가입 -->
+	<insert id="insertMember" parameterType="java.util.Map">
+		<![CDATA[
+			insert into member(id, pwd, name, phone, email, lastlogin) 
+			values(#{id}, #{pwd}, #{name}, #{phone}, #{email}, curdate())
+		]]>
+	</insert>
+	
+	<!-- 회원가입시 아이디 중복체크 -->
+	<select id="checkId" resultType="memberVO" parameterType="String">
+		<![CDATA[ 
+			select * from member 
+			where id=#{id} 
+		]]>
+	</select>
+	
+	<!-- 회원가입시 이메일 중복체크 -->
+	<select id="checkEmail" resultType="memberVO" parameterType="String">
+		<![CDATA[ 
+			select * from member 
+			where email=#{email} 
+		]]>
+	</select>
+	
+	<!-- 아이디찾기 -->
+	<select id="findId" parameterType="java.util.Map" resultType="memberVO">
+		<![CDATA[ 
+			select * from member 
+			where name=#{user_name} and email=#{user_email} 
+		]]>
+	</select>
+	
+	<!-- 비밀번호 찾기 -->
+	<select id="findPwd" parameterType="java.util.Map" resultType="memberVO">
+		<![CDATA[ 
+			select * from member 
+			where name=#{user_name} and email=#{user_email} and id=#{user_id} 
+		]]>
+	</select>
+	
+	<!-- 비밀번호 찾기 후 입력한 새 비밀번호로 정보 변경 -->
+	<update id="updatePwd" parameterType="java.util.Map">
+		<![CDATA[
+			update member 
+			set pwd=#{user_pw}
+			where id=#{id}
+		 ]]>
+	</update>
+	
+	
+	
+	<select id="selectAllMemberList" resultMap="memResult">
+	<![CDATA[ select * from member order by joinDate desc ]]>
+	</select>
+	
+	<insert id="insertHistory" parameterType="historyVO">
+		<![CDATA[ 
+			insert into history(id, viewDate, no) 
+			values(#{id}, #{viewDate}, #{no})
+		]]>
+	</insert>
+	
+		<select id="selectFailCount" parameterType="String" resultType="Int">
+		select FAILCOUNT
+		from ENABLE
+		where ID=#{id}
+	</select>
+	
+	<update id="updateFailCount" parameterType="enableVO">
+		update ENABLE
+		set FAILCOUNT=#{failcount}
+		where ID=#{id}
+	</update>
+	
+	<update id="updateTime" parameterType="enableVO">
+		update ENABLE
+		set TIME=#{time}
+		where ID=#{id}
+	</update>
+	
+	<select id="selectTime" parameterType="String" resultType="String">
+		select TIME
+		from ENABLE
+		where ID=#{id}
+	</select>
+	
+	<select id="selectAllBoardUploadList" resultType="String" parameterType="String">
+		select UPLOADFILE
+		from BOARDUPLOAD
+		where ARTICLENO IN
+		(select ARTICLENO
+		from BOARD
+		where ID=#{id})
+	</select>
+
+	<select id="selectAllReplyUploadList" resultType="String" parameterType="String">
+		select UPLOADFILE
+		from REPLYUPLOAD
+		where ARTICLENO IN
+					(select ARTICLENO
+					from BOARD
+					where ID=#{id})
+	</select>
+	
+	<delete id="deleteMember" parameterType="String">
+		delete from MEMBER
+		where ID=#{id}
+	</delete>
+
+</mapper>

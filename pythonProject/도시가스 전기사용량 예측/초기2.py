@@ -16,7 +16,7 @@ font_name = font_manager.FontProperties(fname=font_path).get_name()
 rc('font', family=font_name)
 
 # 데이터를 데이터프레임으로 읽어오기
-data = pd.read_csv('temp1_daejun.csv', encoding='cp949')
+data = pd.read_csv('2019~2021.csv', encoding='cp949')
 
 data.info()
 data.head()
@@ -26,9 +26,24 @@ print(data.columns)
 
 print(data)
 
+def remove_outliers_iqr(df, columns, multiplier=1.5):
+    for column in columns:
+        q1 = df[column].quantile(0.25)
+        q3 = df[column].quantile(0.75)
+        iqr = q3 - q1
+        lower_bound = q1 - multiplier * iqr
+        upper_bound = q3 + multiplier * iqr
+        df = df[(df[column] >= lower_bound) & (df[column] <= upper_bound)]
+    return df
+
+# 이상치 제거 적용
+columns_to_remove_outliers = ['ELRW_USQNT']  # 이상치를 제거할 특성 선택
+data = remove_outliers_iqr(data, columns_to_remove_outliers)
+
+
 # 필요한 특성(features)과 타겟(target) 선택
-features = ['LOTNO_ADDR', 'SGNG_CD', 'STDG_CD','STNDD_YR', 'USE_MM',]
-target = 'CTY_GAS_USQNT'
+features = ['LOTNO_ADDR', 'SGNG_CD', 'STDG_CD','STNDD_YR', 'USE_MM']
+target = 'ELRW_USQNT'
 
 value = data.value_counts()
 
@@ -67,6 +82,7 @@ grid_search = GridSearchCV(lgb_model, param_grid, cv=3, scoring='neg_mean_square
 grid_search.fit(X, y)
 
 # 최적 하이퍼파라미터 출력
+print("Best Score: ", grid_search.best_score_)
 print("Best Hyperparameters for LightGBM:")
 print(grid_search.best_params_)
 
@@ -83,47 +99,44 @@ gb_model = GradientBoostingRegressor(n_estimators=100, random_state=42)
 # 앙상블 모델 생성
 ensemble_model = VotingRegressor(estimators=[('lgb', best_lgb_model), ('rf', rf_model), ('gb', gb_model)])
 
+
 # 앙상블 모델 훈련
 ensemble_model.fit(X, y)
 
 # label encoder, scaler 및 ensemble 모델 저장
-joblib.dump(label_encoders, '가스label_encoders.pk1')
-joblib.dump(scaler, '가스scaler.pk1')
-joblib.dump(ensemble_model, '가스ensemble_model.pk1')
+joblib.dump(label_encoders, '전기label_encoders.pk1')
+joblib.dump(scaler, '전기scaler.pk1')
+joblib.dump(ensemble_model, '전기ensemble_model.pk1')
 
 # label encoder 로드
-loaded_label_encoders = joblib.load('가스label_encoders.pk1')
+loaded_label_encoders = joblib.load('전기label_encoders.pk1')
 
 # StandardScaler (scaler) 로드
-loaded_scaler , loaded_features= joblib.load('가스scaler.pk1')
+loaded_scaler = joblib.load('전기scaler.pk1')
 
 # Ensemble 모델 로드
-loaded_ensemble_model = joblib.load('가스ensemble_model.pk1')
+loaded_ensemble_model = joblib.load('전기ensemble_model.pk1')
 
 # 사용자 입력을 받아 전력 사용량 예측
-
 LOTNO_ADDR = '대전광역시 동구 삼성동 459번지'
 SGNG_CD = 30110
 STDG_CD = 11800
-STNDD_YR = 2015
+STNDD_YR = 2019
 USE_MM = 1
 
-input_data = [[ LOTNO_ADDR,SGNG_CD, STDG_CD , STNDD_YR, USE_MM]]
-
 # 범주형 특성 변환
-for i, feature in enumerate(features):
+input_data = pd.DataFrame({'LOTNO_ADDR': [LOTNO_ADDR], 'SGNG_CD': [SGNG_CD], 'STDG_CD': [STDG_CD], 'STNDD_YR': [STNDD_YR], 'USE_MM': [USE_MM]})
+for feature in features:
     if feature in loaded_label_encoders:
-        input_data[0][i] = loaded_label_encoders[feature].transform([input_data[0][i]])
+        input_data[feature] = loaded_label_encoders[feature].transform(input_data[feature])
 
 # input_data를 DataFrame으로 변환
-
-
-input_data_df = pd.DataFrame(input_data, columns=loaded_features)
+input_data_df = pd.DataFrame(input_data, columns=features)
 
 # input_data_df를 2D 배열로 변환한 후 예측
 new_input_data_np = loaded_scaler.transform(input_data_df)
 prediction = loaded_ensemble_model.predict(new_input_data_np)
-print(f'가스  예측량: {prediction[0]}')
+print(f'전기 예측량: {prediction[0]}')
 
 # 모델의 성능 평가
 y_pred = loaded_ensemble_model.predict(X)
