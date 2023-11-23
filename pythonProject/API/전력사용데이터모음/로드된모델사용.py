@@ -16,6 +16,7 @@ month = 8
 metro = '경상남도'
 city = '창원시 마산합포구'
 
+
 # 새로운 입력 데이터를 2D 배열로 변환
 new_input_data = [[year, month, metro, city]]
 new_input_data_df = pd.DataFrame(new_input_data, columns=features)
