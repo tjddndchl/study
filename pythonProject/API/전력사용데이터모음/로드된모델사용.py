@@ -11,10 +11,10 @@ features = ['year', 'month', 'metro', 'city']
 label_encoders = loaded_label_encoders  # 필요한 경우 label_encoders도 복원
 
 # 새로운 입력 데이터 설정
-year = 2020
-month = 8
-metro = '경상남도'
-city = '창원시 마산합포구'
+year = 2013
+month = 1
+metro = '서울특별시'
+city = '종로구'
 
 
 # 새로운 입력 데이터를 2D 배열로 변환

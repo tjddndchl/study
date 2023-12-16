@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>파일 다운로드 예제</title>
+    <script src="https://code.jquery.com/jquery-3.7.0.js"></script>
+    <script>
+        $(document).ready(function(){
+            $("#downloadBtn").click(function(){
+                let dataStr = $("#test").html();
+                const blob = new Blob([dataStr], { type: "text/plain;charset=utf-8" });
+                const url = URL.createObjectURL(blob);
+
+                const a = document.createElement("a");
+                a.href = url;
+                a.download = "data.html"; // 다운로드될 파일 이름
+                document.body.appendChild(a);
+                a.click();
+                window.URL.revokeObjectURL(url);
+                a.remove();
+            });
+        });
+    </script>
+</head>
+<body>
+    <button id="downloadBtn">데이터 다운로드</button>
+    <div id="test">
+        <h1>hi</h1>
+		<img src="../이미지시각화/그림1.jpg" alt="">
+    </div>
+</body>
+</html>

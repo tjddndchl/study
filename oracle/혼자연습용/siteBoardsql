@@ -1,0 +1,227 @@
+
+--------------------------------------------------------------
+delete from member
+where mem_id = 'a006';
+commit;
+
+
+
+
+-- jdbc계정 회원 테이블 생성
+CREATE TABLE member(
+    mem_id VARCHAR2(100) PRIMARY KEY
+    ,mem_pw VARCHAR2(100)
+    ,mem_nm VARCHAR2(100)
+);
+
+-- board테이블에 del_yn 컬럼 추가
+Alter TABLE member ADD(del_yn varchar2(2));
+
+update member
+set del_yn = 'N';
+
+select * from member;
+
+Alter TABLE member ADD profile_img VARCHAR(1000);
+Alter TABLE member ADD addr VARCHAR(1000);
+
+
+--멤버 수정쿼리
+		UPDATE
+			member
+		SET
+			mem_pw = 'a002'
+            ,mem_nm = 'a002'
+		WHERE
+		 mem_id = 'a002';
+         
+--멤버 삭제 쿼리문
+    Delete
+        member
+    where mem_id = 'a002';
+
+commit;
+
+
+INSERT INTO member (mem_id, mem_pw, mem_nm)
+
+VALUES('admin', 'admin', '관리자');
+
+COMMIT;
+
+
+
+CREATE TABLE board(
+    board_no NUMBER(10) PRIMARY KEY
+    ,board_title VARCHAR2(1000)
+    ,board_content VARCHAR2(4000)
+    ,mem_id VARCHAR2(100)
+    ,create_date DATE DEFAULT SYSDATE
+    ,update_date DATE DEFAULT SYSDATE
+);
+
+
+ALTER TABLE board 
+ADD CONSTRAINT fk_board FOREIGN KEY(mem_id) REFERENCES member (mem_id);
+
+
+commit;
+
+
+
+INSERT INTO board(board_no, board_title, board_content, mem_id)
+VALUES ((SELECT NVL(MAX(board_no), 0) + 1
+            FROM board)
+            ,'공지사항'
+            ,'첫번째 글'
+            ,'a001');
+SELECT a.board_no
+            ,a.board_title
+            ,a.board_content
+            ,b.mem_id
+            ,b.mem_nm
+            ,a.create_date
+            ,a.update_date
+FROM board a
+        , member b
+WHERE a.mem_id = b.mem_id
+ORDER BY a.update_date DESC;
+
+SELECT NVL(MAX(board_no), 0) + 1
+FROM board;
+
+commit;
+ SELECT a.board_no
+         ,a.board_title
+         ,a.board_content
+         ,b.mem_id
+         ,b.mem_nm
+         ,a.create_date
+         ,a.update_date
+	FROM board a
+     	 , member b
+	WHERE a.mem_id = b.mem_id
+	ORDER BY a.update_date DESC;
+    
+
+
+--boardNo와 일치하는 게시글 데이터를 조회하는 메소드 및 쿼리문
+ SELECT a.board_no
+         ,a.board_title
+         ,a.board_content
+         ,b.mem_id
+         ,b.mem_nm
+         ,a.create_date
+         ,a.update_date
+	FROM board a
+     	 , member b
+	WHERE a.mem_id = b.mem_id
+	AND a.board_no = 1;
+    
+SELECT *
+FROM board a
+    ,member b
+where a.mem_id = b.mem_id;
+    
+
+-- board테이블에 del_yn 컬럼 추가
+Alter TABLE board ADD(del_yn varchar2(2));
+
+--이미존재하는 데이터들의 del_yn 값 변경
+update board
+set del_yn = 'N';
+    
+    
+
+   
+--댓글 내용 쿼리 추가
+create table replys(
+    reply_no number
+    ,board_no number(10)
+    ,mem_id varchar2(100)
+    ,reply_content varchar2(1000)
+    ,reply_date DATE DEFAULT SYSDATE
+    ,del_yn VARCHAR2(1) DEFAULT 'N'
+);
+   
+
+
+
+
+--채팅방----------------
+create table rooms(
+    room_no NUMBER PRIMARY KEY
+    ,room_name VARCHAR2(1000)
+    ,mem_id VARCHAR2(100)
+    ,reg_date DATE
+    ,del_yn VARCHAR2(1)
+    
+);
+
+CREATE SEQUENCE room_seq INCREMENT BY 1 START WITH 1;
+--채팅기록
+CREATE TABLE chatlog(
+     chat_no NUMBER PRIMARY KEY
+    ,mem_id VARCHAR2(100)
+    ,room_no NUMBER
+    ,chat_msg VARCHAR2(4000)
+    ,send_date DATE
+);
+
+CREATE SEQUENCE chat_seq INCREMENT BY 1 START WITH 1;
+
+
+---채팅방 리스트 조회
+SELECT a.room_no
+            ,a.room_name
+            ,a.mem_id
+            ,b.mem_nm
+            ,a.reg_date
+            ,a.del_yn
+from rooms a, member b
+where a.mem_id = b.mem_id
+AND a.del_yn = 'N'
+ORDER BY 1 DESC;
+
+
+--채팅방 생성 쿼리
+INSERT INTO rooms (room_no, room_name, mem_id, reg_date, del_yn)
+VALUES(room_seq.NEXTVAL, '모두 모여', 'a001', SYSDATE, 'N');
+
+
+
+
+SELECT a.room_no
+            ,a.room_name
+            ,a.mem_id
+            ,b.mem_nm
+            ,a.reg_date
+            ,a.del_yn
+from rooms a, member b
+where a.mem_id = b.mem_id
+AND a.del_yn = 'N'
+AND a.room_no = 1;
+
+--채팅방 내용저장
+INSERT INTO chatlog (chat_no, mem_id, room_no, chat_msg, send_date)
+VALUES (chat_seq.NEXTVAL, 'a002', 1 , '처음 내용', SYSDATE);
+--채팅방 내용 조회
+SELECT a.chat_no
+            ,a.mem_id
+            ,b.mem_nm
+            ,a.room_no
+            ,a.chat_msg
+            ,TO_CHAR(a.send_date, 'RR/MM/DD HH24:MI') AS send_date
+FROM chatlog a, member b
+WHERE a.mem_id = b.mem_id
+AND a.room_no = 22
+ORDER BY 1;
+
+select *
+from chatlog;
+
+commit;
+
+DROP TABLE members;
+
+

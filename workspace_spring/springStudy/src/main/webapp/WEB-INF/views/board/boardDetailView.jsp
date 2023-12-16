@@ -105,6 +105,7 @@
 						,memId : '${sessionScope.login.memId}'
 						,boardNo: '${board.boardNo}'
 				}
+				console.log(json_data);
 				$.ajax({
 					url :'<c:url value="/writeReplyDo" />'
 					,type : 'POST'
