@@ -1,0 +1,163 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>동네 전력 예측</title>
+
+    <!-- Chart.js CDN -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://code.jquery.com/jquery-3.7.0.js"></script>
+</head>
+<body>
+
+
+
+  <%@include file="/WEB-INF/inc/top.jsp" %>
+
+    <div style="margin-top: 120px;"> <!-- Adjust the value based on your navigation bar's height -->
+        <!-- 년도 선택 -->
+        <label for="yearSelect">년도 선택: </label>
+        <select id="yearSelect">
+            <c:forEach var="yearItem" items="${years}">
+                <option value="${yearItem}" ${yearItem eq year ? 'selected' : ''}>${yearItem}</option>
+            </c:forEach>
+        </select>
+
+        <!-- 지역 시 선택 -->
+        <label for="metroSelect">지역 시 선택: </label>
+        <select id="metroSelect" >
+            <c:forEach var="metroItem" items="${metros}">
+                <option value="${metroItem}" ${metroItem eq metro ? 'selected' : ''}>${metroItem}</option>
+            </c:forEach>
+        </select>
+
+        <!-- 지역(군,구) 선택 -->
+        <label for="citySelect">지역(군,구) 선택: </label>
+        <select id="citySelect">
+            <c:forEach var="cityItem" items="${cities}">
+                <option value="${cityItem}" ${cityItem eq city ? 'selected' : ''}>${cityItem}</option>
+            </c:forEach>
+        </select>
+
+    </div>
+    
+<canvas id="monthlyChart" width="400" height="200"></canvas>    
+
+<script>
+$(document).ready(function () {
+
+    // 초기 그래프 생성
+    createChart([], [], []);
+
+    // 셀렉트 박스의 값이 변경될 때 이벤트 리스너 등록
+    $('#yearSelect, #metroSelect, #citySelect').change(function () {
+
+        // 각 셀렉트 박스의 선택된 값 가져오기
+        var selectedYear = $('#yearSelect').val();
+        var selectedMetro = $('#metroSelect').val();
+        var selectedCity = $('#citySelect').val();
+        
+        // 콘솔에 출력
+        console.log("Selected Year: " + selectedYear);
+        console.log("Selected Metro: " + selectedMetro);
+        console.log("Selected City: " + selectedCity);
+        var json_data = {
+            year: selectedYear,
+            metro: selectedMetro
+        };
+
+        // AJAX를 이용하여 서버로 도시 목록을 요청
+        $.ajax({
+            type: 'POST',
+            url: '<c:url value="/getCities" />',
+            dataType: 'json',
+            contentType: 'application/json',
+            data: JSON.stringify(json_data),
+            success: function (data) {
+                console.log(data);
+                var citySelect = $('#citySelect');
+                var previouslySelectedCity = citySelect.val();
+
+                citySelect.empty();
+                $.each(data, function (index, city) {
+                    citySelect.append('<option value="' + city + '">' + city + '</option>');
+                });
+				
+             // 이전에 선택된 도시를 다시 선택
+                citySelect.val(previouslySelectedCity);
+                // 그래프 업데이트 함수 호출
+                updateChart(selectedYear, selectedMetro, selectedCity);
+            },
+            error: function () {
+                console.error('Failed to get city data.');
+            }
+        });
+    });
+
+    // 초기 그래프 생성 함수
+    function createChart(labels, data) {
+        var ctx = document.getElementById('monthlyChart').getContext('2d');
+        monthlyChart = new Chart(ctx, {
+            type: 'line',
+            data: {
+                labels: labels,
+                datasets: [{
+                    label: '월별 전력 소비량',
+                    data: data,
+                    borderColor: 'rgba(75, 192, 192, 1)',
+                    borderWidth: 1,
+                    fill: false
+                }]
+            },
+            options: {
+                scales: {
+                    x: [{
+                        type: 'category',
+                        labels: labels
+                    }],
+                    y: [{
+                        ticks: {
+                            beginAtZero: true
+                        }
+                    }]
+                }
+            }
+        });
+    }
+
+    // 그래프 업데이트 함수
+    function updateChart(year, metro, city) {
+        var json_data = {
+            year: year,
+            metro: metro,
+            city: city
+        };
+
+        // AJAX를 이용하여 서버로 월별 데이터 요청
+        $.ajax({
+            type: 'POST',
+            url: '<c:url value="/getMonthData" />',
+            dataType: 'json',
+            contentType: 'application/json',
+            data: JSON.stringify(json_data),
+            success: function (data) {
+                console.log(data);
+
+                // 월별 그래프 업데이트
+                monthlyChart.data.labels = data.labels;
+                monthlyChart.data.datasets[0].data = data.data;
+                monthlyChart.update();
+            },
+            error: function () {
+                console.error('Failed to get month data.');
+            }
+        });
+    }
+});
+</script>
+
+    <%@include file="/WEB-INF/inc/footer.jsp" %>
+
+</body>
+</html>

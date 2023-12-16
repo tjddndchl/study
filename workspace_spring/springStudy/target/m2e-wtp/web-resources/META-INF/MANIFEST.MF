@@ -1,5 +1,10 @@
 Manifest-Version: 1.0
+<<<<<<< HEAD
 Built-By: choi
 Build-Jdk: 11.0.21
+=======
+Built-By: tjddndchl
+Build-Jdk: 11.0.20.1
+>>>>>>> f4778e44b0de87d5d079606ba8a35262ded3de9b
 Created-By: Maven Integration for Eclipse
 

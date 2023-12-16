@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.my.board">
+	<select id="list" resultType="com.my.board.controller.BoardDTO">
+	 	select 
+ 			seq, subject, content, name, reg_date, readCount
+		from 
+ 			BOARD
+	</select>	
+</mapper>

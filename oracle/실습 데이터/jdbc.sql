@@ -45,9 +45,9 @@ ADD CONSTRAINT fk_board FOREIGN KEY(mem_id) REFERENCES member (mem_id);
 
 
 
-INSERT INTO board(board_no, board_title, board_content, mem_id)
+INSERT INTO boards(board_no, board_title, board_content, mem_id)
 VALUES ((SELECT NVL(MAX(board_no), 0) + 1
-            FROM board)
+            FROM boards)
             ,'공지사항'
             ,'첫번째 글'
             ,'a001');

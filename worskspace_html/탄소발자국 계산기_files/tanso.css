@@ -1,0 +1,791 @@
+@charset "UTF-8";
+
+@import url('/tanso2018/css/notosans.css');
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700;900&display=swap');
+
+/********************************************************
+■ Reset
+********************************************************/
+*{margin:0; padding:0; box-sizing:border-box; }
+*:focus { outline:none; }
+html, body { font-family:'Roboto','Noto Sans KR','나눔고딕', 'Nanum Gothic', 'sans-serif'; color:#555555; -webkit-text-size-adjust:none;text-size-adjust:none;-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale; line-height:1; letter-spacing: -0.05em; word-break: keep-all; -webkit-tap-highlight-color: rgba(255, 255, 255, 0); -webkit-backface-visibility: hidden;}
+html, body, div, span, form, input, select, button, textarea, legend, fieldset, h1, h2, h3, h4, h5, h6, ul, ol, dl, li, dt, dd, blockquote, address, p, th, td, caption {margin:0;padding:0}
+ol, ul, li {list-style:none;}
+em, dt, dd, address, i {font-style:normal}
+img {vertical-align:top}
+img, fieldset {border:0 none;}
+button {border:0 none;background:transparent;cursor:pointer;}
+hr {display:none;}
+legend, .skip, .blind, .skip_nav, .hide {width:0;height:0;visibility:hidden;font-size:0;line-height:0;position:absolute;top:0;left:-9999em;overflow:hidden;}
+table caption {display:none}
+table {border-collapse:collapse;border-spacing:0;}
+header, footer, section, article, aside, nav, hgroup, details, menu, figure, figcaption {display:block;}
+a{color:inherit}
+a:link, a:visited {text-decoration:none; }
+a:hover, a:active {text-decoration:none}
+h1, h2, h3, h4, h5, h6{font-family: inherit;  font-size: inherit; font-weight: 500;color: inherit;margin: 0;}
+input, textarea, select {border-radius:0;-webkit-appearance:none; font-family: inherit; font-size: 0.85rem; letter-spacing: 0em; color: inherit;	padding: 0; outline: none;}
+button {border:0; cursor: pointer;}
+
+.clearfix { display:block; }
+.clearfix:after { display:block; clear:both; content:"."; visibility:hidden; height:0; }
+
+/* 입력 스타일 */
+input[type="checkbox"] {-webkit-appearance:checkbox;vertical-align:middle}
+input[type="radio"] {-webkit-appearance:radio;width:13px;height:13px;margin:0 0 3px;padding:0;vertical-align:middle}
+input[type="password"],
+input[type="text"] {-webkit-appearance:none; width:100%; background:#fff;  border:1px solid #d8d8d8; -webkit-appearance: none; box-shadow: none; padding: 0px 10px;  box-sizing:border-box;  height: 40px; text-align:left;}
+select {width: 100%; padding: 0 .5em; font-family: inherit; background:#fff url("/tanso2018/images/new/icon_sel.svg") no-repeat right+10px center; -webkit-appearance: none; -moz-appearance: none; appearance: none; border: 1px solid #E6E6E6; border-radius: 0px;height:40px; }
+select::-ms-expand { /* for IE 11 */   display: none;}
+textarea{padding:20px; width:100%; box-sizing:border-box; vertical-align:middle; line-height:1.5; background:#fff; border:1px solid #b2b2b2;  color:#898989; -webkit-appearance: none; box-shadow: none; border-radius:0; resize: vertical; }
+
+
+/*safari input*/
+input[type='button'],
+input[type='submit'] { -webkit-appearance: none; -webkit-border-radius: 0; }
+
+/* IPHONE */
+input:disabled, textarea:disabled { opacity: 1; -webkit-text-fill-color: inherit; }
+input[type="text"], input[type="password"] { -webkit-appearance: none; border-radius: 0; }
+
+
+:-ms-input-placeholder{color:#888 !important;}/* Internet Explorer 10-11 */
+::-ms-input-placeholder{color:#888 !important;}/* Microsoft Edge */
+::placeholder{color:#888;opacity:1;}/* Chrome, Firefox, Opera, Safari 10.1+ */
+
+
+/* 아이폰(사파리) 터치 메뉴 활성화 관련 */
+a, button,
+[role=button], [role=link], [role=tab] {-webkit-touch-callout:none;}
+
+/*basic*/
+.clear {clear:both;}
+.of{overflow:hidden;}
+.blind{display:none;}
+
+/*float*/
+.fl {float:left !important;}
+.fr {float:right !important;}
+.fn {float:none !important;}
+
+/*text-align*/
+.ac {text-align:center !important;}
+.al {text-align:left !important;}
+.ar {text-align:right !important;}
+.aj {text-align:justify !important;}
+
+
+
+/********************************************************
+■ 컨텐츠 공통
+********************************************************/
+/*-----기본-----*/
+html{font-size:20px;}
+body{font-size:1rem}
+.tablet{display:none;}
+.mob{display:none;}
+#wrap{position:relative; line-height:1.5; overflow:hidden; font-size: 0.9rem;}
+#wrap img { border:none; max-width:100%;}
+#wrap i{vertical-align:middle;}
+
+/* 헤더 */
+#header{background:#f3f9fc; height:1.75rem; }
+#header ul{width:1600px; margin:0 auto; display: flex;  justify-content: flex-end; -webkit-box-pack: end;}
+#header ul li{ border-left:1px solid #BFBFBF;}
+#header ul li a{position:relative; width:11rem; text-align:center; display:block; height:1.75rem; line-height:2rem; font-size:0.75rem; background:#fff; color:#333;}
+#header ul li a:before{content:''; position:absolute; left:0px; top:0px; width:100%; height:0.25rem; }
+#header ul li:nth-child(1) a:before{background:#07A2CF}
+#header ul li:nth-child(2) a:before{background:#728F87}
+#header ul li:nth-child(3){border-right:1px solid #BFBFBF;}
+#header ul li:nth-child(3) a:before{background:#37AC28}
+
+/*푸터*/
+#footer{background:#434343; padding:2rem 0;}
+#footer  .section{width:1600px; margin:0 auto; display:flex;   font-size:0.8rem; color:#fff;}
+#footer  .section .left{width:11rem;}
+#footer  .section .right{display:flex;  justify-content: space-between; -webkit-box-pack: justify; width:calc(100% - 10rem);  padding-top:0.6rem;}
+#footer  .section .right .top{text-align:right;}
+#footer  .section .right p{margin-bottom:0.25rem;}
+#footer  .section .right p span{display:inline-block; padding:0 .25rem;}
+#footer  .section .right .copy{color:#999; }
+#footer  .section .right ul{}
+#footer  .section .right ul li{display:inline-block; color:#fff; }
+#footer  .section .right ul li:not(:first-child){margin-left:1.25rem;}
+
+/*라디오버튼*/
+.radio{display:inline-block; position:relative; font-weight:normal;}
+.radio input[type="radio"] {position:absolute; width:1px; height:1px; padding:0; margin:-1px; overflow:hidden; clip:rect(0,0,0,0); border:0;}
+.radio input[type="radio"] + label {display:inline-block; position: relative; padding-left:1.5rem; margin-left:0px; color:#555; line-height:1.25rem; font-size:0.85rem; cursor: pointer; -webkit-user-select: none; -moz-user-select: none; -ms-user-select: none;}
+.radio input[type="radio"] + label:before {content: ' '; position:absolute; top:0; left:0; display: inline-block; width: 1.25rem; height: 1.25rem; border:1px solid #c2cfd8; box-sizing: border-box; border-radius:50%; background:#eff2f5;}
+.radio input[type="radio"]:checked + label:before{background:#295F50; border-color:#295F50;}
+.radio input[type="radio"]:checked + label:after{content:''; position:absolute; top:0; left:0; display: inline-block; width: 1.25rem; height: 1.25rem; background:url('/tanso2018/images/new/radio_on.svg')no-repeat  50% 50%; z-index:1; background-size:100% 100%;}
+
+/*체크박스*/
+.chks {display:inline-block;position:relative; font-weight:normal;}
+.chks input[type="checkbox"] {position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);border:0}
+.chks input[type="checkbox"] + label {display:inline-block; vertical-align:middle; line-height:1.25rem; font-size:0.85rem; position:relative; padding-left:1.5rem; cursor:pointer; -webkit-user-select:none; -moz-user-select:none; -ms-user-select:none;}
+.chks input[type="checkbox"] + label:before {content:'';position:absolute;left:0px;top:0px;margin:0;width:1.25rem;height:1.25rem;text-align:center;box-sizing:border-box;  background-color: #eff2f5; border:1px solid #c2cfd8; transition: background-color .15s ease-in-out,background-position .15s ease-in-out,border-color .15s ease-in-out,box-shadow .15s ease-in-out;}
+.chks input[type="checkbox"] + label:active:before,
+.chks input[type="checkbox"]:checked + label:active:before {}
+.chks input[type="checkbox"]:checked + label:before {background:#295F50; border-color:#295F50;}
+.chks input[type="checkbox"]:checked + label:after {content:""; display:block; position:absolute; left:0; top:0; text-align:center; width:1.25rem; height:1.25rem; background:url('/tanso2018/images/new/radio_on.svg')no-repeat  50% 50%; z-index:1; background-size:100% 100%; }
+
+
+@media (max-width:1650px){
+	#header ul,
+	#footer  .section{width:100%;}
+	#footer{padding:2rem 1rem;}
+}
+@media (max-width:1400px){
+	#footer .section .right{flex-direction: column-reverse; -webkit-box-orient: vertical; -webkit-box-direction: reverse;}
+	#footer .section .right .top{text-align:left; margin-bottom:1rem;}
+}
+@media (max-width:1200px){
+	html{font-size:18px;}
+    body{font-size:1rem}
+}
+@media (max-width:1030px){
+	html{font-size:16px;}
+    body{font-size:1rem}
+	#wrap{font-size:1rem;}
+	.tablet{display:block;}
+	.web{display:none;}
+	
+	#header{height:2rem;}
+	#header ul li a{height:2rem; line-height:2.2rem; font-size:0.85rem;}
+	
+	#footer .section{display:block;}
+	#footer .section .left{width:100%;}
+	#footer .section .right{width:100%; padding-top: 1rem;}
+}
+
+@media (max-width:767px){
+	#header ul{display:block; overflow:hidden;}
+	#header ul li a{width:100%}
+	#header ul li{float:left; width:33.3%;}
+	#footer ,
+	#footer .section .right .top{text-align:center;}
+}
+
+/********************************************************
+■ 탄소발자국계산기
+********************************************************/
+/* 공통항목*/
+#content{position:relative; background:url('/tanso2018/images/new/main_bg.jpg') no-repeat 50% 50%; background-size:cover; padding:4rem 0;}
+#content .section{width:1600px; margin:0 auto; display:flex;  }
+#content .section #topHeader{width:10rem; padding-top:5.5rem;}
+#content .section form{width:calc(100% - 10rem);}
+
+#content  #logo{position:absolute; left:3.5rem; top:1rem;}
+
+.botInfo{margin-top:1rem; display:flex;  justify-content: space-between; -webkit-box-pack: justify; font-size:0.75rem; color:#fff;}
+.botInfo p{opacity:0.5;}
+.botInfo span{margin-left:1rem; white-space: nowrap;}
+
+/*탄소발자국계산기 탭*/
+#content .section #topHeader ul{display:flex;  align-items: center;  justify-content: center; -webkit-box-align: center; flex-direction: column; -webkit-box-orient: vertical;}
+#content .section #topHeader ul li{position:relative; margin-bottom:1.5rem; width:7.5rem; height:7.5rem; padding:0.6rem; border:1px solid rgba(255,255,255,0.15); border-radius:50%; cursor:pointer;}
+#content .section #topHeader ul li span{display:flex;  align-items: center; -webkit-box-align: center; justify-content: center; -webkit-box-pack: center; text-align:center; width:100%; height:100%; background:rgba(255,255,255,0.15); border-radius:50%; color:rgba(255,255,255,0.7); font-size:0.9rem;  }
+#content .section #topHeader ul li:after{content:''; position:absolute; left:50%; bottom:-1.5rem; width:1px; height:1.5rem;background:rgba(255,255,255,0.15); }
+#content .section #topHeader ul li:nth-child(3){margin-bottom:0;}
+#content .section #topHeader ul li:nth-child(3):after,
+#content .section #topHeader ul li:nth-child(3).on:before{display:none;}
+#content .section #topHeader ul li.on{border-color:#FF9000;}
+#content .section #topHeader ul li.on:before{content:''; position:absolute; left:50%; bottom:-1.75rem; width:0.4rem; height:0.4rem; background:#FF9000; border-radius:50%; margin-left: -0.2rem; z-index: 1;}
+#content .section #topHeader ul li.on:after,
+#content .section #topHeader ul li.on span{background:#FF9000; color:#fff;}
+
+#content .section #topHeader ul li:hover:not(.on){border-color:rgba(255,255,255,0.3);}
+#content .section #topHeader ul li:hover:after:not(.on){background:rgba(255,255,255,0.3);}
+#content .section #topHeader ul li:hover:not(.on) span{background:rgba(255,255,255,0.3); color:#fff;}
+
+
+/*탄소발자국계산기 상위 타이틀 + 서브 탭*/
+.pageTop{display:flex;}
+.pageTop .title{width:30rem; color:#fff;}
+.pageTop .title p{font-size:0.9rem; line-height:1.3;}
+.pageTop .title h3{font-size:2.25rem;  font-family: 'GmarketSans'; font-weight:200; margin-bottom:1.5rem;}
+.pageTop .pageMenu,
+.pageTop .tapMenu{width:calc(100% - 30rem); padding-top:2.5rem;}
+.pageTop .pageMenu ul,
+.pageTop .tapMenu ul{display:flex;  justify-content: space-between; -webkit-box-pack: justify;}
+.pageTop .pageMenu ul li,
+.pageTop .tapMenu ul li{flex:0 0 24.5%; width:24.5%; text-align:center; border-radius:0.5rem 0.5rem 0 0; background:rgba(114,143,135,0.4); color:rgba(255,255,255,0.7); line-height:3rem; padding-bottom:1rem;  cursor:pointer; }
+.pageTop .pageMenu ul li.on,
+.pageTop .tapMenu ul li.on{background:#FF9000; color:#fff;}
+
+/*탄소발자국계산기 컨텐츠*/
+.pageBody{display:flex; z-index:1; margin-top: -1rem;}
+.pageBody .imgBox{ display: flex;  flex-direction: column; -webkit-box-orient: vertical; justify-content: space-between; -webkit-box-pack: justify; width:30rem; background:url('/tanso2018/images/new/imgBox_bg.jpg') no-repeat 50% 50%;  background-size:cover; border-radius:1rem;   box-shadow:0 0 25px rgba(0,0,0,0.12); overflow:hidden; }
+.pageBody .imgBox .txt{padding:2.5rem 3rem 0;}
+.pageBody .imgBox h4{font-family: 'GmarketSans'; color:#295f50; margin-bottom:2rem; text-align:center; font-size:1.3rem;}
+.pageBody .imgBox .info{position:relative; background:#d0eee3; border-radius:0.5rem; padding:2rem; box-shadow: 1px 1px 15px rgba(0,0,0,0.1);}
+
+.pageBody .imgBox .subTitleName{position:absolute; left:50%; top:-1rem; width:7rem; height:2rem; line-height:2.2rem; padding-left: 0.75rem;color:#fff; background:#295f50; border-radius:1rem; transform:translateX(-50%); text-align:center; font-family: 'GmarketSans';}
+.pageBody .imgBox .subTitleName [class*="sub-icon"]:before{content:''; position:absolute; left:-0.5rem; top:-0.15rem; width:2.3rem; height:2.3rem; background-repeat:no-repeat; background-size:100% 100%; background-position:50% 50%; z-index:-1; }
+.pageBody .imgBox .sub-icon01:before{background-image:url('/tanso2018/images/new/main_icon01.svg');}
+.pageBody .imgBox .sub-icon02:before{background-image:url('/tanso2018/images/new/main_icon02.svg');}
+.pageBody .imgBox .sub-icon03:before{background-image:url('/tanso2018/images/new/main_icon03.svg');}
+.pageBody .imgBox .sub-icon04:before{background-image:url('/tanso2018/images/new/main_icon04.svg');}
+.pageBody .imgBox ul{font-size:0.8rem; color:#333;}
+.pageBody .imgBox ul li{position:relative; padding-left:0.5rem; }
+.pageBody .imgBox ul li:before{content:'·'; position:absolute; left:0px; top:0; }
+.pageBody .imgBox ul li + li{margin-top:0.25rem;}
+.pageBody [class*="imgbox-img"]{display:block; width:100%; padding-top:65%; background-repeat:no-repeat; background-size:100% 100%; background-position:50% 50%;}
+.pageBody .imgbox-img1{background-image:url('/tanso2018/images/new/visual01.png');}
+.pageBody .imgbox-img2{background-image:url('/tanso2018/images/new/visual02.png');}
+.pageBody .imgbox-img3{background-image:url('/tanso2018/images/new/visual03.png');}
+.pageBody .imgbox-img4{background-image:url('/tanso2018/images/new/visual04.png');}
+
+.pageBody .pageDiv{display: flex;  flex-direction: column; -webkit-box-orient: vertical; justify-content: space-between; -webkit-box-pack: justify; overflow:hidden; width:calc(100% - 30rem); border-radius:1rem; box-shadow:inset 0 0 16px rgba(0,0,0,0.2), 0 0 25px rgba(0,0,0,0.12); background:#fff; }
+.pageBody .pageDiv .inputZone{padding:2.5rem 3rem 0rem; display: flex;  flex-direction: column; -webkit-box-orient: vertical; justify-content: space-evenly; -webkit-box-pack: justify; min-height: 30rem;}
+
+.inputName{display: flex;  justify-content: space-between; -webkit-box-pack: justify; align-items: center;  -webkit-box-align: center; padding: 1.5rem 0;}
+.inputName .title{width:100%; display: flex;  align-items: center; -webkit-box-align: center; color:#333; font-size:0.9rem; font-weight:500; margin-bottom:0.5rem;}
+.title [class*="icon_"]{display:inline-block; width:1.5rem; height:1.5rem; margin-right:0.5rem; background-repeat:no-repeat; background-size:100% 100%; background-position:50% 50%;}
+.title .icon_use{background-image:url('/tanso2018/images/new/icon_use.svg');}
+.title .icon_cost{background-image:url('/tanso2018/images/new/icon_cost.svg');}
+.title .icon_co2{background-image:url('/tanso2018/images/new/icon_co2.svg');}
+.title .icon_tree{background-image:url('/tanso2018/images/new/icon_tree.svg');}
+.title .icon_oil{background-image:url('/tanso2018/images/new/icon_oil.svg');}
+.inputName .input{display: flex;  align-items: center; -webkit-box-align: center; justify-content: flex-end; -webkit-box-pack: end; width:100%;}
+.inputName .input input[type="text"]{height:2.5rem; border-radius:0.5rem; text-align:right; padding:0 0.5rem; border-color:#aaa; box-shadow:0 0 10px rgba(0,0,0,0.15)}
+.inputName .input span{display:inline-block; font-size:.75rem; white-space: nowrap; margin-left:0.5rem;}
+.inputName .input .inputNumber{border-radius:0.25rem; background:#fff; box-shadow:0 0 10px rgba(0,0,0,0.1); color:#333; font-size:1.3rem; font-weight:700; padding:.25rem 0.4rem; margin:0 0.1rem;}
+.inputName .input .inputTxt{font-weight:600; margin-left:0.25rem; font-size:0.9rem;}
+
+.inputNameRow{display:flex;  justify-content: space-between; -webkit-box-pack: justify; padding-bottom:1rem; border-bottom:1px solid #c9c9c9;}
+.inputResultZone,
+.inputTotalZone{position:relative; display:flex;  justify-content: space-between; -webkit-box-pack: justify; padding:1rem 0; }
+.inputResultZone:before,
+.inputTotalZone:before{content:''; position:absolute; left:50%; top:1rem; width:1px; height:calc(100% - 2rem); background:#c9c9c9;}
+.inputNameRow .inputName,
+.inputResultZone .inputName,
+.inputTotalZone .inputName{width:48%; flex-direction: column; -webkit-box-orient: vertical; padding:0;}
+
+/*라디오버튼 박스*/
+.inputRadio{background:#f7f8f9; border-radius:1rem; padding:1rem; margin-bottom:1rem;}
+.inputRadio ul{display:flex;  justify-content: space-between; -webkit-box-pack: justify;}
+.inputRadio ul li{display:block;}
+.inputRadio ul li.title{font-weight:700; color:#333; display: flex;  align-items: center; -webkit-box-align: center; font-size:0.8rem;}
+.inputRadio .radio input[type="radio"] + label:before{background-color:#fff;}
+.inputRadio .radio input[type="radio"]:checked + label:before{background:#295F50; border-color:#295F50;}
+
+.inputRadio_half{display:flex; flex-wrap:wrap; justify-content: space-between; -webkit-box-pack: justify;}
+.inputRadio_half .inputRadio{width:49%;}
+.inputRadio_half .inputRadio .title{color:#295F50;}
+
+.totalH5{background:#295f50; font-family: 'GmarketSans'; color:#fff; height:3rem; line-height:3.2rem; text-align:center; border-radius:0.5rem; }
+.totalH5 .sub{font-size:0.5rem;}
+
+.btn-wrap{display:flex; }
+.btn-wrap input{flex-grow:1; height:3.3rem; line-height:3.3rem; border:none; color:#fff; background:#B0B7B5; font-size:1rem; cursor:pointer;}
+.btn-wrap input.nextBtn{background:#E96300;} 
+
+@media (max-width:1650px){
+	#content{padding:4rem 1rem;}
+	#content #logo{left:1rem;}
+	#content #logo img{height:2.5rem;}
+	
+	#content .section{width:100%; }
+	#content .section #topHeader ul{align-items: flex-start; -webkit-box-align: start;}
+	.pageTop .title,
+	.pageBody .imgBox{width:40%;}
+	.pageTop .pageMenu, 
+	.pageTop .tapMenu,
+	.pageBody .pageDiv{width:60%;}
+	.pageBody .imgBox .txt{padding:1.5rem 1.5rem 0;}
+	.pageBody .pageDiv .inputZone{padding:1.5rem 1.5rem 0;}
+
+}
+@media (max-width:1400px){
+	#content .section #topHeader{width:8rem;}
+	#content .section #topHeader ul li{width: 6.5rem; height: 6.5rem; padding:0.4rem; flex-shrink: 0;}
+	
+	#content .section form{width: calc(100% - 8rem);}
+	
+	.pageTop .title p{font-size: 0.7rem;}
+	.pageTop .title h3{font-size:1.8rem}
+	.pageBody .imgBox .info{padding:2rem 1rem;}
+	
+	.inputNameRow,
+	.inputResultZone, .inputTotalZone{flex-direction: column; -webkit-box-orient: vertical;}
+	.inputResultZone:before, .inputTotalZone:before{display:none;}
+	
+	.inputNameRow .inputName, .inputResultZone .inputName, .inputTotalZone .inputName{width:100%; flex-direction: row; -webkit-box-orient: horizontal;}
+	.inputNameRow .inputName + .inputName, .inputResultZone .inputName + .inputName, .inputTotalZone .inputName + .inputName{margin-top:0.5rem;}
+	.inputNameRow .inputName div, .inputResultZone .inputName div, .inputTotalZone .inputName div{width:auto;}
+	.inputName .title{margin-bottom:0;}
+	.inputName .input span,
+	.inputName .input .inputTxt{width:2.5rem; flex-shrink: 0;}
+	
+	.inputRadio_half .inputRadio{width:100%;}
+	.inputRadio_half .inputRadio ul li{width:33.3%;}
+	.inputRadio_half .inputRadio + .inputRadio{margin-top:-0.5rem;}
+}
+@media (max-width:1030px){
+	#content .section{display:block;}
+	#content .section #topHeader{width:100%; padding-top:0; margin-bottom:1.5rem;}
+	#content .section #topHeader ul li{width: 8.5rem; height: 8.5rem;}
+	#content .section form{width:100%;}
+	
+	#content .section #topHeader ul{flex-direction: row; -webkit-box-orient: horizontal;}
+	#content .section #topHeader ul li{margin-bottom:0; margin-right:1.5rem;}
+	#content .section #topHeader ul li:nth-child(3){margin-right:0;}
+	#content .section #topHeader ul li:after{left:auto; right:-1.5rem; bottom:auto; top:50%; width:1.5rem; height:1px;} 
+	#content .section #topHeader ul li.on:before{left:auto; right:-1.75rem; botton:auto; top:50%; margin-left:0; margin-top:-0.2rem;}
+	
+	.pageTop .title p{font-size: 0.8rem;}
+	.pageTop .title h3{font-size:2rem}
+	
+	.pageBody .imgBox .txt{padding:2rem 0.5rem 0;}
+	.pageBody .imgBox .info{padding:2rem 0.5rem;}
+	
+	.botInfo{display:block;}
+	.botInfo span{margin-left:0; margin-top:0.5rem; display:block;}
+	
+	
+}
+
+@media (max-width:767px){
+	#content .section #topHeader{margin-bottom:2rem;}
+	
+	.pageTop,
+	.pageBody{display:block; position: relative;}
+	.pageTop .title,
+	.pageBody .imgBox{width:100%;}
+	.pageTop .pageMenu, 
+	.pageTop .tapMenu,
+	.pageBody .pageDiv{width:100%;}
+	
+	.pageTop .title{text-align:center;}
+	.pageTop .pageMenu, .pageTop .tapMenu, .pageBody .pageDiv{padding-top:0;}
+	
+	.pageBody .imgBox h4{font-size:1.6rem;}
+	.pageBody .imgBox .txt{padding:2rem 1rem 0;}
+	.pageBody .imgBox .info{padding:2rem 0.5rem 0.5rem;}
+	.pageTop .pageMenu ul li, .pageTop .tapMenu ul li{font-size:1rem;}
+	
+	.botInfo{font-size:0.8rem;}
+	
+	.inputRadio_half .inputRadio ul li.title{width:4rem;}
+	.inputRadio_half .inputRadio ul li{width:calc(50% - 2rem);}
+}
+@media (max-width:500px){
+	#content{padding:4rem 1rem 2rem;}
+	#content .section #topHeader{margin-bottom:1rem;}
+	#content .section #topHeader ul{ transform: scale(0.7);}
+	#content .section #topHeader ul li span{font-size:1.2rem; line-height: 1.2;}
+	
+	.pageBody .imgBox h4{display:none;}
+	.pageBody [class*="imgbox-img"]{padding-top:50%; background-size:100% auto;}
+	.pageBody .pageDiv .inputZone{padding:1rem 1rem 0;}
+	.inputNameRow .inputName, .inputResultZone .inputName, .inputTotalZone .inputName{flex-direction: column; -webkit-box-orient: vertical;}
+	.inputNameRow .inputName div, .inputResultZone .inputName div, .inputTotalZone .inputName div{width:100%;}
+	.inputNameRow .inputName + .inputName, .inputResultZone .inputName + .inputName, .inputTotalZone .inputName + .inputName{margin-top:1rem;}
+	.inputResultZone .inputName .input .inputNumber,
+	.inputResultZone .inputName .input .dot,
+	.inputTotalZone .inputName .input .inputNumber,
+	.inputTotalZone .inputName .input .dot{width:auto;}
+	.inputName .title{margin-bottom:0.5rem;}
+	
+	.inputRadio{padding:0.5rem;}
+	.inputRadio ul{flex-wrap:wrap;}
+	.inputRadio ul li{}
+	.inputRadio ul li.title{width:100%; margin-bottom:0.25rem;}
+	
+}
+
+/********************************************************
+■ 탄소발자국계산기 결과보기
+********************************************************/
+/*탄소발자국계산기 결과보기*/
+.page2 .pageDiv{position: relative;  top: -1rem;   z-index: 1;  overflow: hidden;  width: 100%; min-height:33.3rem; border-radius: 1rem;  box-shadow: inset 0 0 16px rgba(0, 0, 0, 0.2), 0 0 25px rgba(0,0,0,0.12);  background: #fff;}
+
+/*나의정보*/
+.page2 .step1{ padding:2rem 3rem;}
+.page2 .step1 .page-table{width:100%; table-layout:fixed;}
+.page2 .step1 .page-table th,
+.page2 .step1 .page-table td{padding:1rem 0.2rem; border-bottom:1px solid #ddd; vertical-align:middle;}
+.page2 .step1 .page-table th{text-align:center; color:#295F50;}
+.page2 .step1 .page-table input[type="text"]{height:2.5rem; border-radius:0.5rem;  padding:0 0.5rem; border-color:#aaa; box-shadow:0 0 10px rgba(0,0,0,0.15);  font-weight:normal; max-width:20rem;}
+.page2 .step1 .page-table .radio{margin:.2rem 0; margin-right:1rem;}
+
+.page2 .step1 .msg{position: relative; border:1px solid #ddd; border-top:none; background:#f7f7f7; padding:1rem; font-size:0.7rem; line-height:1.4; overflow-y:auto; height:9rem;}
+.page2 .step1 .msg::-webkit-scrollbar {width:5px;height:5px;background-color:#f7f7f7;}
+.page2 .step1 .msg::-webkit-scrollbar-thumb {background-color:#295F50; -webkit-border-radius:3px;border-radius:3px;}
+.page2 .step1 .msg h6{margin-bottom:0.5rem;color:#333; font-size:0.8rem;}
+.page2 .step1 .msg p{margin-bottom:0.25rem; }
+.page2 .step1 .msg ul{margin:0.5rem 0 0.5rem 0.5rem; }
+.page2 .step1 .msg ul li{position: relative; padding-left:0.7rem; margin-bottom:0.25rem;}
+.page2 .step1 .msg ul li:before{content:''; position:absolute; left:0px; top:0.3rem; width:0.3rem; height:0.3rem; background:#7CE5BD; border-radius:50%;}
+
+.page2 .step1 .page-btn{margin-top:1rem; display:flex;  justify-content: space-between; -webkit-box-pack: justify; align-items: center; -webkit-box-align: center;}
+.page2 .step1 .page-btn .saveBtn{display:block; width:10rem; border-radius:1rem; height:3rem; background:#E96300; color:#fff; border:none; cursor:pointer}
+
+
+/*팝업*/
+.shadow { display:none; width:100%; height:100%;  position:fixed;top:0px; left:0px; z-index:998;   background-color: rgba( 0, 0, 0, 0.7 );   }
+.shadow .closeZone {cursor:pointer; position:absolute; right:1rem; top:1rem;}
+.shadow .closeZone img{width:1.5rem; height:1.5rem}
+
+.shadow .shadow_input {position:absolute; left:50%; top:50%; width:35rem;  background:#fff; transform:translate(-50%, -50%); border-radius:1rem; overflow:hidden;}
+.shadow .shadow_input .inn{ padding:2rem; }
+.shadow .shadow_input h3 {color:#333; font-size:1.1rem; font-weight:700; font-family: 'GmarketSans'; margin-bottom:0.5rem;}
+.shadow .shadow_input h4 {color:#333; font-size:0.9rem;  margin:1rem 0 0;}
+
+.shadow .shadow_input .shadowDiv {position:relative; background:#F7F8F9; border-radius:0.5rem; width:100%; padding:0.75rem; }
+.shadow .shadow_input .shadowDiv h6{margin-bottom:0.25rem; color:#333; font-size:0.8rem; }
+.shadow .shadow_input .shadowDiv p{font-size:0.75rem; }
+.shadow .shadow_input .email-box{display:flex;  justify-content: space-between; -webkit-box-pack: justify; align-items: center; -webkit-box-align: center; gap: 5px;   background:#F7F8F9; border-radius:0.5rem; width:100%; padding:0.5rem;}
+.shadow .shadow_input .email-box input[type="text"]{border-radius:5px; border-color:#aaa;}
+.shadow .shadow_input .email-box select{border-radius:5px; border-color:#aaa;}
+.shadow .shadow_input .agreeDiv {margin-top:0.5rem;}
+
+.shadow .shadow_btn{display:flex; }
+.shadow .shadow_btn input{flex-grow:1; height:3.3rem; line-height:3.3rem; border:none; color:#fff; background:#B0B7B5; font-size:1rem; cursor:pointer;}
+.shadow .shadow_btn input.sendMail{background:#E96300;} 
+
+/*사용량 분석*/
+.page2 .pageDiv .inn{padding:2rem 3rem; min-height:33.3rem;}
+.page2 .top{display:flex;  align-items: center; -webkit-box-align: center; border-radius:0.75rem; background:url('/tanso2018/images/new/imgBox_bg.jpg') no-repeat 50% 50%;  background-size:cover;  padding:1.5rem 1rem;}
+.page2 .top #chart_1{width:20rem; background: #d0eee3; border-radius:0.75rem; box-shadow: 1px 1px 15px rgba(0,0,0,0.1); padding:0.5rem 0; flex-shrink: 0;}
+.page2 .top #chart_1 [dir="ltr"]{ width: 100% !important; margin:0 auto; }
+.page2 .top .rightText{padding-left:1rem; width:calc(100% - 20rem);}
+.page2 .top .rightText h3{font-family: 'GmarketSans'; font-weight: 700; font-size:2.2rem; color:#fff; text-shadow: 1px 1px 15px rgba(0,0,0,0.1); }
+.page2 .top .rightText .first{ font-family: 'GmarketSans'; font-weight: 700; font-size:1.1rem; color:#295F50; margin-bottom:1rem;}
+.page2 .top .rightText .first span{color:#fff;}
+.page2 .top .rightText .second{color: #333; line-height: 1.5; font-size:0.8rem;}
+.page2 .top .rightText .second span{font-weight:600}
+
+.next-box{/* display:flex;  */ display:none;}
+.next-box div{flex-grow:1; height:3rem; line-height:3rem; border:none; color:#fff; background:#B0B7B5; font-size:1rem; text-align:center; cursor:pointer}
+.next-box div.nextBtn{background:#E96300;} 
+
+
+.page2 .bottom{display:flex;  flex-wrap:wrap; -webkit-box-lines: multiple; justify-content: space-between; -webkit-box-pack: justify; margin-top:1rem;}
+.page2 .bottom .firstChart {position:relative; width:30%; height:275px; border:5px solid #7CE5BD; border-radius:0.75rem; background:#f7f8f9;  overflow:hidden; }
+.page2 .bottom .firstChart .title_one,
+.page2 .bottom .firstChart .title_two{color:#295F50; font-size:0.8rem; font-weight:800; position:absolute; top:20px;  width:50%; text-align:center;  padding-right: 1rem;}
+.page2 .bottom .firstChart .title_one {left:0;}
+.page2 .bottom .firstChart .title_two { right:0; }
+.page2 .bottom .firstChart .chartZone { width:90%; height:184px; border-bottom:2px solid #d7d8da; margin:50px auto 0; }
+.page2 .bottom .firstChart .chartZone .chartOne { width:35px;  background:url('/tanso2018/images/chart_bg.jpg'); position:absolute; left:15%; bottom:33px; height:170px; }
+.page2 .bottom .firstChart .chartZone .chartTwo { width:35px; background:url('/tanso2018/images/chart_bg_green.jpg'); height:10px; position:absolute; left:34%; bottom:33px;}
+.page2 .bottom .firstChart .chartZone .chartThree { width:35px;  background:url('/tanso2018/images/chart_bg.jpg'); position:absolute; left:60%; bottom:33px; height:170px; }
+.page2 .bottom .firstChart .chartZone .chartFour { width:35px; background:url('/tanso2018/images/chart_bg_green.jpg'); height:10px; position:absolute; left:78%; bottom:33px;}
+.page2 .bottom .firstChart .chartZone .chartOne_icon {position:absolute; left:36%; bottom:33px; }
+.page2 .bottom .firstChart .chartZone .chartTwo_icon {position:absolute; left:79%; bottom:33px; }
+.page2 .bottom .firstChart .chartZone .name {font-size:13px; font-weight:900; position:absolute; letter-spacing:-1px; width:35px; text-align:center;}
+.page2 .bottom .firstChart .chartZone .one {left:15%; bottom:43px; }
+.page2 .bottom .firstChart .chartZone .two {left:34%; bottom:43px;}
+.page2 .bottom .firstChart .chartZone .three {left:60%; bottom:43px;}
+.page2 .bottom .firstChart .chartZone .four {left:78%; bottom:43px;}
+.page2 .bottom .firstChart .subTitle_one { font-size:13px; font-weight:600; letter-spacing:-1px; position:absolute; left:15%; top:240px; }
+.page2 .bottom .firstChart .subTitle_two { font-size:13px; font-weight:600; letter-spacing:-1px; position:absolute; left:34%; top:239px;  }
+.page2 .bottom .firstChart .subTitle_three { font-size:14px; font-weight:600; letter-spacing:-1px; position:absolute; left:60%; top:239px;}
+.page2 .bottom .firstChart .subTitle_four { font-size:14px; font-weight:600; letter-spacing:-1px; position:absolute; left:78%; top:239px;}
+
+.page2 .bottom .otherChart {width:16%; height:275px; border:1px solid #e1e1e1; border-radius:0.75rem;  background:#f3f4f9; position:relative; overflow:hidden;}
+.page2 .bottom .otherChart .title_one { position:absolute; top:20px; left:0;   font-size:17px; font-weight:700; width:100%; padding-left:1rem; }
+.page2 .bottom .otherChart .chartZone { width:90%; height:192px;  border-bottom:2px solid #d7d8da; margin:50px auto 0; }
+.page2 .bottom .otherChart .subTitle_one { font-size:14px; font-weight:600; letter-spacing:-1px; position:absolute; left:20%; top:245px; }
+.page2 .bottom .otherChart .subTitle_two { font-size:14px; font-weight:600; letter-spacing:-1px; position:absolute; left:60%; top:244px;  }
+.page2 .bottom .otherChart .chartZone .name {font-size:13px; font-weight:600; position:absolute; letter-spacing:-1px; width:35px; text-align:center; }
+.page2 .bottom .otherChart .chartZone .one {left:20%; bottom:43px;}
+.page2 .bottom .otherChart .chartZone .two {left:60%; bottom:43px; }
+.page2 .bottom .otherChart .chartZone .chartOne { width:35px;  background:url('/tanso2018/images/chart_bg.jpg'); position:absolute; left:20%; bottom:33px; height:170px; }
+.page2 .bottom .otherChart .chartZone .chartTwo { width:35px; background:#1abb9c; height:10px; position:absolute; left:60%; bottom:33px;}
+
+
+/*실천목표*/
+.page2 .step3 .alertMsg {background:#f7f8f9; border-radius:1rem; padding:0.5rem 1rem; text-align:center; color:#333; text-align:center; font-family: 'GmarketSans'; font-size:1rem; margin-bottom:1rem;}
+.page2 .step3 .alertMsg  b{color:#206A5D;}
+.page2 .step3 h6{ width:calc(100% - 1rem); margin:0 auto; color:#206A5D; background:#E6F4E6; font-weight:700; border-radius:0.25rem; font-family: 'GmarketSans'; font-size:0.9rem; margin-top:0.5rem; padding:0.2rem 0.5rem; }
+.page2 .step3 .halfBox{display:flex;  justify-content: space-between; -webkit-box-pack: justify;}
+.page2 .step3 .left { position:relative; width:49%; border-radius:0.75rem; overflow: hidden; background:#206A5D; }
+.page2 .step3 .left .menu {width:5rem; float:left;}
+.page2 .step3 .left .menu li{height:5rem; width:5rem; cursor:pointer;  border-bottom: 1px solid rgba(255,255,255,0.1);}
+.page2 .step3 .left .menu li.on{background:#f3f4f9; }
+.page2 .step3 .left > .detail {width:calc(100% - 5rem); float:left; background: #f3f4f9;  height:100%; padding:1rem 1rem 6rem;}
+.page2 .step3 .left > .detail p { text-align:center; font-size:1.3rem; font-weight:700; margin-bottom:0.5rem;  font-family: 'GmarketSans'; }
+.page2 .step3 .left > .detail ul li {position:relative;  width:100%;   background:#fff; box-shadow:0 0 10px rgba(0,0,0,0.05);  border-radius:1.5rem; padding:0.25rem 0.5rem 0.25rem 2rem;  font-weight:500; font-size:0.8rem; cursor:pointer; margin-bottom:0.5rem; }
+.page2 .step3 .left > .detail ul li:before{content:''; position:absolute; left:0.75rem; top:50%; margin-top:-0.3rem; width:0.5rem; height:0.5rem; border-radius:0.5rem 0 0.5rem 0;}
+.page2 .step3 .left > .detail ul li.on{color:#fff;}
+
+.page2 .step3 .left #step3_1 ul li.on,
+.page2 .step3 .left #step3_1 ul li:before{ background:#206A5D;  }
+.page2 .step3 .left #step3_2 ul li.on,
+.page2 .step3 .left #step3_2 ul li:before{ background:#FF4D4D;  }
+.page2 .step3 .left #step3_3 ul li.on,
+.page2 .step3 .left #step3_3 ul li:before{ background:#2F88FC;}
+.page2 .step3 .left #step3_4 ul li.on,
+.page2 .step3 .left #step3_4 ul li:before { background:#29BB89;  }
+.page2 .step3 .left #step3_1 ul li.on:before,
+.page2 .step3 .left #step3_2 ul li.on:before,
+.page2 .step3 .left #step3_3 ul li.on:before,
+.page2 .step3 .left #step3_4 ul li.on:before { background:#fff;  }
+
+.page2 .step3 .left .result_middle {position:absolute; bottom:1rem; right:1rem; width:calc(100% - 7rem); background:#206A5D; border-radius:0.75rem; padding: 0.5rem 1rem;}
+.page2 .step3 .left .result_middle .result_middle_title {color:#fff; font-weight:500; text-align: center; margin-bottom: 0.5rem;}
+.page2 .step3 .left .result_middle .result_middle_title img {vertical-align:middle;}
+.page2 .step3 .left .result_middle ul {display:flex;  justify-content: space-between; -webkit-box-pack: justify;}
+.page2 .step3 .left .result_middle ul li { background:url('/tanso2018/images/step2_right_li_bg.png') left no-repeat;  padding-left:10px; color:#fff; font-weight:900; font-size:0.75rem; letter-spacing:-1px; }
+.page2 .step3 .left .result_middle ul li div {min-width:32px; padding-right:5px; text-align:right; display:inline-block; }
+.page2 .step3 .left .result_middle ul li span { opacity:0.5; font-weight:400;}
+
+
+.page2 .step3 .right { width:49%;}
+.page2 .step3 .right .result_sale { width:100%;  background:#E6F4E6; border-radius:0.75rem; padding:0.5rem; }
+.page2 .step3 .right .result_sale h5{background:#487367; color:#fff; text-align:center; padding:0.4rem; border-radius:0.5rem 0.5rem 0 0; }
+.page2 .step3 .right .result_sale h5 sub{font-size:0.5rem;}
+.page2 .step3 .right .result_sale table{width:100%; }
+.page2 .step3 .right .result_sale table tr td {text-align:right; background:#fff; font-size:0.8rem; font-weight:600; padding:0.25rem 0.5rem; border-bottom:1px solid #ddd;  }
+.page2 .step3 .right .result_sale table tr td:first-child{color:#333;}
+.page2 .step3 .right .result_sale table tr:last-child td{border-bottom:none; background:#bee1be; }
+.page2 .step3 .right .result_sale table tr:last-child td:first-child{border-bottom-left-radius:0.5rem;}
+.page2 .step3 .right .result_sale table tr:last-child td:last-child{border-bottom-right-radius:0.5rem;}
+.page2 .step3 .right .result_sale table tr td .kg{font-weight:400; color:#888; margin-left:0.2rem;}
+
+
+.page2 .step3 .right .result_bottom { width:100%; margin-top:1rem; border:1px solid  #c2cfd8; border-radius:0.75rem; }
+.page2 .step3 .right .result_bottom .chartArea {height:210px; border-bottom:1px solid #c2cfd8; width:90%; margin:0 auto;}
+.page2 .step3 .right .result_bottom .chartArea ul {position:relative; overflow:hidden; width:100%; margin:0 auto;}
+.page2 .step3 .right .result_bottom .chartArea ul li {float:left;  width:33.3%; text-align:center;  padding-top:10px; height:210px; position:relative; overflow:hidden; }
+.page2 .step3 .right .result_bottom .subName{ padding:0 1rem 0.5rem;}
+.page2 .step3 .right .result_bottom .subName ul {position:relative; overflow:hidden; width:100%; }
+.page2 .step3 .right .result_bottom .subName ul li {float:left;  width:33.3%; text-align:center; font-size:14px; font-weight:600; padding-top:10px; position:relative; overflow:hidden; }
+.page2 .step3 .right .result_bottom .chartOne { width:35px;  background:url('/tanso2018/images/step_chart_bg.jpg'); position:absolute; height:100px; bottom:0px; left:50%; margin-left:-17.5px; }
+.page2 .step3 .right .result_bottom .chartTwo { width:35px; background:url('/tanso2018/images/step_chart_bg_purple.jpg'); position:absolute; height:100px; bottom:0px; left:50%; margin-left:-17.5px; }
+.page2 .step3 .right .result_bottom .chartThree { width:35px;  background:url('/tanso2018/images/step_chart_bg_yellow.jpg'); position:absolute; height:100px; bottom:0px; left:50%; margin-left:-17.5px;  }
+.page2 .step3 .right .result_bottom .name {font-size:13px; font-weight:600; position:absolute; letter-spacing:-1px;  }
+.page2 .step3 .right .result_bottom .one {width:70px; text-align:center; bottom:105px; left:50%; margin-left:-35px;}
+.page2 .step3 .right .result_bottom .two {width:70px; text-align:center; bottom:105px; left:50%; margin-left:-35px;}
+.page2 .step3 .right .result_bottom .three {width:70px; text-align:center; bottom:105px; left:50%; margin-left:-35px;}
+
+
+
+/*종합평가*/
+
+.page2 .step4 h3 {background:#f7f8f9; text-align:center; border-radius:1rem; padding:0.5rem 1rem; font-family: 'GmarketSans'; font-size:1rem; margin-bottom:1rem; color:#333;}
+.page2 .step4 h3 span {color:#206A5D; font-weight:700;}
+
+.page2 .step4 h6{ color:#206A5D; font-family: 'GmarketSans'; font-size:0.9rem; margin-bottom:0.5rem; font-weight:700;}
+
+.page2 .step4 .report { position:relative; display:flex; }
+.page2 .step4 .report .report_first{width:20rem; border-radius:0.75rem; background:#E6F4E6;  background-size:cover;  padding:1rem;}
+.page2 .step4 .report .report_right{width:calc(100% - 21rem); margin-left:1rem; border-radius:0.75rem; border:1px solid  #c2cfd8; padding:1rem; }
+
+.page2 .step4 .report .report_first .chartZone { width:100%; height:190px; background:#fff; border-radius:0.5rem; padding-top:20px; border: 1px solid #dae7da;}
+.page2 .step4 .report .report_first .chartZone .chartArea {height:120px; width:90%; margin:0 auto; border-bottom:1px solid #c2cfd8; }
+.page2 .step4 .report .report_first .chartZone .chartArea ul {margin:0 auto; position:relative; overflow:hidden;}
+.page2 .step4 .report .report_first .chartZone .chartArea ul li {width:33.3%; height:120px; float:left; text-align:center; position:relative; overflow:hidden;}
+.page2 .step4 .report .report_first .chartZone .subName ul {margin:0 auto; position:relative; overflow:hidden; width:90%; }
+.page2 .step4 .report .report_first .chartZone .subName ul li {width:33.3%; float:left; text-align:center; font-size:14px; font-weight:600; margin-top:10px;}
+.page2 .step4 .report .report_first .chartOne { width:35px;  background:url('/tanso2018/images/step_chart_bg.jpg'); position:absolute; height:100px; bottom:0px; left:50%; margin-left:-17.5px; }
+.page2 .step4 .report .report_first .chartTwo { width:35px; background:url('/tanso2018/images/step_chart_bg_purple.jpg'); position:absolute; height:100px; bottom:0px; left:50%; margin-left:-17.5px; }
+.page2 .step4 .report .report_first .chartThree { width:35px;  background:url('/tanso2018/images/step_chart_bg_yellow.jpg'); position:absolute; height:100px; bottom:0px; left:50%; margin-left:-17.5px;  }
+.page2 .step4 .report .report_first .name {width:100%;text-align:center; bottom:105px; font-size:13px; font-weight:600; position:absolute; letter-spacing:-1px; }
+
+.page2 .step4 .report .report_first .report_msg {margin-top:1.5rem;}
+.page2 .step4 .report .report_first .report_msg ul {}
+.page2 .step4 .report .report_first .report_msg ul li {position:relative; padding-left:0.7rem; font-size:0.8rem; font-weight:500; color:#333;  margin-bottom:0.5rem; word-break: break-word;} 
+.page2 .step4 .report .report_first .report_msg ul li:before{content:''; position:absolute; left:0px; top:0.3rem; width:0.3rem; height:0.3rem; background:#206A5D; border-radius:50%;}
+.page2 .step4 .report .report_first .report_msg ul li span { color:#e96300; font-weight:600; }
+
+
+.page2 .step4 .report_second {}
+.page2 .step4 .report_second  .chartUl {display:flex;  flex-wrap:wrap; -webkit-box-lines: multiple; margin:-1%; }
+.page2 .step4 .report_second  .chartUl > li { width:48%; margin:1%; background:#f3f4f9; border-radius:0.5rem; position:relative; padding:0.5rem;}
+
+.page2 .step4 .report_second  .chartUl > li p { font-weight:600;margin-bottom:0.5rem; }
+.page2 .step4 .report_second  .chartUl > li div.chartArea {width:100%; }
+.page2 .step4 .report_second  .chartUl > li div.chartArea div.chartZone { width:100%; height:70px; }
+.page2 .step4 .report_second  .chartUl > li div.chartArea div.chartZone ul  {position:relative; overflow:hidden; border-bottom: 1px solid #c2cfd8;}
+.page2 .step4 .report_second  .chartUl > li div.chartArea div.chartZone ul li {width:33.3%; height:70px; position:relative; overflow:hidden; float:left;}
+
+.page2 .step4 .report_second .chartOne { width:30px; background:url('/tanso2018/images/mail/mail_chart_bg_1.jpg'); position:absolute; height:40px; bottom:0px; left:50%; margin-left:-15px; }
+.page2 .step4 .report_second .chartTwo { width:30px; background:url('/tanso2018/images/mail/mail_chart_bg_2.jpg'); position:absolute; height:40px; bottom:0px; left:50%; margin-left:-15px; }
+.page2 .step4 .report_second .chartThree { width:30px;  background:url('/tanso2018/images/mail/mail_chart_bg_3.jpg'); position:absolute; height:40px; bottom:0px; left:50%; margin-left:-15px;  }
+.page2 .step4 .report_second .name {left:50%; margin-left:-37.5px;  font-size:13px; font-weight:600; position:absolute; letter-spacing:-1px; }
+.page2 .step4 .report_second .one {width:75px; text-align:center; bottom:45px;}
+.page2 .step4 .report_second .two {width:75px; text-align:center; bottom:45px;}
+.page2 .step4 .report_second .three {width:75px; text-align:center; bottom:45px;}
+.page2 .step4 .report_second .subName ul {margin:0 auto; position:relative; overflow:hidden; width:100%; }
+.page2 .step4 .report_second .subName ul li {width:33.3%; float:left; text-align:center; font-weight:600; margin-top:5px; font-size:14px;  }
+
+.page2 .step4 .report_second .report_msg {margin-left:20px; margin-top:5px;}
+.page2 .step4 .report_second .report_msg ul {width:250px; margin-top:0;}
+.page2 .step4 .report_second .report_msg ul li {background:url('/tanso2018/images/li_bg_yellow.jpg') left 8px no-repeat; padding-left:10px; font-size:15px; font-weight:bold; letter-spacing:-1px; line-height:23px; font-family:'Noto Sans Kr';  }
+.page2 .step4 .report_second .report_msg ul li span { color:#ff4d4d; }
+
+.page2 .step4 .report .report_bottom { background:#206A5D; padding:0.5rem; border-radius:0.5rem; margin-top:1rem;}
+.page2 .step4 .report .report_bottom ul{}
+.page2 .step4 .report .report_bottom ul li {position:relative; padding-left:1.7rem; font-weight:500; color:#fff; font-size:0.8rem; }
+.page2 .step4 .report .report_bottom ul li:nth-child(1){}
+.page2 .step4 .report .report_bottom ul li:nth-child(1):before{content:''; position:absolute; left:0px; top:0px; width:1.2rem; height:1.2rem; background:url('/tanso2018/images/new/icon_warning.svg')no-repeat 50% 50%; background-size:100% 100%;}
+.page2 .step4 .report .report_bottom ul li:nth-child(2){margin-top:0.5rem; }
+.page2 .step4 .report .report_bottom ul li:nth-child(2) .btnBox{display: flex;  justify-content: space-between; -webkit-box-pack: justify; align-items: center; background:#278171; padding:0.5rem 1rem; border-radius:0.5rem;}
+.page2 .step4 .report .report_bottom ul li:nth-child(2) p{background:url('/tanso2018/images/new/icon_save.svg')no-repeat left 0.15rem; background-size:1rem; padding-left:1.3rem; font-weight:400; }
+.page2 .step4 .report .report_bottom ul li:nth-child(2) a{position:relative; display:inline-block; background:#fff url('/tanso2018/images/new/icon_down.svg')no-repeat right 0.5rem top 50%; background-size:1.2rem; font-size:.75rem; box-shadow:inset -3px -3px 5px rgba(0,0,0,0.1), 1px 3px 5px rgba(0,0,0,0.2); color:#206A5D; padding:0.25rem 0.8rem; border-radius:0.3rem; cursor:pointer;  padding-right:2.5rem; }
+.page2 .step4 .report .report_bottom ul li:nth-child(2) a:nth-child(1){margin-right:0.25rem;}
+
+
+
+path[stroke-width="1"] {stroke: transparent;}
+
+@media (max-width:1600px){
+	.page2 .step3 .left .result_middle ul{flex-wrap:wrap; -webkit-box-lines: multiple;}
+	.page2 .step3 .left .result_middle ul li{width:50%;}
+	
+}
+
+@media (max-width:1400px){
+	.page2 .step1{padding:1.5rem;}
+	.page2 .pageDiv .inn{padding:1.5rem;}
+	
+	.page2 .top .rightText .second br{display:none;}
+	.page2 .bottom .firstChart .title_one, .page2 .bottom .firstChart .title_two{top:10px; line-height:1.2;}
+	.page2 .bottom .otherChart .title_one{top:10px; }
+	
+	.page2 .step4 .report .report_first{width:15rem;}
+	.page2 .step4 .report .report_right{width: calc(100% - 16rem);}
+	.page2 .step4 .report .report_bottom ul li br{display:none;}
+	
+}
+@media (max-width:1030px){
+
+	
+	.page2 .bottom .firstChart{width:100%; margin-bottom: 1rem;}
+	.page2 .bottom .otherChart{width:24%;}
+	
+	.page2 .step3 .alertMsg,
+	.page2 .step4 h3{font-size:1.2rem;}
+	.page2 .step3 .halfBox{display:block;}
+	.page2 .step3 .left{width:100%;}
+	.page2 .step3 .left > .detail{min-height:25rem;}
+	.page2 .step3 .left > .detail ul li{font-size:0.9rem;}
+	.page2 .step3 .left .result_middle ul li{width:33.3%; font-size:0.9rem;}
+	.page2 .step3 .right{width:100%; margin-top:1rem; display:flex; }
+	.page2 .step3 .right .result_bottom{margin-top:0; margin-left:1rem; }
+	.page2 .step3 .right .result_sale table tr td{font-size:0.9rem; padding: 0.5rem 0.25rem;}
+	
+	.page2 .step4 .report{display:block;}
+	.page2 .step4 .report .report_first{width:100%; display:flex;  align-items: center; -webkit-box-align: end;}
+	.page2 .step4 .report .report_first .chartZone{width:25rem;}
+	.page2 .step4 .report .report_first .report_msg{padding-left:1rem; margin-top:0;}
+	.page2 .step4 .report .report_first .report_msg ul li{font-size:0.9rem;}
+	.page2 .step4 .report .report_right{width:100%; margin-left:0; margin-top:1rem;}
+}
+@media (max-width:767px){
+	.page2 .top{display:block;}
+	.page2 .top #chart_1{width:100%; margin-bottom:1rem;}
+	.page2 .top .rightText{width:100%; padding-left:0;}
+	
+	.page2 .step1 .page-table,
+	.page2 .step1 .page-table tbody,
+	.page2 .step1 .page-table th,
+	.page2 .step1 .page-table td,
+	.page2 .step1 .page-table tr{display:block;}
+	.page2 .step1 .page-table th{border-bottom:none; text-align:left; padding-bottom:0;}
+	.page2 .step1 .page-table td{padding-top:0rem;}
+	.page2 .step1 .msg{font-size:0.8rem; padding:0.5rem;}
+	.page2 .step1 .msg h6{font-size:0.9rem;}
+	
+	.page2 .step3 .left .result_middle ul li{width:50%}
+	.page2 .step3 .right{display:block;}
+	.page2 .step3 .right .result_bottom{margin-top:1rem; margin-left:0;}
+	
+	.page2 .bottom .otherChart{width:49%; margin-bottom: 1rem;}
+	.page2 .step4 .report .report_first{display:block; }
+	.page2 .step4 .report .report_first .chartZone{width:100%; margin-bottom:1rem;}
+	.page2 .step4 .report .report_first .report_msg{padding-left:0;}
+	.page2 .step4 .report .report_right{border:none; padding:0;}
+	.page2 .step4 .report .report_bottom ul li:nth-child(2) .btnBox{display:block;}
+	.page2 .step4 .report .report_bottom ul li:nth-child(2) .btnBox > div{margin-top:0.5rem;}
+	
+	.shadow .shadow_input{width:90%;}
+	.shadow .shadow_input .inn{padding:2rem 1rem;}
+	.shadow .shadow_input .email-box{flex-wrap:wrap;}
+	.shadow .shadow_input .email-box input[type="text"]{width:44%}
+	.shadow .shadow_input .email-box select{width:100%;}
+	
+}
+
+@media (max-width:500px){
+	.page2 .step1{padding:1rem;}
+	.page2 .pageDiv .inn{padding:1rem;}
+	
+	.page2 .step1 .page-btn{display:block;}
+	
+	.page2 .step3 .alertMsg, .page2 .step4 h3{font-size:1rem}
+	.page2 .step1 .page-btn .saveBtn{width:100%; margin-top:1rem; border-radius: 0.5rem;}
+	
+	.page2 .top .rightText h3{font-size:2rem;}
+	
+	.page2 .step3 .left .menu{width:100%; float:none; display:flex; }
+	.page2 .step3 .left .menu li{width:25%; height:auto; }
+	.page2 .step3 .left > .detail{min-height:28rem; width:100%;}
+	.page2 .step3 .left .result_middle{width:calc(100% - 2rem);}
+	.page2 .step3 .left .result_middle ul li{width:100%;}
+	
+	.page2 .step4 .report_second .chartUl{margin:-0.5rem 0;}
+	.page2 .step4 .report_second .chartUl > li{width:100%; margin:0.5rem 0;}
+	.page2 .step4 .report .report_bottom ul li:nth-child(2){padding-left:0;}
+	.page2 .step4 .report .report_bottom ul li:nth-child(2) .btnBox{padding:0.5rem;}
+	.page2 .step4 .report .report_bottom ul li:nth-child(2) p{font-size:1rem;}
+	.page2 .step4 .report .report_bottom ul li:nth-child(2) a{width:calc(50% - 0.25rem); padding:0.5rem 0.8rem; padding-right: 2.5rem; font-size:0.8rem;}
+}
+
+/********************************************************
+■ 탄소발자국계산기 생활속 실천반안
+********************************************************/
+.page3 .pageDiv{position: relative;  top: -1rem;   z-index: 1;  overflow: hidden;  width: 100%; border-radius: 1rem;  box-shadow: inset 0 0 16px rgba(0, 0, 0, 0.2), 0 0 25px rgba(0,0,0,0.12);  background: #FAFEFD;}
+.page3 .pageTop .tapMenu{    padding-top: 3.5rem;}
+
+.page3 .contentDiv{ padding:2.5rem 3rem; height: 33.3rem;}
+.contList{display:flex;  flex-wrap:wrap; -webkit-box-lines: multiple; height:98%; margin:-1%; }
+.contList > li{display:flex;  align-items: center; -webkit-box-align: center; height:50%; width:31.3%; flex-shrink:0; margin:1%;}
+.contList .iconBox{width:50%; height: 90%; background:#fff; border-top-left-radius:1rem; padding:1rem; box-shadow: 0 0 15px rgba(0,0,0,0.10)}
+.contList .iconBox .msg{margin-top:1.25rem; font-size:0.8rem; color:#333; line-height:1.3;}
+.contList .iconBox .msg span{color:#295F50; font-size:1rem; font-weight:600;}
+.contList .priceBox{display:flex;  flex-direction: column; -webkit-box-orient: vertical; justify-content: center; -webkit-box-pack: center; width:50%; height:100%;background:#E6F4E6; border-top-right-radius:1rem; padding:1rem; box-shadow: 0 0 15px rgba(0,0,0,0.25)}
+.contList .priceBox ul li{display:flex;  justify-content: space-between; -webkit-box-pack: justify; font-size:0.8rem; margin-bottom:0.4rem; color:#888;}
+.contList .priceBox ul li span{color:#333; font-weight:500;}
+.contList .priceBox .result{display:flex;  justify-content: space-between; -webkit-box-pack: justify; padding:0.3rem; border:2px dashed #295F50; color:#295F50;font-weight:600; background:#f1f9f7; margin:0.5rem 0;}
+.contList .priceBox p{text-align:right; font-weight:500; color:#295F50; font-size:0.75rem;}
+
+@media (max-width:1400px){
+	.page3 .contentDiv{padding:1.5rem;}
+	.contList .iconBox{width:40%; padding: 1.5rem 0.5rem;}
+	.contList .priceBox{width:60%;}
+
+}
+@media (max-width:1200px){
+	.page3 .contentDiv{ height: auto;}
+	.contList{height:auto;}
+	.contList > li{width:48%; height:auto;}
+	.contList .iconBox{width:50%; padding: 1.5rem 1rem;}
+	.contList .priceBox{width:50%;}
+}
+@media (max-width:767px){
+	.page3 .pageTop .tapMenu{padding-top:0rem;}
+	.contList{margin:-0.5rem 0}
+	.contList > li{width:100%;  margin:0.5rem 0;}
+	.contList .iconBox{display: flex;  align-items: center; -webkit-box-align: center;}
+	.contList .iconBox .msg{margin-top:0; margin-left:1.5rem; font-size:0.9rem; }
+	.contList .iconBox .msg span{font-size:1rem; }
+}
+@media (max-width:600px){
+	.contList .iconBox{flex-direction: column; -webkit-box-orient: vertical; align-items: flex-start; -webkit-box-align: start; height: 100%;}
+	.contList .iconBox .msg{margin-top:0.5rem; margin-left:0}
+
+}
+@media (max-width:500px){
+	.page3 .contentDiv{padding:1rem;}
+
+	
+	.contList .priceBox ul li{font-size:0.9rem;}
+	.contList .priceBox p{font-size:0.85rem;}
+}
+
