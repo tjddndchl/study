@@ -4,11 +4,11 @@ from diffusers import StableDiffusionPipeline
 import torch
 import uuid
 
-openai.api_key = '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'
+openai.api_key = ''#chatgptAPI 키 입력
 
 model_id = 'dreamlike-art/dreamlike-photoreal-2.0'
-pipe = StableDiffusionPipeline.from_pretrained(model_id, torch_dtype=torch.float32)
-pipe = pipe.to('cpu')
+pipe = StableDiffusionPipeline.from_pretrained(model_id, torch_dtype=torch.float16)
+pipe = pipe.to('cuda')
 
 
 def answer(state, state_chatbot, text):

@@ -1,6 +1,6 @@
 import openai
 
-openai.api_key = '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'
+openai.api_key = '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'
 
 messages = [
     {'role': 'system', 'content': 'You are a helpful assistant.'},
@@ -11,8 +11,8 @@ res = openai.ChatCompletion.create(
     model='gpt-3.5-turbo',
     messages=messages
 )
-msg = res['choices'][0]['message']['content']
 
+msg = res['choices'][0]['message']['content']
 messages.append({
     'role': 'assistant',
     'content': msg
