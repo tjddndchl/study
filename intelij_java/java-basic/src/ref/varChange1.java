@@ -1,4 +1,4 @@
-package class1.ref;
+package ref;
 
 public class varChange1 {
     public static void main(String[] args) {

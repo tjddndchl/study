@@ -1,6 +1,4 @@
-package class1.ref;
-
-import jdk.dynalink.beans.StaticClass;
+package ref;
 
 public class methodChange1 {
     public static void main(String[] args) {
@@ -17,6 +15,7 @@ public class methodChange1 {
     }
 
     static void changePrimitive(int x) {
+
         x = 20;
     }
 
