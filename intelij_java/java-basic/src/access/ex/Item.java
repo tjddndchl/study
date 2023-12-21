@@ -15,4 +15,7 @@ public class Item {
         return price * quantity;
     }
 
+    public String getName(){
+        return name;
+    }
 }
