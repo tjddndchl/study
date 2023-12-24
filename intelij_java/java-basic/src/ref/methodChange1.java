@@ -15,6 +15,7 @@ public class methodChange1 {
     }
 
     static void changePrimitive(int x) {
+
         x = 20;
     }
 

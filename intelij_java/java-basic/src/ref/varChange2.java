@@ -1,6 +1,9 @@
 package ref;
+<<<<<<< HEAD
 
 
+=======
+>>>>>>> 3776ffa931c094785f19afc179f4794fef499413
 
 public class varChange2 {
     public static void main(String[] args) {
