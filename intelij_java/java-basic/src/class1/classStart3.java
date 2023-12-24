@@ -18,5 +18,7 @@ public class classStart3 {
         student1.name = "학생3";
         student1.age = 17;
         student1.grade = 70;
+
+
     }
 }
