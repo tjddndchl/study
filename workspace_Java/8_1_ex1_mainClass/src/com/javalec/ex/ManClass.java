@@ -7,7 +7,22 @@ public class ManClass {
 	private String phoneNum;
 	
 	public ManClass() {
+		System.out.println("1");
+	}
+
+	public ManClass(int age, int height, int weight, String phoneNum) {
+		super();
+		System.out.println("2");
+		this.age = age;
+		this.height = height;
+		this.weight = weight;
+		this.phoneNum = phoneNum;
+	}
+
+	public double calculateBMI() {
 		
+		double result = weight / (height * height);
+		return result;
 	}
 
 	public int getAge() {
@@ -41,6 +56,11 @@ public class ManClass {
 	public void setPhoneNum(String phoneNum) {
 		this.phoneNum = phoneNum;
 	}
+
+	
+	
+	
+	
 
 
 	

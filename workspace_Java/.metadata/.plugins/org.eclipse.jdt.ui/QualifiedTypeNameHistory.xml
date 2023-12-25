@@ -1,9 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <qualifiedTypeNameHistroy>
-    <fullyQualifiedTypeName name="java.io.Writer"/>
-    <fullyQualifiedTypeName name="java.io.IOException"/>
-    <fullyQualifiedTypeName name="java.io.FileReader"/>
-    <fullyQualifiedTypeName name="java.io.FileWriter"/>
     <fullyQualifiedTypeName name="java.text.MessageFormat"/>
     <fullyQualifiedTypeName name="ch14_jdbc_conn.model.BbsVo"/>
     <fullyQualifiedTypeName name="oracle.jdbc.AdditionalDatabaseMetaData"/>
@@ -53,11 +49,15 @@
     <fullyQualifiedTypeName name="com.javalec.ifeleif.ifElseIf"/>
     <fullyQualifiedTypeName name="int"/>
     <fullyQualifiedTypeName name="java.util.List"/>
-    <fullyQualifiedTypeName name="java.util.ArrayList"/>
     <fullyQualifiedTypeName name="java.lang.Integer"/>
     <fullyQualifiedTypeName name="java.util.Scanner"/>
     <fullyQualifiedTypeName name="java.lang.System"/>
     <fullyQualifiedTypeName name="com.javalec.ex.GuGuDan"/>
+    <fullyQualifiedTypeName name="com.javalec.human.WomanClass"/>
     <fullyQualifiedTypeName name="com.javalec.ex.ManClass"/>
+    <fullyQualifiedTypeName name="com.javalec.manager.StudentManager"/>
+    <fullyQualifiedTypeName name="java.util.ArrayList"/>
+    <fullyQualifiedTypeName name="com.javalec.manager.StudentExpel"/>
     <fullyQualifiedTypeName name="java.lang.String"/>
+    <fullyQualifiedTypeName name="com.javalec.manager.Student"/>
 </qualifiedTypeNameHistroy>
