@@ -50,6 +50,28 @@ public class Student {
 		this.major = major;
 	}
 	
+	public void updateInfo(int i, String info) {
+		switch (i) {
+		case 1: // 이름 수정
+			setName(info);
+			break;
+			
+		case 2:// 나이수정
+			setAge(Integer.parseInt(info));
+			break;
+			
+		case 3: //학번 수정
+			setStudentNum(Integer.parseInt(info));
+			break;
+			
+		case 4: //전공 수정
+			setMajor(info);
+			break;
+		
+
+		}
+	}
+	
 	
 	
 }

@@ -13,7 +13,7 @@ public class StudentExpel {
 	public void addExpelStudent(String name, int age, int studentNum, String major) {
 		// TODO Auto-generated method stub
 		expelStudents.add(new Student(name, age, studentNum, major));
-		System.out.println("재적 하생 정보 등록 완료");
+		System.out.println("재적 학생 정보 등록 완료");
 		
 
 	}
